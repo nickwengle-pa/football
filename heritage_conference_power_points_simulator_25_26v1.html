@@ -459,6 +459,16 @@ Beat Northern Bedford County (+10 wins from their total)</pre></div></details></
         </section>
 
         <section class="card tab-panel" data-tab="d6">
+
+  <div class="quick-panel">
+    <div class="row">
+      <button class="btn small" onclick="clearWeek10()">Clear Week 10 winners</button>
+      <button class="btn small" onclick="snapshotWeek10()">Save scenario</button>
+      <button class="btn small" onclick="restoreWeek10()">Load scenario</button>
+    </div>
+    <p class="tiny">These buttons affect only games on <b>2025-10-24</b> (Week 10).</p>
+  </div>
+
           <div class="row">
             <h2 style="flex:1">District 6 - Class A Rankings</h2>
             <button id="btnToggleStandD6" style="flex:0 0 auto">Hide rankings</button>
@@ -3065,8 +3075,8 @@ function isD6AAATeam(name){ return D6_AAA_LIST.indexOf(name) !== -1; }
     for(var i=0;i<games.length;i++){
       var g=games[i];
       if(!(isD6ATeam(g.a) || isD6ATeam(g.b))) continue;
-      if(g.winner) continue;
-      upcoming.push(g);
+// keep Single A rows visible after picking a winner
+var _d=(g.date||'').slice(0,10); if(_d==='2025-10-24') upcoming.push(g);
     }
     if(!upcoming.length){
       host.innerHTML = '<p class="tiny">No upcoming D6-A games pending.</p>';
@@ -3118,7 +3128,7 @@ function isD6AAATeam(name){ return D6_AAA_LIST.indexOf(name) !== -1; }
     var upcoming=[];
     for(var i=0;i<games.length;i++){
       var g=games[i];
-      if(g.winner) continue;
+      // keep Week 10 scenarios visible even after choosing a winner
       var d=(g.date||'').slice(0,10);
       if(d!=='2025-10-24') continue;
       if(beaten[g.a] || beaten[g.b]){
@@ -3159,7 +3169,7 @@ function renderD6ClassWeek10(list, hostId){
   var upcoming=[];
   for(var i=0;i<games.length;i++){
     var g=games[i];
-    if(g.winner) continue;
+    // keep Week 10 scenarios visible even after choosing a winner
     var d=(g.date||'').slice(0,10);
     if(d!=='2025-10-24') continue;
     if(list.indexOf(g.a)!==-1 || list.indexOf(g.b)!==-1){
@@ -3198,7 +3208,7 @@ function renderOppWeek10ForList(labelList, hostId){
   var upcoming=[];
   for(var i=0;i<games.length;i++){
     var g=games[i];
-    if(g.winner) continue;
+    // keep Week 10 scenarios visible even after choosing a winner
     var d=(g.date||'').slice(0,10);
     if(d!=='2025-10-24') continue;
     if(beaten[g.a] || beaten[g.b]) upcoming.push(g);
@@ -3478,5 +3488,36 @@ function exportBakedHTML(){
 })();
 </script>
 
+
+
+<script>
+function week10Filter(g){ var d=(g.date||'').slice(0,10); return d==='2025-10-24'; }
+function clearWeek10(){
+  for(var i=0;i<games.length;i++){ var g=games[i]; if(week10Filter(g)) g.winner=''; }
+  dedupeNow(true); saveAll(); renderAll();
+}
+function snapshotWeek10(){
+  var snaps=[];
+  for(var i=0;i<games.length;i++){ var g=games[i]; if(week10Filter(g)) snaps.push({id:g.id||'', date:g.date||'', a:g.a||'', b:g.b||'', winner:g.winner||''}); }
+  try{ save('scenario_week10', snaps); alert('Saved '+snaps.length+' Week-10 picks.'); }catch(e){ console.error(e); alert('Save failed'); }
+}
+function restoreWeek10(){
+  try{
+    var snaps = load('scenario_week10') || [];
+    var restored=0;
+    for(var j=0;j<snaps.length;j++){
+      var s=snaps[j], found=null;
+      for(var i=0;i<games.length;i++){
+        var g=games[i];
+        if(!week10Filter(g)) continue;
+        if((s.id && g.id===s.id) || (g.date===s.date && ((g.a===s.a && g.b===s.b) || (g.a===s.b && g.b===s.a)))){ found=g; break; }
+      }
+      if(found){ found.winner = s.winner||''; restored++; }
+    }
+    dedupeNow(true); saveAll(); renderAll();
+    alert('Restored '+restored+' Week-10 picks.');
+  }catch(e){ console.error(e); alert('No saved scenario found.'); }
+}
+</script>
 
 </body></html>
