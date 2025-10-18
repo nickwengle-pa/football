@@ -523,6 +523,31 @@ Beat Conemaugh Valley (+10 wins from their total)</pre></div></details></td></tr
               <p class="tiny">Set winners below to see live impact.</p>
               <div id="d6FutureGames" class="quick-games"><div classname="quick-game" class="quick-game"><div classname="info" class="info">2025-10-24 · Bishop Guilfoyle vs TBA* (@ Saint Francis University)</div><select><option value="">- Winner -</option><option value="Bishop Guilfoyle">Bishop Guilfoyle</option><option value="TBA* (@ Saint Francis University)">TBA* (@ Saint Francis University)</option></select></div><div classname="quick-game" class="quick-game"><div classname="info" class="info">2025-10-24 · Claysburg-Kimmel vs Everett</div><select><option value="">- Winner -</option><option value="Claysburg-Kimmel">Claysburg-Kimmel</option><option value="Everett">Everett</option></select></div><div classname="quick-game" class="quick-game"><div classname="info" class="info">2025-10-24 · Conemaugh Township vs Conemaugh Valley</div><select><option value="">- Winner -</option><option value="Conemaugh Township">Conemaugh Township</option><option value="Conemaugh Valley">Conemaugh Valley</option></select></div><div classname="quick-game" class="quick-game"><div classname="info" class="info">2025-10-24 · Glendale vs Northern Bedford County</div><select><option value="">- Winner -</option><option value="Glendale">Glendale</option><option value="Northern Bedford County">Northern Bedford County</option></select></div><div classname="quick-game" class="quick-game"><div classname="info" class="info">2025-10-24 · Homer-Center vs Portage</div><select><option value="">- Winner -</option><option value="Homer-Center">Homer-Center</option><option value="Portage">Portage</option></select></div><div classname="quick-game" class="quick-game"><div classname="info" class="info">2025-10-24 · Juniata Valley vs Windber</div><select><option value="">- Winner -</option><option value="Juniata Valley">Juniata Valley</option><option value="Windber">Windber</option></select></div><div classname="quick-game" class="quick-game"><div classname="info" class="info">2025-10-24 · Marion Center vs Penns Manor</div><select><option value="">- Winner -</option><option value="Marion Center">Marion Center</option><option value="Penns Manor">Penns Manor</option></select></div><div classname="quick-game" class="quick-game"><div classname="info" class="info">2025-10-24 · Moshannon Valley vs Berlin Brothersvalley</div><select><option value="">- Winner -</option><option value="Moshannon Valley">Moshannon Valley</option><option value="Berlin Brothersvalley">Berlin Brothersvalley</option></select></div><div classname="quick-game" class="quick-game"><div classname="info" class="info">2025-10-24 · Northern Cambria vs River Valley</div><select><option value="">- Winner -</option><option value="Northern Cambria">Northern Cambria</option><option value="River Valley">River Valley</option></select></div><div classname="quick-game" class="quick-game"><div classname="info" class="info">2025-10-24 · Purchase Line vs United Valley co-op [Blacklick Valley/United]</div><select><option value="">- Winner -</option><option value="Purchase Line">Purchase Line</option><option value="United Valley co-op [Blacklick Valley/United]">United Valley co-op [Blacklick Valley/United]</option></select></div><div classname="quick-game" class="quick-game"><div classname="info" class="info">2025-10-24 · West Branch vs North Star</div><select><option value="">- Winner -</option><option value="West Branch">West Branch</option><option value="North Star">North Star</option></select></div></div>
             </div>
+            <div class="quick-panel">
+              <h3>Upcoming D6-AA Week 10</h3>
+              <div id="d6AAFutureGames" class="quick-games"></div>
+            </div>
+            <div class="quick-panel">
+              <h3>Opponents-of-Beaten (AA) — Week 10</h3>
+              <div id="oppWeek10GamesAA" class="quick-games"></div>
+            </div>
+            <div class="quick-panel">
+              <h3>Upcoming D6-AAA Week 10</h3>
+              <div id="d6AAAFutureGames" class="quick-games"></div>
+            </div>
+            <div class="quick-panel">
+              <h3>Opponents-of-Beaten (AAA) — Week 10</h3>
+              <div id="oppWeek10GamesAAA" class="quick-games"></div>
+            </div>
+            <div class="quick-panel">
+              <h3>Upcoming D6-AAAA Week 10</h3>
+              <div id="d6AAAAFutureGames" class="quick-games"></div>
+            </div>
+            <div class="quick-panel">
+              <h3>Opponents-of-Beaten (AAAA) — Week 10</h3>
+              <div id="oppWeek10GamesAAAA" class="quick-games"></div>
+            </div>
+
           </div>
         </section>
       </div>
@@ -600,6 +625,16 @@ var D6_AA_LIST = [
 var D6_AAA_LIST = [
   "Tyrone","Forest Hills","Central","Penn Cambria","Somerset"
 ];
+
+var D6_AAAA_LIST = [];
+function buildAAAAList(){
+  try{
+    var arr = (window.teams && Array.isArray(window.teams)) ? window.teams : [];
+    D6_AAAA_LIST = arr.filter(function(t){ return t.cls==='AAAA'; }).map(function(t){ return t.name; });
+  }catch(e){ D6_AAAA_LIST = []; }
+}
+
+
 function isD6AATeam(name){ return D6_AA_LIST.indexOf(name) !== -1; }
 function isD6AAATeam(name){ return D6_AAA_LIST.indexOf(name) !== -1; }
 
@@ -3312,7 +3347,8 @@ function exportBakedHTML(){
   }
 
   // Wiring
-  function renderAll(){ renderTeams(); refreshTeamPickers(); renderGames(); renderStandings(); updateDiag(); }
+  function renderAll(){
+    buildAAAAList(); renderTeams(); refreshTeamPickers(); renderGames(); renderStandings(); updateDiag(); }
 
   // Buttons
   $('btnAddTeam').onclick=addTeamRow;
