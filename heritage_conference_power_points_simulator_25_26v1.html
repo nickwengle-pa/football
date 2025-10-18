@@ -913,1523 +913,1593 @@ Beat Conemaugh Valley (+10 wins from their total)</pre></div></details></td></tr
 
   // State
   var teams = [
-    {
-      "name": "Marion Center",
-      "cls": "AA",
-      "otherWins": 0,
-      "abbr": "MC"
-    },
-    {
-      "name": "River Valley",
-      "cls": "AA",
-      "otherWins": 0,
-      "abbr": "RV"
-    },
-    {
-      "name": "Homer-Center",
-      "cls": "A",
-      "otherWins": 0,
-      "abbr": "HC"
-    },
-    {
-      "name": "Conemaugh Township",
-      "cls": "A",
-      "otherWins": 0,
-      "abbr": "CT"
-    },
-    {
-      "name": "Northern Cambria",
-      "cls": "A",
-      "otherWins": 0,
-      "abbr": "NC"
-    },
-    {
-      "name": "Penns Manor",
-      "cls": "A",
-      "otherWins": 0,
-      "abbr": "PM"
-    },
-    {
-      "name": "Purchase Line",
-      "cls": "A",
-      "otherWins": 0,
-      "abbr": "PL"
-    },
-    {
-      "name": "Portage",
-      "cls": "A",
-      "otherWins": 0,
-      "abbr": "POR"
-    },
-    {
-      "name": "West Shamokin",
-      "cls": "AA",
-      "otherWins": 0,
-      "abbr": "WS"
-    },
-    {
-      "name": "Conemaugh Valley",
-      "cls": "A",
-      "otherWins": 0,
-      "abbr": "CV"
-    },
-    {
-      "name": "United Valley co-op [Blacklick Valley/United]",
-      "cls": "AA",
-      "otherWins": 0,
-      "abbr": "UV"
-    },
-    {
-      "name": "Cambria Heights",
-      "cls": "AA",
-      "otherWins": 0,
-      "abbr": "CH"
-    },
-    {
-      "name": "Bishop Guilfoyle",
-      "cls": "A",
-      "otherWins": 0,
-      "abbr": "BG"
-    },
-    {
-      "name": "Juniata Valley",
-      "cls": "A",
-      "otherWins": 0,
-      "abbr": "JV"
-    },
-    {
-      "name": "Claysburg-Kimmel",
-      "cls": "A",
-      "otherWins": 0,
-      "abbr": "CK"
-    },
-    {
-      "name": "Moshannon Valley",
-      "cls": "A",
-      "otherWins": 0,
-      "abbr": "MV"
-    },
-    {
-      "name": "Glendale",
-      "cls": "A",
-      "otherWins": 0,
-      "abbr": "GND"
-    },
-    {
-      "name": "West Branch",
-      "cls": "A",
-      "otherWins": 0,
-      "abbr": "WB"
-    },
-    {
-      "name": "Penns Valley Area",
-      "cls": "AA",
-      "otherWins": 0,
-      "abbr": ""
-    },
-    {
-      "name": "Richland",
-      "cls": "AA",
-      "otherWins": 0,
-      "abbr": ""
-    },
-    {
-      "name": "Bellefonte",
-      "cls": "AAAA",
-      "otherWins": 0,
-      "abbr": ""
-    },
-    {
-      "name": "Huntingdon",
-      "cls": "AAA",
-      "otherWins": 0,
-      "abbr": ""
-    },
-    {
-      "name": "Central",
-      "cls": "AAA",
-      "otherWins": 0,
-      "abbr": ""
-    },
-    {
-      "name": "Tyrone",
-      "cls": "AAA",
-      "otherWins": 0,
-      "abbr": ""
-    },
-    {
-      "name": "Bellwood-Antis",
-      "cls": "AA",
-      "otherWins": 0,
-      "abbr": ""
-    },
-    {
-      "name": "Forest Hills",
-      "cls": "AAA",
-      "otherWins": 0,
-      "abbr": ""
-    },
-    {
-      "name": "Clearfield",
-      "cls": "AA",
-      "otherWins": 0,
-      "abbr": ""
-    },
-    {
-      "name": "TBA* (@ Saint Francis University)",
-      "cls": "A",
-      "otherWins": 0,
-      "abbr": ""
-    },
-    {
-      "name": "Newport",
-      "cls": "A",
-      "otherWins": 0,
-      "abbr": ""
-    },
-    {
-      "name": "North Star",
-      "cls": "AA",
-      "otherWins": 0,
-      "abbr": ""
-    },
-    {
-      "name": "Mount Union",
-      "cls": "AA",
-      "otherWins": 0,
-      "abbr": ""
-    },
-    {
-      "name": "Curwensville",
-      "cls": "AA",
-      "otherWins": 0,
-      "abbr": ""
-    },
-    {
-      "name": "Southern Huntingdon County",
-      "cls": "AA",
-      "otherWins": 0,
-      "abbr": ""
-    },
-    {
-      "name": "Windber",
-      "cls": "A",
-      "otherWins": 0,
-      "abbr": ""
-    },
-    {
-      "name": "Berlin Brothersvalley",
-      "cls": "A",
-      "otherWins": 0,
-      "abbr": ""
-    },
-    {
-      "name": "Northern Bedford County",
-      "cls": "A",
-      "otherWins": 0,
-      "abbr": ""
-    },
-    {
-      "name": "Everett",
-      "cls": "A",
-      "otherWins": 0,
-      "abbr": ""
-    },
-    {
-      "name": "Meyersdale",
-      "cls": "A",
-      "otherWins": 0,
-      "abbr": ""
-    },
-    {
-      "name": "Cameron County",
-      "cls": "A",
-      "otherWins": 0,
-      "abbr": ""
-    },
-    {
-      "name": "Tussey Mountain",
-      "cls": "A",
-      "otherWins": 0,
-      "abbr": ""
-    },
-    {
-      "name": "Hancock",
-      "cls": "A",
-      "otherWins": 0,
-      "abbr": ""
-    },
-    {
-      "name": "Clear Spring",
-      "cls": "A",
-      "otherWins": 0,
-      "abbr": ""
-    },
-    {
-      "name": "Central Cambria",
-      "cls": "A",
-      "otherWins": 0,
-      "abbr": ""
-    },
-    {
-      "name": "Bald Eagle Area",
-      "cls": "AA",
-      "otherWins": 0,
-      "abbr": ""
-    },
-    {
-      "name": "Philipsburg-Osceola",
-      "cls": "AAA",
-      "otherWins": 0,
-      "abbr": ""
-    },
-    {
-      "name": "Greater Johnstown",
-      "cls": "A",
-      "otherWins": 0,
-      "abbr": ""
-    },
-    {
-      "name": "TBA* (This is a league crossover game. )",
-      "cls": "A",
-      "otherWins": 0,
-      "abbr": ""
-    },
-    {
-      "name": "Somerset",
-      "cls": "A",
-      "otherWins": 0,
-      "abbr": ""
-    },
-    {
-      "name": "Bedford",
-      "cls": "A",
-      "otherWins": 0,
-      "abbr": ""
-    },
-    {
-      "name": "TBA* (LHAC Cross-Over Game)",
-      "cls": "A",
-      "otherWins": 0,
-      "abbr": ""
-    },
-    {
-      "name": "Westmont Hilltop",
-      "cls": "AA",
-      "otherWins": 0,
-      "abbr": ""
-    },
-    {
-      "name": "Penn Cambria",
-      "cls": "AAA",
-      "otherWins": 0,
-      "abbr": ""
-    },
-    {
-      "name": "Bishop McCort",
-      "cls": "AA",
-      "otherWins": 0,
-      "abbr": ""
-    },
-    {
-      "name": "Chestnut Ridge",
-      "cls": "A",
-      "otherWins": 0,
-      "abbr": ""
-    }
-  ];
+  {
+    "name": "Marion Center",
+    "cls": "AA",
+    "otherWins": 0,
+    "abbr": "MC"
+  },
+  {
+    "name": "River Valley",
+    "cls": "AA",
+    "otherWins": 0,
+    "abbr": "RV"
+  },
+  {
+    "name": "Homer-Center",
+    "cls": "A",
+    "otherWins": 0,
+    "abbr": "HC"
+  },
+  {
+    "name": "Conemaugh Township",
+    "cls": "A",
+    "otherWins": 0,
+    "abbr": "CT"
+  },
+  {
+    "name": "Northern Cambria",
+    "cls": "A",
+    "otherWins": 0,
+    "abbr": "NC"
+  },
+  {
+    "name": "Penns Manor",
+    "cls": "A",
+    "otherWins": 0,
+    "abbr": "PM"
+  },
+  {
+    "name": "Purchase Line",
+    "cls": "A",
+    "otherWins": 0,
+    "abbr": "PL"
+  },
+  {
+    "name": "Portage",
+    "cls": "A",
+    "otherWins": 0,
+    "abbr": "POR"
+  },
+  {
+    "name": "West Shamokin",
+    "cls": "AA",
+    "otherWins": 0,
+    "abbr": "WS"
+  },
+  {
+    "name": "Conemaugh Valley",
+    "cls": "A",
+    "otherWins": 0,
+    "abbr": "CV"
+  },
+  {
+    "name": "United Valley co-op [Blacklick Valley/United]",
+    "cls": "AA",
+    "otherWins": 0,
+    "abbr": "UV"
+  },
+  {
+    "name": "Cambria Heights",
+    "cls": "AA",
+    "otherWins": 0,
+    "abbr": "CH"
+  },
+  {
+    "name": "Bishop Guilfoyle",
+    "cls": "A",
+    "otherWins": 0,
+    "abbr": "BG"
+  },
+  {
+    "name": "Juniata Valley",
+    "cls": "A",
+    "otherWins": 0,
+    "abbr": "JV"
+  },
+  {
+    "name": "Claysburg-Kimmel",
+    "cls": "A",
+    "otherWins": 0,
+    "abbr": "CK"
+  },
+  {
+    "name": "Moshannon Valley",
+    "cls": "A",
+    "otherWins": 0,
+    "abbr": "MV"
+  },
+  {
+    "name": "Glendale",
+    "cls": "A",
+    "otherWins": 0,
+    "abbr": "GND"
+  },
+  {
+    "name": "West Branch",
+    "cls": "A",
+    "otherWins": 0,
+    "abbr": "WB"
+  },
+  {
+    "name": "Penns Valley Area",
+    "cls": "AA",
+    "otherWins": 0,
+    "abbr": ""
+  },
+  {
+    "name": "Richland",
+    "cls": "AA",
+    "otherWins": 0,
+    "abbr": ""
+  },
+  {
+    "name": "Bellefonte",
+    "cls": "AAAA",
+    "otherWins": 0,
+    "abbr": ""
+  },
+  {
+    "name": "Huntingdon",
+    "cls": "AAA",
+    "otherWins": 0,
+    "abbr": ""
+  },
+  {
+    "name": "Central",
+    "cls": "AAA",
+    "otherWins": 0,
+    "abbr": ""
+  },
+  {
+    "name": "Tyrone",
+    "cls": "AAA",
+    "otherWins": 0,
+    "abbr": ""
+  },
+  {
+    "name": "Bellwood-Antis",
+    "cls": "AA",
+    "otherWins": 0,
+    "abbr": ""
+  },
+  {
+    "name": "Forest Hills",
+    "cls": "AAA",
+    "otherWins": 0,
+    "abbr": ""
+  },
+  {
+    "name": "Clearfield",
+    "cls": "AAAA",
+    "otherWins": 0,
+    "abbr": ""
+  },
+  {
+    "name": "TBA* (@ Saint Francis University)",
+    "cls": "A",
+    "otherWins": 0,
+    "abbr": ""
+  },
+  {
+    "name": "Newport",
+    "cls": "A",
+    "otherWins": 0,
+    "abbr": ""
+  },
+  {
+    "name": "North Star",
+    "cls": "AA",
+    "otherWins": 0,
+    "abbr": ""
+  },
+  {
+    "name": "Mount Union",
+    "cls": "AA",
+    "otherWins": 0,
+    "abbr": ""
+  },
+  {
+    "name": "Curwensville",
+    "cls": "AA",
+    "otherWins": 0,
+    "abbr": ""
+  },
+  {
+    "name": "Southern Huntingdon County",
+    "cls": "AA",
+    "otherWins": 0,
+    "abbr": ""
+  },
+  {
+    "name": "Windber",
+    "cls": "A",
+    "otherWins": 0,
+    "abbr": ""
+  },
+  {
+    "name": "Berlin Brothersvalley",
+    "cls": "AA",
+    "otherWins": 0,
+    "abbr": ""
+  },
+  {
+    "name": "Northern Bedford County",
+    "cls": "A",
+    "otherWins": 0,
+    "abbr": ""
+  },
+  {
+    "name": "Everett",
+    "cls": "AA",
+    "otherWins": 0,
+    "abbr": ""
+  },
+  {
+    "name": "Meyersdale",
+    "cls": "A",
+    "otherWins": 0,
+    "abbr": ""
+  },
+  {
+    "name": "Cameron County",
+    "cls": "A",
+    "otherWins": 0,
+    "abbr": ""
+  },
+  {
+    "name": "Tussey Mountain",
+    "cls": "AA",
+    "otherWins": 0,
+    "abbr": ""
+  },
+  {
+    "name": "Hancock",
+    "cls": "A",
+    "otherWins": 0,
+    "abbr": ""
+  },
+  {
+    "name": "Clear Spring",
+    "cls": "A",
+    "otherWins": 0,
+    "abbr": ""
+  },
+  {
+    "name": "Central Cambria",
+    "cls": "AA",
+    "otherWins": 0,
+    "abbr": ""
+  },
+  {
+    "name": "Bald Eagle Area",
+    "cls": "AA",
+    "otherWins": 0,
+    "abbr": ""
+  },
+  {
+    "name": "Philipsburg-Osceola",
+    "cls": "AAA",
+    "otherWins": 0,
+    "abbr": ""
+  },
+  {
+    "name": "Greater Johnstown",
+    "cls": "A",
+    "otherWins": 0,
+    "abbr": ""
+  },
+  {
+    "name": "TBA* (This is a league crossover game. )",
+    "cls": "A",
+    "otherWins": 0,
+    "abbr": ""
+  },
+  {
+    "name": "Somerset",
+    "cls": "AAA",
+    "otherWins": 0,
+    "abbr": ""
+  },
+  {
+    "name": "Bedford",
+    "cls": "AA",
+    "otherWins": 0,
+    "abbr": ""
+  },
+  {
+    "name": "TBA* (LHAC Cross-Over Game)",
+    "cls": "A",
+    "otherWins": 0,
+    "abbr": ""
+  },
+  {
+    "name": "Westmont Hilltop",
+    "cls": "AA",
+    "otherWins": 0,
+    "abbr": ""
+  },
+  {
+    "name": "Penn Cambria",
+    "cls": "AAA",
+    "otherWins": 0,
+    "abbr": ""
+  },
+  {
+    "name": "Bishop McCort",
+    "cls": "AA",
+    "otherWins": 0,
+    "abbr": ""
+  },
+  {
+    "name": "Chestnut Ridge",
+    "cls": "AA",
+    "otherWins": 0,
+    "abbr": ""
+  }
+];
   var games = [
-    {
-      "id": "5e264120-dc25-496b-8f76-ff6e87b8543c",
-      "date": "2025-08-22",
-      "a": "Northern Cambria",
-      "b": "Homer-Center",
-      "winner": "Homer-Center"
-    },
-    {
-      "id": "b1753eeb-fa15-4dca-bb5c-fd705793b6d0",
-      "date": "2025-08-29",
-      "a": "Northern Cambria",
-      "b": "Purchase Line",
-      "winner": "Northern Cambria"
-    },
-    {
-      "id": "b6c640c1-5cd1-4ddf-9ed5-1cb34d932779",
-      "date": "2025-09-05",
-      "a": "Northern Cambria",
-      "b": "United Valley co-op [Blacklick Valley/United]",
-      "winner": "United Valley co-op [Blacklick Valley/United]"
-    },
-    {
-      "id": "deee39d9-c1d4-45d1-be4f-59a12dcf9de0",
-      "date": "2025-09-12",
-      "a": "Northern Cambria",
-      "b": "Conemaugh Valley",
-      "winner": "Northern Cambria"
-    },
-    {
-      "id": "2bcb40d9-0b25-40fe-8d57-64283ce35720",
-      "date": "2025-09-26",
-      "a": "Northern Cambria",
-      "b": "West Shamokin",
-      "winner": "Northern Cambria"
-    },
-    {
-      "id": "042710e3-abd7-420f-94cf-58851cf11de8",
-      "date": "2025-10-03",
-      "a": "Northern Cambria",
-      "b": "Marion Center",
-      "winner": "Marion Center"
-    },
-    {
-      "id": "58433022-4a39-4e60-9ee0-91650e0eab71",
-      "date": "2025-10-11",
-      "a": "Northern Cambria",
-      "b": "Penns Manor",
-      "winner": "Northern Cambria"
-    },
-    {
-      "id": "0530eca9-5347-4606-8a0f-88f1c53c04f3",
-      "date": "2025-10-17",
-      "a": "Northern Cambria",
-      "b": "Conemaugh Township",
-      "winner": ""
-    },
-    {
-      "id": "84a8d23f-5345-45f9-9787-d8cbd8c74f5b",
-      "date": "2025-10-24",
-      "a": "Northern Cambria",
-      "b": "River Valley",
-      "winner": ""
-    },
-    {
-      "id": "16ef5112-41ca-4efc-ab7f-cf17d0d729ee",
-      "date": "2025-08-29",
-      "a": "Homer-Center",
-      "b": "United Valley co-op [Blacklick Valley/United]",
-      "winner": "Homer-Center"
-    },
-    {
-      "id": "729cc536-75a2-40d0-a1b4-c67c955e3def",
-      "date": "2025-09-05",
-      "a": "Homer-Center",
-      "b": "Marion Center",
-      "winner": "Marion Center"
-    },
-    {
-      "id": "d61df351-d2e9-45d2-ad5f-6d125d19c5b5",
-      "date": "2025-09-12",
-      "a": "Homer-Center",
-      "b": "Penns Manor",
-      "winner": "Homer-Center"
-    },
-    {
-      "id": "6a225b11-0b71-4bbb-bfbf-a785e8f38fc6",
-      "date": "2025-09-19",
-      "a": "Homer-Center",
-      "b": "River Valley",
-      "winner": "River Valley"
-    },
-    {
-      "id": "471ea71a-d95e-4a64-97f4-f9ed5e03d196",
-      "date": "2025-09-26",
-      "a": "Homer-Center",
-      "b": "Purchase Line",
-      "winner": "Homer-Center"
-    },
-    {
-      "id": "bf371dd4-5287-43e7-9668-3d9ee68d6553",
-      "date": "2025-10-03",
-      "a": "Homer-Center",
-      "b": "Conemaugh Valley",
-      "winner": "Homer-Center"
-    },
-    {
-      "id": "f867fec5-9449-43ba-a6f0-0de9d8d7e278",
-      "date": "2025-10-10",
-      "a": "Homer-Center",
-      "b": "West Shamokin",
-      "winner": "Homer-Center"
-    },
-    {
-      "id": "2d917524-c1f4-494c-9b1d-02c97aa3b9f3",
-      "date": "2025-10-17",
-      "a": "Homer-Center",
-      "b": "Cambria Heights",
-      "winner": ""
-    },
-    {
-      "id": "3a187404-b23f-40b5-b78c-76d7b2f468df",
-      "date": "2025-10-24",
-      "a": "Homer-Center",
-      "b": "Portage",
-      "winner": ""
-    },
-    {
-      "id": "29deb611-523e-4b95-aa4a-965418dc7d2a",
-      "date": "2025-08-22",
-      "a": "Marion Center",
-      "b": "Conemaugh Valley",
-      "winner": "Marion Center"
-    },
-    {
-      "id": "6e140b14-8975-431e-826c-96a89ecf5f61",
-      "date": "2025-08-29",
-      "a": "Marion Center",
-      "b": "Portage",
-      "winner": "Marion Center"
-    },
-    {
-      "id": "562acb64-77a3-49dc-9ac5-c1723f91ddd1",
-      "date": "2025-09-12",
-      "a": "Marion Center",
-      "b": "Cambria Heights",
-      "winner": "Marion Center"
-    },
-    {
-      "id": "c1047aa8-d5c1-4f99-a6af-291c9fa1e26f",
-      "date": "2025-09-26",
-      "a": "Marion Center",
-      "b": "Conemaugh Township",
-      "winner": "Marion Center"
-    },
-    {
-      "id": "be81ff76-7c3e-413e-be8b-739ac716fc08",
-      "date": "2025-10-10",
-      "a": "Marion Center",
-      "b": "Purchase Line",
-      "winner": "Marion Center"
-    },
-    {
-      "id": "54c02ced-97c6-4090-8531-ec481f3a2460",
-      "date": "2025-10-17",
-      "a": "Marion Center",
-      "b": "River Valley",
-      "winner": ""
-    },
-    {
-      "id": "357e824d-140b-48a1-bca6-866253296ed9",
-      "date": "2025-10-24",
-      "a": "Marion Center",
-      "b": "Penns Manor",
-      "winner": ""
-    },
-    {
-      "id": "e33ade2d-e223-4df2-8ab2-968128d6c3d0",
-      "date": "2025-08-22",
-      "a": "Portage",
-      "b": "West Shamokin",
-      "winner": "Portage"
-    },
-    {
-      "id": "21b79a87-5a6c-4b93-9c37-159f0124845d",
-      "date": "2025-09-05",
-      "a": "Portage",
-      "b": "Conemaugh Valley",
-      "winner": "Portage"
-    },
-    {
-      "id": "4b356c03-4a82-4a0c-8fbc-89113f4902c9",
-      "date": "2025-09-12",
-      "a": "Portage",
-      "b": "River Valley",
-      "winner": "River Valley"
-    },
-    {
-      "id": "98dab7a0-4368-4867-931c-46f648a11094",
-      "date": "2025-09-19",
-      "a": "Portage",
-      "b": "Conemaugh Township",
-      "winner": "Conemaugh Township"
-    },
-    {
-      "id": "3e7b7b00-accb-464f-a3c2-1e648eba3e22",
-      "date": "2025-09-26",
-      "a": "Portage",
-      "b": "Penns Manor",
-      "winner": "Penns Manor"
-    },
-    {
-      "id": "6fc33b5d-71a7-4351-bd0b-4d6b62b7286f",
-      "date": "2025-10-03",
-      "a": "Portage",
-      "b": "Cambria Heights",
-      "winner": "Cambria Heights"
-    },
-    {
-      "id": "7a484eb2-500a-442c-85a4-d9f81e9af9ff",
-      "date": "2025-10-10",
-      "a": "Portage",
-      "b": "United Valley co-op [Blacklick Valley/United]",
-      "winner": "United Valley co-op [Blacklick Valley/United]"
-    },
-    {
-      "id": "41976621-6eb0-46bf-9a3e-f9ccb7d35be6",
-      "date": "2025-10-17",
-      "a": "Portage",
-      "b": "Purchase Line",
-      "winner": ""
-    },
-    {
-      "id": "0c3a5bec-da5a-401c-b57c-ac74c52fd151",
-      "date": "2025-08-22",
-      "a": "Purchase Line",
-      "b": "Conemaugh Township",
-      "winner": "Conemaugh Township"
-    },
-    {
-      "id": "73630d2f-abc9-4e0e-bdad-540c007f284a",
-      "date": "2025-09-05",
-      "a": "Purchase Line",
-      "b": "Cambria Heights",
-      "winner": "Cambria Heights"
-    },
-    {
-      "id": "0c3629c4-f342-4198-bf90-560a02f86bf8",
-      "date": "2025-09-12",
-      "a": "Purchase Line",
-      "b": "West Shamokin",
-      "winner": "Purchase Line"
-    },
-    {
-      "id": "9803cd15-f94f-40a5-9da4-59813f19515a",
-      "date": "2025-09-19",
-      "a": "Purchase Line",
-      "b": "Penns Manor",
-      "winner": "Purchase Line"
-    },
-    {
-      "id": "82e131fc-317c-439d-a6e0-b0d1475c7707",
-      "date": "2025-10-03",
-      "a": "Purchase Line",
-      "b": "River Valley",
-      "winner": "River Valley"
-    },
-    {
-      "id": "3d80d13f-c375-44ec-a16c-eba210491098",
-      "date": "2025-10-24",
-      "a": "Purchase Line",
-      "b": "United Valley co-op [Blacklick Valley/United]",
-      "winner": ""
-    },
-    {
-      "id": "4872ed5c-8524-4c8b-9954-7576b3e44fec",
-      "date": "2025-08-29",
-      "a": "Conemaugh Township",
-      "b": "West Shamokin",
-      "winner": "Conemaugh Township"
-    },
-    {
-      "id": "d3eadef3-851c-48b6-9a43-180943979d5b",
-      "date": "2025-09-05",
-      "a": "Conemaugh Township",
-      "b": "River Valley",
-      "winner": "River Valley"
-    },
-    {
-      "id": "bfc243bc-c2cd-421b-80b7-2a3b89655fc5",
-      "date": "2025-09-12",
-      "a": "Conemaugh Township",
-      "b": "United Valley co-op [Blacklick Valley/United]",
-      "winner": "United Valley co-op [Blacklick Valley/United]"
-    },
-    {
-      "id": "d3880a75-c828-4c2f-80e5-05e4488f264b",
-      "date": "2025-10-03",
-      "a": "Conemaugh Township",
-      "b": "Penns Manor",
-      "winner": "Conemaugh Township"
-    },
-    {
-      "id": "08f298fd-15b2-4704-b1df-1773b7f86e1d",
-      "date": "2025-10-10",
-      "a": "Conemaugh Township",
-      "b": "Cambria Heights",
-      "winner": "Cambria Heights"
-    },
-    {
-      "id": "49d0763d-d8be-4c6b-9236-e3b3ce35c76e",
-      "date": "2025-10-24",
-      "a": "Conemaugh Township",
-      "b": "Conemaugh Valley",
-      "winner": ""
-    },
-    {
-      "id": "9228615b-8b86-45e4-a300-f09bbf7be214",
-      "date": "2025-08-29",
-      "a": "Conemaugh Valley",
-      "b": "Penns Manor",
-      "winner": "Penns Manor"
-    },
-    {
-      "id": "b71eed08-faee-4927-91bf-7860fe9fbcf8",
-      "date": "2025-09-19",
-      "a": "Conemaugh Valley",
-      "b": "United Valley co-op [Blacklick Valley/United]",
-      "winner": "United Valley co-op [Blacklick Valley/United]"
-    },
-    {
-      "id": "a0978764-3ecf-4ce0-8f13-bbdf9409c772",
-      "date": "2025-09-26",
-      "a": "Conemaugh Valley",
-      "b": "Cambria Heights",
-      "winner": "Cambria Heights"
-    },
-    {
-      "id": "2738b588-9dd3-45f7-8aaa-b895219dda74",
-      "date": "2025-10-10",
-      "a": "Conemaugh Valley",
-      "b": "River Valley",
-      "winner": "River Valley"
-    },
-    {
-      "id": "aa91e01b-2184-4c09-950d-8d3770c1711f",
-      "date": "2025-10-17",
-      "a": "Conemaugh Valley",
-      "b": "West Shamokin",
-      "winner": ""
-    },
-    {
-      "id": "74934deb-b8fa-46f1-994d-730eeccd1b37",
-      "date": "2025-09-05",
-      "a": "West Shamokin",
-      "b": "Penns Manor",
-      "winner": "Penns Manor"
-    },
-    {
-      "id": "c17a39a6-b48f-4a3a-88ca-6eacd3563f8b",
-      "date": "2025-10-03",
-      "a": "West Shamokin",
-      "b": "United Valley co-op [Blacklick Valley/United]",
-      "winner": "United Valley co-op [Blacklick Valley/United]"
-    },
-    {
-      "id": "dc004178-17eb-436c-bb21-9deaba5a5947",
-      "date": "2025-10-24",
-      "a": "West Shamokin",
-      "b": "Cambria Heights",
-      "winner": ""
-    },
-    {
-      "id": "907bf6d9-356f-4215-918a-9875ab3679b6",
-      "date": "2025-09-19",
-      "a": "Cambria Heights",
-      "b": "Marion Center",
-      "winner": "Marion Center"
-    },
-    {
-      "id": "26357775-b6f6-49fb-84f9-93a5ba442d37",
-      "date": "2025-08-22",
-      "a": "River Valley",
-      "b": "Penns Manor",
-      "winner": "River Valley"
-    },
-    {
-      "id": "e3b1ceb2-92de-4967-b67f-eca5b0a44c18",
-      "date": "2025-08-29",
-      "a": "River Valley",
-      "b": "Cambria Heights",
-      "winner": "Cambria Heights"
-    },
-    {
-      "id": "4059a7e4-9a2d-44cc-8dc0-0334c73a815e",
-      "date": "2025-09-26",
-      "a": "River Valley",
-      "b": "United Valley co-op [Blacklick Valley/United]",
-      "winner": "River Valley"
-    },
-    {
-      "id": "cd06d9f7-4841-4d04-b944-7cb5e06a8bbb",
-      "date": "2025-08-22",
-      "a": "United Valley co-op [Blacklick Valley/United]",
-      "b": "Cambria Heights",
-      "winner": "Cambria Heights"
-    },
-    {
-      "id": "2be0a37e-53d3-44df-8a02-a6c9f937c9a3",
-      "date": "2025-10-17",
-      "a": "United Valley co-op [Blacklick Valley/United]",
-      "b": "Penns Manor",
-      "winner": ""
-    },
-    {
-      "id": "be775943-0243-4873-8991-a3d34ba0d21f",
-      "date": "2025-08-22",
-      "a": "Bishop Guilfoyle",
-      "b": "Penns Valley Area",
-      "winner": "Bishop Guilfoyle"
-    },
-    {
-      "id": "a7e6ceb3-ff03-4f9e-8579-045274ba5dc3",
-      "date": "2025-08-30",
-      "a": "Bishop Guilfoyle",
-      "b": "Richland",
-      "winner": "Richland"
-    },
-    {
-      "id": "7bcc1763-3240-471a-8092-f68c19bb8897",
-      "date": "2025-09-05",
-      "a": "Bishop Guilfoyle",
-      "b": "Bellefonte",
-      "winner": "Bishop Guilfoyle"
-    },
-    {
-      "id": "7146082a-8087-47c5-bc20-8ba609c20199",
-      "date": "2025-09-13",
-      "a": "Bishop Guilfoyle",
-      "b": "Huntingdon",
-      "winner": "Bishop Guilfoyle"
-    },
-    {
-      "id": "19925cf0-81fe-4325-b236-b79cdd01ca18",
-      "date": "2025-09-19",
-      "a": "Bishop Guilfoyle",
-      "b": "Central",
-      "winner": "Bishop Guilfoyle"
-    },
-    {
-      "id": "8eb37718-d278-4a89-a7f7-835d21982955",
-      "date": "2025-09-27",
-      "a": "Bishop Guilfoyle",
-      "b": "Tyrone",
-      "winner": "Bishop Guilfoyle"
-    },
-    {
-      "id": "854b92c4-b7a9-40f6-93d2-f8036d5ebbcc",
-      "date": "2025-10-03",
-      "a": "Bishop Guilfoyle",
-      "b": "Bellwood-Antis",
-      "winner": "Bishop Guilfoyle"
-    },
-    {
-      "id": "9e9af6f0-6e72-4862-b50f-17373b109725",
-      "date": "2025-10-10",
-      "a": "Bishop Guilfoyle",
-      "b": "Forest Hills",
-      "winner": "Bishop Guilfoyle"
-    },
-    {
-      "id": "e25396da-c94c-4897-aeaf-959e9273c887",
-      "date": "2025-10-17",
-      "a": "Bishop Guilfoyle",
-      "b": "Clearfield",
-      "winner": ""
-    },
-    {
-      "id": "df8f1448-11db-46ed-a464-cf0295b6003f",
-      "date": "2025-10-24",
-      "a": "Bishop Guilfoyle",
-      "b": "TBA* (@ Saint Francis University)",
-      "winner": ""
-    },
-    {
-      "id": "de737d11-b67c-4f0b-b96b-730dd41a7cab",
-      "date": "2025-08-22",
-      "a": "Juniata Valley",
-      "b": "Newport",
-      "winner": "Newport"
-    },
-    {
-      "id": "871fe751-caa9-48bb-b191-8a5852ed54fe",
-      "date": "2025-08-29",
-      "a": "Juniata Valley",
-      "b": "North Star",
-      "winner": "Juniata Valley"
-    },
-    {
-      "id": "2faef892-25a4-4b88-97af-6cefe67a673a",
-      "date": "2025-09-05",
-      "a": "Juniata Valley",
-      "b": "Glendale",
-      "winner": "Juniata Valley"
-    },
-    {
-      "id": "8fc64e68-8ff4-4253-81d7-4cb6ac07455a",
-      "date": "2025-09-12",
-      "a": "Juniata Valley",
-      "b": "Claysburg-Kimmel",
-      "winner": "Juniata Valley"
-    },
-    {
-      "id": "ab77c79d-bc27-4500-8e09-8e53a916ed95",
-      "date": "2025-09-19",
-      "a": "Juniata Valley",
-      "b": "West Branch",
-      "winner": "Juniata Valley"
-    },
-    {
-      "id": "b503434d-d279-4732-9200-96cf596fd842",
-      "date": "2025-09-26",
-      "a": "Juniata Valley",
-      "b": "Moshannon Valley",
-      "winner": "Juniata Valley"
-    },
-    {
-      "id": "5c2c2fe9-4745-4e93-bbe2-ae0a6c9266b6",
-      "date": "2025-10-03",
-      "a": "Juniata Valley",
-      "b": "Mount Union",
-      "winner": "Mount Union"
-    },
-    {
-      "id": "34e1d96f-9921-4299-8947-90a6329bdca2",
-      "date": "2025-10-10",
-      "a": "Juniata Valley",
-      "b": "Curwensville",
-      "winner": "Juniata Valley"
-    },
-    {
-      "id": "83297407-7709-468f-bd27-6681fc4b90a8",
-      "date": "2025-10-17",
-      "a": "Juniata Valley",
-      "b": "Southern Huntingdon County",
-      "winner": ""
-    },
-    {
-      "id": "95c86cd7-d15b-478a-89d9-9916330639c5",
-      "date": "2025-10-24",
-      "a": "Juniata Valley",
-      "b": "Windber",
-      "winner": ""
-    },
-    {
-      "id": "f211ef16-b8c2-4761-8d8f-3984475cefe3",
-      "date": "2025-08-22",
-      "a": "Claysburg-Kimmel",
-      "b": "Berlin Brothersvalley",
-      "winner": "Berlin Brothersvalley"
-    },
-    {
-      "id": "96b13e13-f9ba-4a30-bc9b-aa45ae8ffd4a",
-      "date": "2025-08-29",
-      "a": "Claysburg-Kimmel",
-      "b": "Northern Bedford County",
-      "winner": "Claysburg-Kimmel"
-    },
-    {
-      "id": "252d27ac-10f1-411d-b97e-d4c6ad4d6eed",
-      "date": "2025-09-05",
-      "a": "Claysburg-Kimmel",
-      "b": "West Branch",
-      "winner": "Claysburg-Kimmel"
-    },
-    {
-      "id": "b891e39c-0cee-40f0-a83c-83a644eecf3a",
-      "date": "2025-09-19",
-      "a": "Claysburg-Kimmel",
-      "b": "Curwensville",
-      "winner": "Claysburg-Kimmel"
-    },
-    {
-      "id": "733e5e30-bb10-4f3b-8694-b2d4cda90d59",
-      "date": "2025-09-26",
-      "a": "Claysburg-Kimmel",
-      "b": "Southern Huntingdon County",
-      "winner": "Claysburg-Kimmel"
-    },
-    {
-      "id": "b29cdd89-a4d5-48e6-87b6-41c6cd4849d6",
-      "date": "2025-10-03",
-      "a": "Claysburg-Kimmel",
-      "b": "Glendale",
-      "winner": "Claysburg-Kimmel"
-    },
-    {
-      "id": "79a77770-a472-44d4-9a0c-da2208cffd47",
-      "date": "2025-10-10",
-      "a": "Claysburg-Kimmel",
-      "b": "Moshannon Valley",
-      "winner": "Claysburg-Kimmel"
-    },
-    {
-      "id": "5ade8e53-22ff-4af8-af72-6c3be976bc74",
-      "date": "2025-10-17",
-      "a": "Claysburg-Kimmel",
-      "b": "Mount Union",
-      "winner": ""
-    },
-    {
-      "id": "5ce05efe-3d5f-41a4-b2a4-3173a911a862",
-      "date": "2025-10-24",
-      "a": "Claysburg-Kimmel",
-      "b": "Everett",
-      "winner": ""
-    },
-    {
-      "id": "531dece0-fe64-4ae6-ac90-1b24a1fac46a",
-      "date": "2025-08-22",
-      "a": "Moshannon Valley",
-      "b": "North Star",
-      "winner": "North Star"
-    },
-    {
-      "id": "55905190-24f5-4e64-976b-6ce7f3a698ec",
-      "date": "2025-08-29",
-      "a": "Moshannon Valley",
-      "b": "Everett",
-      "winner": "Everett"
-    },
-    {
-      "id": "73630975-318d-4c72-b1ac-59a4eb1552b6",
-      "date": "2025-09-05",
-      "a": "Moshannon Valley",
-      "b": "Southern Huntingdon County",
-      "winner": "Moshannon Valley"
-    },
-    {
-      "id": "6707f754-294c-446d-a7a6-c6f439153d0c",
-      "date": "2025-09-12",
-      "a": "Moshannon Valley",
-      "b": "Glendale",
-      "winner": "Moshannon Valley"
-    },
-    {
-      "id": "1a7cc7bf-7c8d-4661-ab70-4a1f26c28e0b",
-      "date": "2025-09-19",
-      "a": "Moshannon Valley",
-      "b": "Mount Union",
-      "winner": "Mount Union"
-    },
-    {
-      "id": "05618952-21d6-4a9b-ab9a-f363e0be61c1",
-      "date": "2025-10-03",
-      "a": "Moshannon Valley",
-      "b": "Curwensville",
-      "winner": "Moshannon Valley"
-    },
-    {
-      "id": "2669b6fa-1edb-4b3c-b5b3-079149bbde34",
-      "date": "2025-10-17",
-      "a": "Moshannon Valley",
-      "b": "West Branch",
-      "winner": ""
-    },
-    {
-      "id": "6ba1e082-d71f-4a6f-a4b7-515290d67cae",
-      "date": "2025-10-24",
-      "a": "Moshannon Valley",
-      "b": "Berlin Brothersvalley",
-      "winner": ""
-    },
-    {
-      "id": "406a6e8f-7c51-4c58-9801-59cfce32a925",
-      "date": "2025-08-22",
-      "a": "Glendale",
-      "b": "Windber",
-      "winner": "Windber"
-    },
-    {
-      "id": "600a11cb-9bb8-4db5-8754-fc8b0070dd77",
-      "date": "2025-08-29",
-      "a": "Glendale",
-      "b": "Meyersdale",
-      "winner": "Meyersdale"
-    },
-    {
-      "id": "21edbe25-4f1c-4326-a366-88ebd1f746f4",
-      "date": "2025-09-19",
-      "a": "Glendale",
-      "b": "Southern Huntingdon County",
-      "winner": "Glendale"
-    },
-    {
-      "id": "c5b1b622-e3ed-4041-a07b-e72e163fcb01",
-      "date": "2025-09-26",
-      "a": "Glendale",
-      "b": "Mount Union",
-      "winner": "Mount Union"
-    },
-    {
-      "id": "03a777b3-668c-4d2e-af7e-9e1ddc4325d0",
-      "date": "2025-10-10",
-      "a": "Glendale",
-      "b": "West Branch",
-      "winner": "Glendale"
-    },
-    {
-      "id": "36a1acc3-42b5-4330-9644-1485fe8292e5",
-      "date": "2025-10-17",
-      "a": "Glendale",
-      "b": "Curwensville",
-      "winner": ""
-    },
-    {
-      "id": "ebda237a-eb79-40e1-9918-80bf5621b282",
-      "date": "2025-10-24",
-      "a": "Glendale",
-      "b": "Northern Bedford County",
-      "winner": ""
-    },
-    {
-      "id": "43909408-3adc-4a1d-9c83-e806cb48bffa",
-      "date": "2025-08-22",
-      "a": "West Branch",
-      "b": "Everett",
-      "winner": "Everett"
-    },
-    {
-      "id": "49793fbb-cf66-4848-95d2-c4dfac3b1267",
-      "date": "2025-08-29",
-      "a": "West Branch",
-      "b": "Cameron County",
-      "winner": "Cameron County"
-    },
-    {
-      "id": "3681b9d0-7288-4d4b-a5c6-c8f4659f090b",
-      "date": "2025-09-12",
-      "a": "West Branch",
-      "b": "Mount Union",
-      "winner": "Mount Union"
-    },
-    {
-      "id": "0e3ff485-fac0-46c1-a43a-c97ad49e0ba3",
-      "date": "2025-09-26",
-      "a": "West Branch",
-      "b": "Curwensville",
-      "winner": "Curwensville"
-    },
-    {
-      "id": "33a3cf29-1eb5-4f92-8553-c8c7e1330638",
-      "date": "2025-10-03",
-      "a": "West Branch",
-      "b": "Southern Huntingdon County",
-      "winner": "Southern Huntingdon County"
-    },
-    {
-      "id": "5f995708-32c8-43ac-8f8b-8ca4a09ddaa1",
-      "date": "2025-10-24",
-      "a": "West Branch",
-      "b": "North Star",
-      "winner": ""
-    },
-    {
-      "id": "66795dcb-cc3b-47b5-93ac-c8b404ab6ce1",
-      "date": "2025-08-22",
-      "a": "Curwensville",
-      "b": "Meyersdale",
-      "winner": "Meyersdale"
-    },
-    {
-      "id": "088fb090-5229-46c9-b37e-577d0574108f",
-      "date": "2025-08-29",
-      "a": "Curwensville",
-      "b": "Windber",
-      "winner": "Windber"
-    },
-    {
-      "id": "f294f02e-5440-4b4a-a405-f32653601a44",
-      "date": "2025-09-05",
-      "a": "Curwensville",
-      "b": "Mount Union",
-      "winner": "Mount Union"
-    },
-    {
-      "id": "1b53bf97-e733-4196-9dde-c1018a93037e",
-      "date": "2025-09-12",
-      "a": "Curwensville",
-      "b": "Southern Huntingdon County",
-      "winner": "Curwensville"
-    },
-    {
-      "id": "ec46a85c-2734-4bc7-8ead-00c4bd11c324",
-      "date": "2025-10-24",
-      "a": "Curwensville",
-      "b": "Tussey Mountain",
-      "winner": ""
-    },
-    {
-      "id": "81d798c2-95bb-4940-a7f1-dbad2b014642",
-      "date": "2025-09-05",
-      "a": "North Star",
-      "b": "Meyersdale",
-      "winner": "Meyersdale"
-    },
-    {
-      "id": "6ccbfd95-68a8-48f9-a1bf-5eefd25bab1b",
-      "date": "2025-09-12",
-      "a": "North Star",
-      "b": "Tussey Mountain",
-      "winner": "North Star"
-    },
-    {
-      "id": "64d10103-19ff-4a08-bacc-8b6b29661226",
-      "date": "2025-09-19",
-      "a": "North Star",
-      "b": "Windber",
-      "winner": "Windber"
-    },
-    {
-      "id": "0efbe66e-4c7f-4ec9-8117-2230f543e100",
-      "date": "2025-09-26",
-      "a": "North Star",
-      "b": "Everett",
-      "winner": "Everett"
-    },
-    {
-      "id": "e1e4024d-d4c4-4c0f-9618-2bfbe85a0c26",
-      "date": "2025-10-03",
-      "a": "North Star",
-      "b": "Hancock",
-      "winner": "North Star"
-    },
-    {
-      "id": "aba478ca-199a-4400-8c8a-18bbda8f1f0f",
-      "date": "2025-10-10",
-      "a": "North Star",
-      "b": "Northern Bedford County",
-      "winner": "Northern Bedford County"
-    },
-    {
-      "id": "6696072b-bdf9-4a9b-9984-ef60c45371fd",
-      "date": "2025-10-17",
-      "a": "North Star",
-      "b": "Berlin Brothersvalley",
-      "winner": ""
-    },
-    {
-      "id": "845ebdb6-1201-43a1-bb68-eb5a630e1207",
-      "date": "2025-08-22",
-      "a": "Southern Huntingdon County",
-      "b": "Northern Bedford County",
-      "winner": "Southern Huntingdon County"
-    },
-    {
-      "id": "456b29f5-c35c-4653-a272-de1f7110a8a2",
-      "date": "2025-08-29",
-      "a": "Southern Huntingdon County",
-      "b": "Tussey Mountain",
-      "winner": "Tussey Mountain"
-    },
-    {
-      "id": "8ecd2fa1-b226-40bf-8423-686b4113d151",
-      "date": "2025-10-10",
-      "a": "Southern Huntingdon County",
-      "b": "Mount Union",
-      "winner": "Mount Union"
-    },
-    {
-      "id": "0d571d37-48ca-4806-b2aa-b6aa3ca37217",
-      "date": "2025-10-24",
-      "a": "Southern Huntingdon County",
-      "b": "Clear Spring",
-      "winner": ""
-    },
-    {
-      "id": "7c8727ef-9211-4945-8bd6-6aeb1cb46936",
-      "date": "2025-08-29",
-      "a": "Penns Valley Area",
-      "b": "Central Cambria",
-      "winner": "Central Cambria"
-    },
-    {
-      "id": "e44acdff-8ac8-45d4-bfae-3a3489fe5a1c",
-      "date": "2025-09-05",
-      "a": "Penns Valley Area",
-      "b": "Bald Eagle Area",
-      "winner": "Bald Eagle Area"
-    },
-    {
-      "id": "480d6112-1eaa-4678-ab3b-fd236f31c2c3",
-      "date": "2025-09-12",
-      "a": "Penns Valley Area",
-      "b": "Philipsburg-Osceola",
-      "winner": "Philipsburg-Osceola"
-    },
-    {
-      "id": "095e2ae9-07e5-4479-8053-5b13aa9e3fd5",
-      "date": "2025-09-19",
-      "a": "Penns Valley Area",
-      "b": "Bellefonte",
-      "winner": "Bellefonte"
-    },
-    {
-      "id": "ba848050-c128-429e-baf2-5c8d255dc074",
-      "date": "2025-09-26",
-      "a": "Penns Valley Area",
-      "b": "Clearfield",
-      "winner": "Clearfield"
-    },
-    {
-      "id": "a22c32c3-6b9d-4570-94ee-08534f7a64b0",
-      "date": "2025-10-03",
-      "a": "Penns Valley Area",
-      "b": "Central",
-      "winner": "Central"
-    },
-    {
-      "id": "0f753620-5ea7-4d9a-9693-1cdd7f33c42c",
-      "date": "2025-10-09",
-      "a": "Penns Valley Area",
-      "b": "Greater Johnstown",
-      "winner": "Penns Valley Area"
-    },
-    {
-      "id": "deb0fedf-5ac6-44a4-b7ad-2b3b344621d0",
-      "date": "2025-10-17",
-      "a": "Penns Valley Area",
-      "b": "Huntingdon",
-      "winner": ""
-    },
-    {
-      "id": "d6259175-bdf5-48a0-a6a5-bcb2b568d776",
-      "date": "2025-08-22",
-      "a": "Bellefonte",
-      "b": "Tyrone",
-      "winner": "Bellefonte"
-    },
-    {
-      "id": "9764b369-a379-4341-b98b-24dce57cb3de",
-      "date": "2025-08-29",
-      "a": "Bellefonte",
-      "b": "Forest Hills",
-      "winner": "Forest Hills"
-    },
-    {
-      "id": "7add3b7c-3ae6-4b00-918f-2175198b4ad1",
-      "date": "2025-09-12",
-      "a": "Bellefonte",
-      "b": "Clearfield",
-      "winner": "Clearfield"
-    },
-    {
-      "id": "8aa38170-08d6-476a-a64e-268db7227071",
-      "date": "2025-09-26",
-      "a": "Bellefonte",
-      "b": "Bald Eagle Area",
-      "winner": "Bald Eagle Area"
-    },
-    {
-      "id": "b8292e2c-fab4-493d-bc84-8799605a7aa9",
-      "date": "2025-10-03",
-      "a": "Bellefonte",
-      "b": "Philipsburg-Osceola",
-      "winner": "Bellefonte"
-    },
-    {
-      "id": "a3d7e8d1-6a2d-4304-a5ad-564299bc0cf3",
-      "date": "2025-10-10",
-      "a": "Bellefonte",
-      "b": "Richland",
-      "winner": "Richland"
-    },
-    {
-      "id": "ca15a8c3-5c82-45fd-b0cd-7448ee7a38b4",
-      "date": "2025-10-17",
-      "a": "Bellefonte",
-      "b": "Bellwood-Antis",
-      "winner": ""
-    },
-    {
-      "id": "d97a9048-3dab-40f4-9a53-417280ae2ba3",
-      "date": "2025-10-24",
-      "a": "Bellefonte",
-      "b": "TBA* (This is a league crossover game. )",
-      "winner": ""
-    },
-    {
-      "id": "5178508d-181f-41ab-976b-ae239f5820d1",
-      "date": "2025-08-22",
-      "a": "Huntingdon",
-      "b": "Bald Eagle Area",
-      "winner": "Huntingdon"
-    },
-    {
-      "id": "54f303d1-0461-4130-ad9c-6528c6da9771",
-      "date": "2025-08-29",
-      "a": "Huntingdon",
-      "b": "Somerset",
-      "winner": "Huntingdon"
-    },
-    {
-      "id": "a9c88656-51e8-464d-aa73-da044d51ba2b",
-      "date": "2025-09-05",
-      "a": "Huntingdon",
-      "b": "Bellwood-Antis",
-      "winner": "Huntingdon"
-    },
-    {
-      "id": "ec5a7945-765f-4bf3-8114-1f26393ce81b",
-      "date": "2025-09-19",
-      "a": "Huntingdon",
-      "b": "Clearfield",
-      "winner": "Huntingdon"
-    },
-    {
-      "id": "113bf18c-80b8-444c-87c2-d3d84d577317",
-      "date": "2025-09-26",
-      "a": "Huntingdon",
-      "b": "Central",
-      "winner": "Huntingdon"
-    },
-    {
-      "id": "51d635ff-004b-476a-a1d7-2bb998f473e0",
-      "date": "2025-10-03",
-      "a": "Huntingdon",
-      "b": "Tyrone",
-      "winner": "Tyrone"
-    },
-    {
-      "id": "91712b5e-8ddd-462e-8ef3-22f853d418fa",
-      "date": "2025-10-10",
-      "a": "Huntingdon",
-      "b": "Bedford",
-      "winner": "Huntingdon"
-    },
-    {
-      "id": "119e0269-471d-45d6-aeeb-42feaabf953c",
-      "date": "2025-08-29",
-      "a": "Central",
-      "b": "Greater Johnstown",
-      "winner": "Central"
-    },
-    {
-      "id": "4b08ec26-2eee-4b6b-924d-3bd0f0a99829",
-      "date": "2025-09-05",
-      "a": "Central",
-      "b": "Tyrone",
-      "winner": "Tyrone"
-    },
-    {
-      "id": "410464e6-f6f8-4cd4-9ac9-5ea6b5ab0d30",
-      "date": "2025-09-12",
-      "a": "Central",
-      "b": "Bellwood-Antis",
-      "winner": "Bellwood-Antis"
-    },
-    {
-      "id": "8f417619-686b-4dda-8180-b29aa3c8bcf1",
-      "date": "2025-10-10",
-      "a": "Central",
-      "b": "Central Cambria",
-      "winner": "Central Cambria"
-    },
-    {
-      "id": "2d3e20d5-11f9-428e-a068-7631c441853e",
-      "date": "2025-10-17",
-      "a": "Central",
-      "b": "Bald Eagle Area",
-      "winner": ""
-    },
-    {
-      "id": "d1164e88-dbb8-4e0e-b1bd-77e5743dac55",
-      "date": "2025-10-24",
-      "a": "Central",
-      "b": "TBA* (LHAC Cross-Over Game)",
-      "winner": ""
-    },
-    {
-      "id": "e589a145-9e8d-4dee-945f-d6012777332e",
-      "date": "2025-08-29",
-      "a": "Tyrone",
-      "b": "Westmont Hilltop",
-      "winner": "Tyrone"
-    },
-    {
-      "id": "94693562-242e-41a0-85d7-568b4cbe6f79",
-      "date": "2025-09-12",
-      "a": "Tyrone",
-      "b": "Bald Eagle Area",
-      "winner": "Tyrone"
-    },
-    {
-      "id": "d718cfab-e785-4934-b97d-f08b43e63726",
-      "date": "2025-09-19",
-      "a": "Tyrone",
-      "b": "Bellwood-Antis",
-      "winner": "Bellwood-Antis"
-    },
-    {
-      "id": "559b334f-6527-4423-8d64-0efde2e563e3",
-      "date": "2025-10-10",
-      "a": "Tyrone",
-      "b": "Penn Cambria",
-      "winner": "Penn Cambria"
-    },
-    {
-      "id": "f36d994c-3b54-4cea-95c7-b128d8814502",
-      "date": "2025-10-17",
-      "a": "Tyrone",
-      "b": "Philipsburg-Osceola",
-      "winner": ""
-    },
-    {
-      "id": "a632c69c-b20c-4f25-8f90-4c7852cd23c2",
-      "date": "2025-08-22",
-      "a": "Bellwood-Antis",
-      "b": "Clearfield",
-      "winner": "Bellwood-Antis"
-    },
-    {
-      "id": "2ed6ccbe-9641-44f3-b80d-ede6bb19bea1",
-      "date": "2025-08-29",
-      "a": "Bellwood-Antis",
-      "b": "Bishop McCort",
-      "winner": "Bishop McCort"
-    },
-    {
-      "id": "d28ed71f-c251-4d32-9000-332a3236a41f",
-      "date": "2025-09-26",
-      "a": "Bellwood-Antis",
-      "b": "Philipsburg-Osceola",
-      "winner": "Philipsburg-Osceola"
-    },
-    {
-      "id": "8a9424b1-6ccb-4f4c-b6c6-0c744e20295a",
-      "date": "2025-10-10",
-      "a": "Bellwood-Antis",
-      "b": "Chestnut Ridge",
-      "winner": "Bellwood-Antis"
-    },
-    {
-      "id": "458954b1-a929-4e5d-9dfb-6cdc1e82259c",
-      "date": "2025-08-22",
-      "a": "Forest Hills",
-      "b": "Westmont Hilltop",
-      "winner": "Forest Hills"
-    },
-    {
-      "id": "737eb4e2-4655-4613-9a8d-65052da044e7",
-      "date": "2025-09-05",
-      "a": "Forest Hills",
-      "b": "Penn Cambria",
-      "winner": "Forest Hills"
-    },
-    {
-      "id": "02e19a57-6118-4a14-b52e-504ef4ab9b9c",
-      "date": "2025-09-12",
-      "a": "Forest Hills",
-      "b": "Chestnut Ridge",
-      "winner": "Forest Hills"
-    },
-    {
-      "id": "d5c6a5c8-3224-41d3-8c62-65ce535aaf41",
-      "date": "2025-09-19",
-      "a": "Forest Hills",
-      "b": "Richland",
-      "winner": "Richland"
-    },
-    {
-      "id": "bade82d1-0ba8-4491-a838-4a64e6d2d73b",
-      "date": "2025-09-26",
-      "a": "Forest Hills",
-      "b": "Bedford",
-      "winner": "Forest Hills"
-    },
-    {
-      "id": "ca6436e8-9823-43e2-942e-f01b6e62b3cd",
-      "date": "2025-10-03",
-      "a": "Forest Hills",
-      "b": "Central Cambria",
-      "winner": "Forest Hills"
-    },
-    {
-      "id": "cff5ea1b-5ac3-44d1-a180-1da81a60b65d",
-      "date": "2025-10-17",
-      "a": "Forest Hills",
-      "b": "Bishop McCort",
-      "winner": ""
-    }
-  ];
+  {
+    "id": "5e264120-dc25-496b-8f76-ff6e87b8543c",
+    "date": "2025-08-22",
+    "a": "Northern Cambria",
+    "b": "Homer-Center",
+    "winner": "Homer-Center"
+  },
+  {
+    "id": "b1753eeb-fa15-4dca-bb5c-fd705793b6d0",
+    "date": "2025-08-29",
+    "a": "Northern Cambria",
+    "b": "Purchase Line",
+    "winner": "Northern Cambria"
+  },
+  {
+    "id": "b6c640c1-5cd1-4ddf-9ed5-1cb34d932779",
+    "date": "2025-09-05",
+    "a": "Northern Cambria",
+    "b": "United Valley co-op [Blacklick Valley/United]",
+    "winner": "United Valley co-op [Blacklick Valley/United]"
+  },
+  {
+    "id": "deee39d9-c1d4-45d1-be4f-59a12dcf9de0",
+    "date": "2025-09-12",
+    "a": "Northern Cambria",
+    "b": "Conemaugh Valley",
+    "winner": "Northern Cambria"
+  },
+  {
+    "id": "2bcb40d9-0b25-40fe-8d57-64283ce35720",
+    "date": "2025-09-26",
+    "a": "Northern Cambria",
+    "b": "West Shamokin",
+    "winner": "Northern Cambria"
+  },
+  {
+    "id": "042710e3-abd7-420f-94cf-58851cf11de8",
+    "date": "2025-10-03",
+    "a": "Northern Cambria",
+    "b": "Marion Center",
+    "winner": "Marion Center"
+  },
+  {
+    "id": "58433022-4a39-4e60-9ee0-91650e0eab71",
+    "date": "2025-10-11",
+    "a": "Northern Cambria",
+    "b": "Penns Manor",
+    "winner": "Northern Cambria"
+  },
+  {
+    "id": "0530eca9-5347-4606-8a0f-88f1c53c04f3",
+    "date": "2025-10-17",
+    "a": "Northern Cambria",
+    "b": "Conemaugh Township",
+    "winner": ""
+  },
+  {
+    "id": "84a8d23f-5345-45f9-9787-d8cbd8c74f5b",
+    "date": "2025-10-24",
+    "a": "Northern Cambria",
+    "b": "River Valley",
+    "winner": ""
+  },
+  {
+    "id": "16ef5112-41ca-4efc-ab7f-cf17d0d729ee",
+    "date": "2025-08-29",
+    "a": "Homer-Center",
+    "b": "United Valley co-op [Blacklick Valley/United]",
+    "winner": "Homer-Center"
+  },
+  {
+    "id": "729cc536-75a2-40d0-a1b4-c67c955e3def",
+    "date": "2025-09-05",
+    "a": "Homer-Center",
+    "b": "Marion Center",
+    "winner": "Marion Center"
+  },
+  {
+    "id": "d61df351-d2e9-45d2-ad5f-6d125d19c5b5",
+    "date": "2025-09-12",
+    "a": "Homer-Center",
+    "b": "Penns Manor",
+    "winner": "Homer-Center"
+  },
+  {
+    "id": "6a225b11-0b71-4bbb-bfbf-a785e8f38fc6",
+    "date": "2025-09-19",
+    "a": "Homer-Center",
+    "b": "River Valley",
+    "winner": "River Valley"
+  },
+  {
+    "id": "471ea71a-d95e-4a64-97f4-f9ed5e03d196",
+    "date": "2025-09-26",
+    "a": "Homer-Center",
+    "b": "Purchase Line",
+    "winner": "Homer-Center"
+  },
+  {
+    "id": "bf371dd4-5287-43e7-9668-3d9ee68d6553",
+    "date": "2025-10-03",
+    "a": "Homer-Center",
+    "b": "Conemaugh Valley",
+    "winner": "Homer-Center"
+  },
+  {
+    "id": "f867fec5-9449-43ba-a6f0-0de9d8d7e278",
+    "date": "2025-10-10",
+    "a": "Homer-Center",
+    "b": "West Shamokin",
+    "winner": "Homer-Center"
+  },
+  {
+    "id": "2d917524-c1f4-494c-9b1d-02c97aa3b9f3",
+    "date": "2025-10-17",
+    "a": "Homer-Center",
+    "b": "Cambria Heights",
+    "winner": "Cambria Heights"
+  },
+  {
+    "id": "3a187404-b23f-40b5-b78c-76d7b2f468df",
+    "date": "2025-10-24",
+    "a": "Homer-Center",
+    "b": "Portage",
+    "winner": ""
+  },
+  {
+    "id": "29deb611-523e-4b95-aa4a-965418dc7d2a",
+    "date": "2025-08-22",
+    "a": "Marion Center",
+    "b": "Conemaugh Valley",
+    "winner": "Marion Center"
+  },
+  {
+    "id": "6e140b14-8975-431e-826c-96a89ecf5f61",
+    "date": "2025-08-29",
+    "a": "Marion Center",
+    "b": "Portage",
+    "winner": "Marion Center"
+  },
+  {
+    "id": "562acb64-77a3-49dc-9ac5-c1723f91ddd1",
+    "date": "2025-09-12",
+    "a": "Marion Center",
+    "b": "Cambria Heights",
+    "winner": "Marion Center"
+  },
+  {
+    "id": "c1047aa8-d5c1-4f99-a6af-291c9fa1e26f",
+    "date": "2025-09-26",
+    "a": "Marion Center",
+    "b": "Conemaugh Township",
+    "winner": "Marion Center"
+  },
+  {
+    "id": "be81ff76-7c3e-413e-be8b-739ac716fc08",
+    "date": "2025-10-10",
+    "a": "Marion Center",
+    "b": "Purchase Line",
+    "winner": "Marion Center"
+  },
+  {
+    "id": "54c02ced-97c6-4090-8531-ec481f3a2460",
+    "date": "2025-10-17",
+    "a": "Marion Center",
+    "b": "River Valley",
+    "winner": "River Valley"
+  },
+  {
+    "id": "357e824d-140b-48a1-bca6-866253296ed9",
+    "date": "2025-10-24",
+    "a": "Marion Center",
+    "b": "Penns Manor",
+    "winner": ""
+  },
+  {
+    "id": "e33ade2d-e223-4df2-8ab2-968128d6c3d0",
+    "date": "2025-08-22",
+    "a": "Portage",
+    "b": "West Shamokin",
+    "winner": "Portage"
+  },
+  {
+    "id": "21b79a87-5a6c-4b93-9c37-159f0124845d",
+    "date": "2025-09-05",
+    "a": "Portage",
+    "b": "Conemaugh Valley",
+    "winner": "Portage"
+  },
+  {
+    "id": "4b356c03-4a82-4a0c-8fbc-89113f4902c9",
+    "date": "2025-09-12",
+    "a": "Portage",
+    "b": "River Valley",
+    "winner": "River Valley"
+  },
+  {
+    "id": "98dab7a0-4368-4867-931c-46f648a11094",
+    "date": "2025-09-19",
+    "a": "Portage",
+    "b": "Conemaugh Township",
+    "winner": "Conemaugh Township"
+  },
+  {
+    "id": "3e7b7b00-accb-464f-a3c2-1e648eba3e22",
+    "date": "2025-09-26",
+    "a": "Portage",
+    "b": "Penns Manor",
+    "winner": "Penns Manor"
+  },
+  {
+    "id": "6fc33b5d-71a7-4351-bd0b-4d6b62b7286f",
+    "date": "2025-10-03",
+    "a": "Portage",
+    "b": "Cambria Heights",
+    "winner": "Cambria Heights"
+  },
+  {
+    "id": "7a484eb2-500a-442c-85a4-d9f81e9af9ff",
+    "date": "2025-10-10",
+    "a": "Portage",
+    "b": "United Valley co-op [Blacklick Valley/United]",
+    "winner": "United Valley co-op [Blacklick Valley/United]"
+  },
+  {
+    "id": "41976621-6eb0-46bf-9a3e-f9ccb7d35be6",
+    "date": "2025-10-17",
+    "a": "Portage",
+    "b": "Purchase Line",
+    "winner": ""
+  },
+  {
+    "id": "0c3a5bec-da5a-401c-b57c-ac74c52fd151",
+    "date": "2025-08-22",
+    "a": "Purchase Line",
+    "b": "Conemaugh Township",
+    "winner": "Conemaugh Township"
+  },
+  {
+    "id": "73630d2f-abc9-4e0e-bdad-540c007f284a",
+    "date": "2025-09-05",
+    "a": "Purchase Line",
+    "b": "Cambria Heights",
+    "winner": "Cambria Heights"
+  },
+  {
+    "id": "0c3629c4-f342-4198-bf90-560a02f86bf8",
+    "date": "2025-09-12",
+    "a": "Purchase Line",
+    "b": "West Shamokin",
+    "winner": "Purchase Line"
+  },
+  {
+    "id": "9803cd15-f94f-40a5-9da4-59813f19515a",
+    "date": "2025-09-19",
+    "a": "Purchase Line",
+    "b": "Penns Manor",
+    "winner": "Purchase Line"
+  },
+  {
+    "id": "82e131fc-317c-439d-a6e0-b0d1475c7707",
+    "date": "2025-10-03",
+    "a": "Purchase Line",
+    "b": "River Valley",
+    "winner": "River Valley"
+  },
+  {
+    "id": "3d80d13f-c375-44ec-a16c-eba210491098",
+    "date": "2025-10-24",
+    "a": "Purchase Line",
+    "b": "United Valley co-op [Blacklick Valley/United]",
+    "winner": ""
+  },
+  {
+    "id": "4872ed5c-8524-4c8b-9954-7576b3e44fec",
+    "date": "2025-08-29",
+    "a": "Conemaugh Township",
+    "b": "West Shamokin",
+    "winner": "Conemaugh Township"
+  },
+  {
+    "id": "d3eadef3-851c-48b6-9a43-180943979d5b",
+    "date": "2025-09-05",
+    "a": "Conemaugh Township",
+    "b": "River Valley",
+    "winner": "River Valley"
+  },
+  {
+    "id": "bfc243bc-c2cd-421b-80b7-2a3b89655fc5",
+    "date": "2025-09-12",
+    "a": "Conemaugh Township",
+    "b": "United Valley co-op [Blacklick Valley/United]",
+    "winner": "United Valley co-op [Blacklick Valley/United]"
+  },
+  {
+    "id": "d3880a75-c828-4c2f-80e5-05e4488f264b",
+    "date": "2025-10-03",
+    "a": "Conemaugh Township",
+    "b": "Penns Manor",
+    "winner": "Conemaugh Township"
+  },
+  {
+    "id": "08f298fd-15b2-4704-b1df-1773b7f86e1d",
+    "date": "2025-10-10",
+    "a": "Conemaugh Township",
+    "b": "Cambria Heights",
+    "winner": "Cambria Heights"
+  },
+  {
+    "id": "49d0763d-d8be-4c6b-9236-e3b3ce35c76e",
+    "date": "2025-10-24",
+    "a": "Conemaugh Township",
+    "b": "Conemaugh Valley",
+    "winner": ""
+  },
+  {
+    "id": "9228615b-8b86-45e4-a300-f09bbf7be214",
+    "date": "2025-08-29",
+    "a": "Conemaugh Valley",
+    "b": "Penns Manor",
+    "winner": "Penns Manor"
+  },
+  {
+    "id": "b71eed08-faee-4927-91bf-7860fe9fbcf8",
+    "date": "2025-09-19",
+    "a": "Conemaugh Valley",
+    "b": "United Valley co-op [Blacklick Valley/United]",
+    "winner": "United Valley co-op [Blacklick Valley/United]"
+  },
+  {
+    "id": "a0978764-3ecf-4ce0-8f13-bbdf9409c772",
+    "date": "2025-09-26",
+    "a": "Conemaugh Valley",
+    "b": "Cambria Heights",
+    "winner": "Cambria Heights"
+  },
+  {
+    "id": "2738b588-9dd3-45f7-8aaa-b895219dda74",
+    "date": "2025-10-10",
+    "a": "Conemaugh Valley",
+    "b": "River Valley",
+    "winner": "River Valley"
+  },
+  {
+    "id": "aa91e01b-2184-4c09-950d-8d3770c1711f",
+    "date": "2025-10-17",
+    "a": "Conemaugh Valley",
+    "b": "West Shamokin",
+    "winner": "West Shamokin"
+  },
+  {
+    "id": "74934deb-b8fa-46f1-994d-730eeccd1b37",
+    "date": "2025-09-05",
+    "a": "West Shamokin",
+    "b": "Penns Manor",
+    "winner": "Penns Manor"
+  },
+  {
+    "id": "c17a39a6-b48f-4a3a-88ca-6eacd3563f8b",
+    "date": "2025-10-03",
+    "a": "West Shamokin",
+    "b": "United Valley co-op [Blacklick Valley/United]",
+    "winner": "United Valley co-op [Blacklick Valley/United]"
+  },
+  {
+    "id": "dc004178-17eb-436c-bb21-9deaba5a5947",
+    "date": "2025-10-24",
+    "a": "West Shamokin",
+    "b": "Cambria Heights",
+    "winner": ""
+  },
+  {
+    "id": "907bf6d9-356f-4215-918a-9875ab3679b6",
+    "date": "2025-09-19",
+    "a": "Cambria Heights",
+    "b": "Marion Center",
+    "winner": "Marion Center"
+  },
+  {
+    "id": "26357775-b6f6-49fb-84f9-93a5ba442d37",
+    "date": "2025-08-22",
+    "a": "River Valley",
+    "b": "Penns Manor",
+    "winner": "River Valley"
+  },
+  {
+    "id": "e3b1ceb2-92de-4967-b67f-eca5b0a44c18",
+    "date": "2025-08-29",
+    "a": "River Valley",
+    "b": "Cambria Heights",
+    "winner": "Cambria Heights"
+  },
+  {
+    "id": "4059a7e4-9a2d-44cc-8dc0-0334c73a815e",
+    "date": "2025-09-26",
+    "a": "River Valley",
+    "b": "United Valley co-op [Blacklick Valley/United]",
+    "winner": "River Valley"
+  },
+  {
+    "id": "cd06d9f7-4841-4d04-b944-7cb5e06a8bbb",
+    "date": "2025-08-22",
+    "a": "United Valley co-op [Blacklick Valley/United]",
+    "b": "Cambria Heights",
+    "winner": "Cambria Heights"
+  },
+  {
+    "id": "2be0a37e-53d3-44df-8a02-a6c9f937c9a3",
+    "date": "2025-10-17",
+    "a": "United Valley co-op [Blacklick Valley/United]",
+    "b": "Penns Manor",
+    "winner": "United Valley co-op [Blacklick Valley/United]"
+  },
+  {
+    "id": "be775943-0243-4873-8991-a3d34ba0d21f",
+    "date": "2025-08-22",
+    "a": "Bishop Guilfoyle",
+    "b": "Penns Valley Area",
+    "winner": "Bishop Guilfoyle"
+  },
+  {
+    "id": "a7e6ceb3-ff03-4f9e-8579-045274ba5dc3",
+    "date": "2025-08-30",
+    "a": "Bishop Guilfoyle",
+    "b": "Richland",
+    "winner": "Richland"
+  },
+  {
+    "id": "7bcc1763-3240-471a-8092-f68c19bb8897",
+    "date": "2025-09-05",
+    "a": "Bishop Guilfoyle",
+    "b": "Bellefonte",
+    "winner": "Bishop Guilfoyle"
+  },
+  {
+    "id": "7146082a-8087-47c5-bc20-8ba609c20199",
+    "date": "2025-09-13",
+    "a": "Bishop Guilfoyle",
+    "b": "Huntingdon",
+    "winner": "Bishop Guilfoyle"
+  },
+  {
+    "id": "19925cf0-81fe-4325-b236-b79cdd01ca18",
+    "date": "2025-09-19",
+    "a": "Bishop Guilfoyle",
+    "b": "Central",
+    "winner": "Bishop Guilfoyle"
+  },
+  {
+    "id": "8eb37718-d278-4a89-a7f7-835d21982955",
+    "date": "2025-09-27",
+    "a": "Bishop Guilfoyle",
+    "b": "Tyrone",
+    "winner": "Bishop Guilfoyle"
+  },
+  {
+    "id": "854b92c4-b7a9-40f6-93d2-f8036d5ebbcc",
+    "date": "2025-10-03",
+    "a": "Bishop Guilfoyle",
+    "b": "Bellwood-Antis",
+    "winner": "Bishop Guilfoyle"
+  },
+  {
+    "id": "9e9af6f0-6e72-4862-b50f-17373b109725",
+    "date": "2025-10-10",
+    "a": "Bishop Guilfoyle",
+    "b": "Forest Hills",
+    "winner": "Bishop Guilfoyle"
+  },
+  {
+    "id": "e25396da-c94c-4897-aeaf-959e9273c887",
+    "date": "2025-10-17",
+    "a": "Bishop Guilfoyle",
+    "b": "Clearfield",
+    "winner": "Bishop Guilfoyle"
+  },
+  {
+    "id": "df8f1448-11db-46ed-a464-cf0295b6003f",
+    "date": "2025-10-24",
+    "a": "Bishop Guilfoyle",
+    "b": "TBA* (@ Saint Francis University)",
+    "winner": ""
+  },
+  {
+    "id": "de737d11-b67c-4f0b-b96b-730dd41a7cab",
+    "date": "2025-08-22",
+    "a": "Juniata Valley",
+    "b": "Newport",
+    "winner": "Newport"
+  },
+  {
+    "id": "871fe751-caa9-48bb-b191-8a5852ed54fe",
+    "date": "2025-08-29",
+    "a": "Juniata Valley",
+    "b": "North Star",
+    "winner": "Juniata Valley"
+  },
+  {
+    "id": "2faef892-25a4-4b88-97af-6cefe67a673a",
+    "date": "2025-09-05",
+    "a": "Juniata Valley",
+    "b": "Glendale",
+    "winner": "Juniata Valley"
+  },
+  {
+    "id": "8fc64e68-8ff4-4253-81d7-4cb6ac07455a",
+    "date": "2025-09-12",
+    "a": "Juniata Valley",
+    "b": "Claysburg-Kimmel",
+    "winner": "Juniata Valley"
+  },
+  {
+    "id": "ab77c79d-bc27-4500-8e09-8e53a916ed95",
+    "date": "2025-09-19",
+    "a": "Juniata Valley",
+    "b": "West Branch",
+    "winner": "Juniata Valley"
+  },
+  {
+    "id": "b503434d-d279-4732-9200-96cf596fd842",
+    "date": "2025-09-26",
+    "a": "Juniata Valley",
+    "b": "Moshannon Valley",
+    "winner": "Juniata Valley"
+  },
+  {
+    "id": "5c2c2fe9-4745-4e93-bbe2-ae0a6c9266b6",
+    "date": "2025-10-03",
+    "a": "Juniata Valley",
+    "b": "Mount Union",
+    "winner": "Mount Union"
+  },
+  {
+    "id": "34e1d96f-9921-4299-8947-90a6329bdca2",
+    "date": "2025-10-10",
+    "a": "Juniata Valley",
+    "b": "Curwensville",
+    "winner": "Juniata Valley"
+  },
+  {
+    "id": "83297407-7709-468f-bd27-6681fc4b90a8",
+    "date": "2025-10-17",
+    "a": "Juniata Valley",
+    "b": "Southern Huntingdon County",
+    "winner": "Juniata Valley"
+  },
+  {
+    "id": "95c86cd7-d15b-478a-89d9-9916330639c5",
+    "date": "2025-10-24",
+    "a": "Juniata Valley",
+    "b": "Windber",
+    "winner": ""
+  },
+  {
+    "id": "f211ef16-b8c2-4761-8d8f-3984475cefe3",
+    "date": "2025-08-22",
+    "a": "Claysburg-Kimmel",
+    "b": "Berlin Brothersvalley",
+    "winner": "Berlin Brothersvalley"
+  },
+  {
+    "id": "96b13e13-f9ba-4a30-bc9b-aa45ae8ffd4a",
+    "date": "2025-08-29",
+    "a": "Claysburg-Kimmel",
+    "b": "Northern Bedford County",
+    "winner": "Claysburg-Kimmel"
+  },
+  {
+    "id": "252d27ac-10f1-411d-b97e-d4c6ad4d6eed",
+    "date": "2025-09-05",
+    "a": "Claysburg-Kimmel",
+    "b": "West Branch",
+    "winner": "Claysburg-Kimmel"
+  },
+  {
+    "id": "b891e39c-0cee-40f0-a83c-83a644eecf3a",
+    "date": "2025-09-19",
+    "a": "Claysburg-Kimmel",
+    "b": "Curwensville",
+    "winner": "Claysburg-Kimmel"
+  },
+  {
+    "id": "733e5e30-bb10-4f3b-8694-b2d4cda90d59",
+    "date": "2025-09-26",
+    "a": "Claysburg-Kimmel",
+    "b": "Southern Huntingdon County",
+    "winner": "Claysburg-Kimmel"
+  },
+  {
+    "id": "b29cdd89-a4d5-48e6-87b6-41c6cd4849d6",
+    "date": "2025-10-03",
+    "a": "Claysburg-Kimmel",
+    "b": "Glendale",
+    "winner": "Claysburg-Kimmel"
+  },
+  {
+    "id": "79a77770-a472-44d4-9a0c-da2208cffd47",
+    "date": "2025-10-10",
+    "a": "Claysburg-Kimmel",
+    "b": "Moshannon Valley",
+    "winner": "Claysburg-Kimmel"
+  },
+  {
+    "id": "5ade8e53-22ff-4af8-af72-6c3be976bc74",
+    "date": "2025-10-17",
+    "a": "Claysburg-Kimmel",
+    "b": "Mount Union",
+    "winner": "Claysburg-Kimmel"
+  },
+  {
+    "id": "5ce05efe-3d5f-41a4-b2a4-3173a911a862",
+    "date": "2025-10-24",
+    "a": "Claysburg-Kimmel",
+    "b": "Everett",
+    "winner": ""
+  },
+  {
+    "id": "531dece0-fe64-4ae6-ac90-1b24a1fac46a",
+    "date": "2025-08-22",
+    "a": "Moshannon Valley",
+    "b": "North Star",
+    "winner": "North Star"
+  },
+  {
+    "id": "55905190-24f5-4e64-976b-6ce7f3a698ec",
+    "date": "2025-08-29",
+    "a": "Moshannon Valley",
+    "b": "Everett",
+    "winner": "Everett"
+  },
+  {
+    "id": "73630975-318d-4c72-b1ac-59a4eb1552b6",
+    "date": "2025-09-05",
+    "a": "Moshannon Valley",
+    "b": "Southern Huntingdon County",
+    "winner": "Moshannon Valley"
+  },
+  {
+    "id": "6707f754-294c-446d-a7a6-c6f439153d0c",
+    "date": "2025-09-12",
+    "a": "Moshannon Valley",
+    "b": "Glendale",
+    "winner": "Moshannon Valley"
+  },
+  {
+    "id": "1a7cc7bf-7c8d-4661-ab70-4a1f26c28e0b",
+    "date": "2025-09-19",
+    "a": "Moshannon Valley",
+    "b": "Mount Union",
+    "winner": "Mount Union"
+  },
+  {
+    "id": "05618952-21d6-4a9b-ab9a-f363e0be61c1",
+    "date": "2025-10-03",
+    "a": "Moshannon Valley",
+    "b": "Curwensville",
+    "winner": "Moshannon Valley"
+  },
+  {
+    "id": "2669b6fa-1edb-4b3c-b5b3-079149bbde34",
+    "date": "2025-10-17",
+    "a": "Moshannon Valley",
+    "b": "West Branch",
+    "winner": "Moshannon Valley"
+  },
+  {
+    "id": "6ba1e082-d71f-4a6f-a4b7-515290d67cae",
+    "date": "2025-10-24",
+    "a": "Moshannon Valley",
+    "b": "Berlin Brothersvalley",
+    "winner": ""
+  },
+  {
+    "id": "406a6e8f-7c51-4c58-9801-59cfce32a925",
+    "date": "2025-08-22",
+    "a": "Glendale",
+    "b": "Windber",
+    "winner": "Windber"
+  },
+  {
+    "id": "600a11cb-9bb8-4db5-8754-fc8b0070dd77",
+    "date": "2025-08-29",
+    "a": "Glendale",
+    "b": "Meyersdale",
+    "winner": "Meyersdale"
+  },
+  {
+    "id": "21edbe25-4f1c-4326-a366-88ebd1f746f4",
+    "date": "2025-09-19",
+    "a": "Glendale",
+    "b": "Southern Huntingdon County",
+    "winner": "Glendale"
+  },
+  {
+    "id": "c5b1b622-e3ed-4041-a07b-e72e163fcb01",
+    "date": "2025-09-26",
+    "a": "Glendale",
+    "b": "Mount Union",
+    "winner": "Mount Union"
+  },
+  {
+    "id": "03a777b3-668c-4d2e-af7e-9e1ddc4325d0",
+    "date": "2025-10-10",
+    "a": "Glendale",
+    "b": "West Branch",
+    "winner": "Glendale"
+  },
+  {
+    "id": "36a1acc3-42b5-4330-9644-1485fe8292e5",
+    "date": "2025-10-17",
+    "a": "Glendale",
+    "b": "Curwensville",
+    "winner": "Glendale"
+  },
+  {
+    "id": "ebda237a-eb79-40e1-9918-80bf5621b282",
+    "date": "2025-10-24",
+    "a": "Glendale",
+    "b": "Northern Bedford County",
+    "winner": ""
+  },
+  {
+    "id": "43909408-3adc-4a1d-9c83-e806cb48bffa",
+    "date": "2025-08-22",
+    "a": "West Branch",
+    "b": "Everett",
+    "winner": "Everett"
+  },
+  {
+    "id": "49793fbb-cf66-4848-95d2-c4dfac3b1267",
+    "date": "2025-08-29",
+    "a": "West Branch",
+    "b": "Cameron County",
+    "winner": "Cameron County"
+  },
+  {
+    "id": "3681b9d0-7288-4d4b-a5c6-c8f4659f090b",
+    "date": "2025-09-12",
+    "a": "West Branch",
+    "b": "Mount Union",
+    "winner": "Mount Union"
+  },
+  {
+    "id": "0e3ff485-fac0-46c1-a43a-c97ad49e0ba3",
+    "date": "2025-09-26",
+    "a": "West Branch",
+    "b": "Curwensville",
+    "winner": "Curwensville"
+  },
+  {
+    "id": "33a3cf29-1eb5-4f92-8553-c8c7e1330638",
+    "date": "2025-10-03",
+    "a": "West Branch",
+    "b": "Southern Huntingdon County",
+    "winner": "Southern Huntingdon County"
+  },
+  {
+    "id": "5f995708-32c8-43ac-8f8b-8ca4a09ddaa1",
+    "date": "2025-10-24",
+    "a": "West Branch",
+    "b": "North Star",
+    "winner": ""
+  },
+  {
+    "id": "66795dcb-cc3b-47b5-93ac-c8b404ab6ce1",
+    "date": "2025-08-22",
+    "a": "Curwensville",
+    "b": "Meyersdale",
+    "winner": "Meyersdale"
+  },
+  {
+    "id": "088fb090-5229-46c9-b37e-577d0574108f",
+    "date": "2025-08-29",
+    "a": "Curwensville",
+    "b": "Windber",
+    "winner": "Windber"
+  },
+  {
+    "id": "f294f02e-5440-4b4a-a405-f32653601a44",
+    "date": "2025-09-05",
+    "a": "Curwensville",
+    "b": "Mount Union",
+    "winner": "Mount Union"
+  },
+  {
+    "id": "1b53bf97-e733-4196-9dde-c1018a93037e",
+    "date": "2025-09-12",
+    "a": "Curwensville",
+    "b": "Southern Huntingdon County",
+    "winner": "Curwensville"
+  },
+  {
+    "id": "ec46a85c-2734-4bc7-8ead-00c4bd11c324",
+    "date": "2025-10-24",
+    "a": "Curwensville",
+    "b": "Tussey Mountain",
+    "winner": ""
+  },
+  {
+    "id": "81d798c2-95bb-4940-a7f1-dbad2b014642",
+    "date": "2025-09-05",
+    "a": "North Star",
+    "b": "Meyersdale",
+    "winner": "Meyersdale"
+  },
+  {
+    "id": "6ccbfd95-68a8-48f9-a1bf-5eefd25bab1b",
+    "date": "2025-09-12",
+    "a": "North Star",
+    "b": "Tussey Mountain",
+    "winner": "North Star"
+  },
+  {
+    "id": "64d10103-19ff-4a08-bacc-8b6b29661226",
+    "date": "2025-09-19",
+    "a": "North Star",
+    "b": "Windber",
+    "winner": "Windber"
+  },
+  {
+    "id": "0efbe66e-4c7f-4ec9-8117-2230f543e100",
+    "date": "2025-09-26",
+    "a": "North Star",
+    "b": "Everett",
+    "winner": "Everett"
+  },
+  {
+    "id": "e1e4024d-d4c4-4c0f-9618-2bfbe85a0c26",
+    "date": "2025-10-03",
+    "a": "North Star",
+    "b": "Hancock",
+    "winner": "North Star"
+  },
+  {
+    "id": "aba478ca-199a-4400-8c8a-18bbda8f1f0f",
+    "date": "2025-10-10",
+    "a": "North Star",
+    "b": "Northern Bedford County",
+    "winner": "Northern Bedford County"
+  },
+  {
+    "id": "6696072b-bdf9-4a9b-9984-ef60c45371fd",
+    "date": "2025-10-17",
+    "a": "North Star",
+    "b": "Berlin Brothersvalley",
+    "winner": "Berlin Brothersvalley"
+  },
+  {
+    "id": "845ebdb6-1201-43a1-bb68-eb5a630e1207",
+    "date": "2025-08-22",
+    "a": "Southern Huntingdon County",
+    "b": "Northern Bedford County",
+    "winner": "Southern Huntingdon County"
+  },
+  {
+    "id": "456b29f5-c35c-4653-a272-de1f7110a8a2",
+    "date": "2025-08-29",
+    "a": "Southern Huntingdon County",
+    "b": "Tussey Mountain",
+    "winner": "Tussey Mountain"
+  },
+  {
+    "id": "8ecd2fa1-b226-40bf-8423-686b4113d151",
+    "date": "2025-10-10",
+    "a": "Southern Huntingdon County",
+    "b": "Mount Union",
+    "winner": "Mount Union"
+  },
+  {
+    "id": "0d571d37-48ca-4806-b2aa-b6aa3ca37217",
+    "date": "2025-10-24",
+    "a": "Southern Huntingdon County",
+    "b": "Clear Spring",
+    "winner": ""
+  },
+  {
+    "id": "7c8727ef-9211-4945-8bd6-6aeb1cb46936",
+    "date": "2025-08-29",
+    "a": "Penns Valley Area",
+    "b": "Central Cambria",
+    "winner": "Central Cambria"
+  },
+  {
+    "id": "e44acdff-8ac8-45d4-bfae-3a3489fe5a1c",
+    "date": "2025-09-05",
+    "a": "Penns Valley Area",
+    "b": "Bald Eagle Area",
+    "winner": "Bald Eagle Area"
+  },
+  {
+    "id": "480d6112-1eaa-4678-ab3b-fd236f31c2c3",
+    "date": "2025-09-12",
+    "a": "Penns Valley Area",
+    "b": "Philipsburg-Osceola",
+    "winner": "Philipsburg-Osceola"
+  },
+  {
+    "id": "095e2ae9-07e5-4479-8053-5b13aa9e3fd5",
+    "date": "2025-09-19",
+    "a": "Penns Valley Area",
+    "b": "Bellefonte",
+    "winner": "Bellefonte"
+  },
+  {
+    "id": "ba848050-c128-429e-baf2-5c8d255dc074",
+    "date": "2025-09-26",
+    "a": "Penns Valley Area",
+    "b": "Clearfield",
+    "winner": "Clearfield"
+  },
+  {
+    "id": "a22c32c3-6b9d-4570-94ee-08534f7a64b0",
+    "date": "2025-10-03",
+    "a": "Penns Valley Area",
+    "b": "Central",
+    "winner": "Central"
+  },
+  {
+    "id": "0f753620-5ea7-4d9a-9693-1cdd7f33c42c",
+    "date": "2025-10-09",
+    "a": "Penns Valley Area",
+    "b": "Greater Johnstown",
+    "winner": "Penns Valley Area"
+  },
+  {
+    "id": "deb0fedf-5ac6-44a4-b7ad-2b3b344621d0",
+    "date": "2025-10-17",
+    "a": "Penns Valley Area",
+    "b": "Huntingdon",
+    "winner": "Huntingdon"
+  },
+  {
+    "id": "d6259175-bdf5-48a0-a6a5-bcb2b568d776",
+    "date": "2025-08-22",
+    "a": "Bellefonte",
+    "b": "Tyrone",
+    "winner": "Bellefonte"
+  },
+  {
+    "id": "9764b369-a379-4341-b98b-24dce57cb3de",
+    "date": "2025-08-29",
+    "a": "Bellefonte",
+    "b": "Forest Hills",
+    "winner": "Forest Hills"
+  },
+  {
+    "id": "7add3b7c-3ae6-4b00-918f-2175198b4ad1",
+    "date": "2025-09-12",
+    "a": "Bellefonte",
+    "b": "Clearfield",
+    "winner": "Clearfield"
+  },
+  {
+    "id": "8aa38170-08d6-476a-a64e-268db7227071",
+    "date": "2025-09-26",
+    "a": "Bellefonte",
+    "b": "Bald Eagle Area",
+    "winner": "Bald Eagle Area"
+  },
+  {
+    "id": "b8292e2c-fab4-493d-bc84-8799605a7aa9",
+    "date": "2025-10-03",
+    "a": "Bellefonte",
+    "b": "Philipsburg-Osceola",
+    "winner": "Bellefonte"
+  },
+  {
+    "id": "a3d7e8d1-6a2d-4304-a5ad-564299bc0cf3",
+    "date": "2025-10-10",
+    "a": "Bellefonte",
+    "b": "Richland",
+    "winner": "Richland"
+  },
+  {
+    "id": "ca15a8c3-5c82-45fd-b0cd-7448ee7a38b4",
+    "date": "2025-10-17",
+    "a": "Bellefonte",
+    "b": "Bellwood-Antis",
+    "winner": "Bellwood-Antis"
+  },
+  {
+    "id": "d97a9048-3dab-40f4-9a53-417280ae2ba3",
+    "date": "2025-10-24",
+    "a": "Bellefonte",
+    "b": "TBA* (This is a league crossover game. )",
+    "winner": ""
+  },
+  {
+    "id": "5178508d-181f-41ab-976b-ae239f5820d1",
+    "date": "2025-08-22",
+    "a": "Huntingdon",
+    "b": "Bald Eagle Area",
+    "winner": "Huntingdon"
+  },
+  {
+    "id": "54f303d1-0461-4130-ad9c-6528c6da9771",
+    "date": "2025-08-29",
+    "a": "Huntingdon",
+    "b": "Somerset",
+    "winner": "Huntingdon"
+  },
+  {
+    "id": "a9c88656-51e8-464d-aa73-da044d51ba2b",
+    "date": "2025-09-05",
+    "a": "Huntingdon",
+    "b": "Bellwood-Antis",
+    "winner": "Huntingdon"
+  },
+  {
+    "id": "ec5a7945-765f-4bf3-8114-1f26393ce81b",
+    "date": "2025-09-19",
+    "a": "Huntingdon",
+    "b": "Clearfield",
+    "winner": "Huntingdon"
+  },
+  {
+    "id": "113bf18c-80b8-444c-87c2-d3d84d577317",
+    "date": "2025-09-26",
+    "a": "Huntingdon",
+    "b": "Central",
+    "winner": "Huntingdon"
+  },
+  {
+    "id": "51d635ff-004b-476a-a1d7-2bb998f473e0",
+    "date": "2025-10-03",
+    "a": "Huntingdon",
+    "b": "Tyrone",
+    "winner": "Tyrone"
+  },
+  {
+    "id": "91712b5e-8ddd-462e-8ef3-22f853d418fa",
+    "date": "2025-10-10",
+    "a": "Huntingdon",
+    "b": "Bedford",
+    "winner": "Huntingdon"
+  },
+  {
+    "id": "119e0269-471d-45d6-aeeb-42feaabf953c",
+    "date": "2025-08-29",
+    "a": "Central",
+    "b": "Greater Johnstown",
+    "winner": "Central"
+  },
+  {
+    "id": "4b08ec26-2eee-4b6b-924d-3bd0f0a99829",
+    "date": "2025-09-05",
+    "a": "Central",
+    "b": "Tyrone",
+    "winner": "Tyrone"
+  },
+  {
+    "id": "410464e6-f6f8-4cd4-9ac9-5ea6b5ab0d30",
+    "date": "2025-09-12",
+    "a": "Central",
+    "b": "Bellwood-Antis",
+    "winner": "Bellwood-Antis"
+  },
+  {
+    "id": "8f417619-686b-4dda-8180-b29aa3c8bcf1",
+    "date": "2025-10-10",
+    "a": "Central",
+    "b": "Central Cambria",
+    "winner": "Central Cambria"
+  },
+  {
+    "id": "2d3e20d5-11f9-428e-a068-7631c441853e",
+    "date": "2025-10-17",
+    "a": "Central",
+    "b": "Bald Eagle Area",
+    "winner": "Central"
+  },
+  {
+    "id": "d1164e88-dbb8-4e0e-b1bd-77e5743dac55",
+    "date": "2025-10-24",
+    "a": "Central",
+    "b": "TBA* (LHAC Cross-Over Game)",
+    "winner": ""
+  },
+  {
+    "id": "e589a145-9e8d-4dee-945f-d6012777332e",
+    "date": "2025-08-29",
+    "a": "Tyrone",
+    "b": "Westmont Hilltop",
+    "winner": "Tyrone"
+  },
+  {
+    "id": "94693562-242e-41a0-85d7-568b4cbe6f79",
+    "date": "2025-09-12",
+    "a": "Tyrone",
+    "b": "Bald Eagle Area",
+    "winner": "Tyrone"
+  },
+  {
+    "id": "d718cfab-e785-4934-b97d-f08b43e63726",
+    "date": "2025-09-19",
+    "a": "Tyrone",
+    "b": "Bellwood-Antis",
+    "winner": "Bellwood-Antis"
+  },
+  {
+    "id": "559b334f-6527-4423-8d64-0efde2e563e3",
+    "date": "2025-10-10",
+    "a": "Tyrone",
+    "b": "Penn Cambria",
+    "winner": "Penn Cambria"
+  },
+  {
+    "id": "f36d994c-3b54-4cea-95c7-b128d8814502",
+    "date": "2025-10-17",
+    "a": "Tyrone",
+    "b": "Philipsburg-Osceola",
+    "winner": "Tyrone"
+  },
+  {
+    "id": "a632c69c-b20c-4f25-8f90-4c7852cd23c2",
+    "date": "2025-08-22",
+    "a": "Bellwood-Antis",
+    "b": "Clearfield",
+    "winner": "Bellwood-Antis"
+  },
+  {
+    "id": "2ed6ccbe-9641-44f3-b80d-ede6bb19bea1",
+    "date": "2025-08-29",
+    "a": "Bellwood-Antis",
+    "b": "Bishop McCort",
+    "winner": "Bishop McCort"
+  },
+  {
+    "id": "d28ed71f-c251-4d32-9000-332a3236a41f",
+    "date": "2025-09-26",
+    "a": "Bellwood-Antis",
+    "b": "Philipsburg-Osceola",
+    "winner": "Philipsburg-Osceola"
+  },
+  {
+    "id": "8a9424b1-6ccb-4f4c-b6c6-0c744e20295a",
+    "date": "2025-10-10",
+    "a": "Bellwood-Antis",
+    "b": "Chestnut Ridge",
+    "winner": "Bellwood-Antis"
+  },
+  {
+    "id": "458954b1-a929-4e5d-9dfb-6cdc1e82259c",
+    "date": "2025-08-22",
+    "a": "Forest Hills",
+    "b": "Westmont Hilltop",
+    "winner": "Forest Hills"
+  },
+  {
+    "id": "737eb4e2-4655-4613-9a8d-65052da044e7",
+    "date": "2025-09-05",
+    "a": "Forest Hills",
+    "b": "Penn Cambria",
+    "winner": "Forest Hills"
+  },
+  {
+    "id": "02e19a57-6118-4a14-b52e-504ef4ab9b9c",
+    "date": "2025-09-12",
+    "a": "Forest Hills",
+    "b": "Chestnut Ridge",
+    "winner": "Forest Hills"
+  },
+  {
+    "id": "d5c6a5c8-3224-41d3-8c62-65ce535aaf41",
+    "date": "2025-09-19",
+    "a": "Forest Hills",
+    "b": "Richland",
+    "winner": "Richland"
+  },
+  {
+    "id": "bade82d1-0ba8-4491-a838-4a64e6d2d73b",
+    "date": "2025-09-26",
+    "a": "Forest Hills",
+    "b": "Bedford",
+    "winner": "Forest Hills"
+  },
+  {
+    "id": "ca6436e8-9823-43e2-942e-f01b6e62b3cd",
+    "date": "2025-10-03",
+    "a": "Forest Hills",
+    "b": "Central Cambria",
+    "winner": "Forest Hills"
+  },
+  {
+    "id": "cff5ea1b-5ac3-44d1-a180-1da81a60b65d",
+    "date": "2025-10-17",
+    "a": "Forest Hills",
+    "b": "Bishop McCort",
+    "winner": "Bishop McCort"
+  },
+  {
+    "id": "6086c67d-2b58-4ec2-9c96-f6e08492cbcc",
+    "date": "2025-10-17",
+    "a": "Richland",
+    "b": "Bedford",
+    "winner": "Richland"
+  },
+  {
+    "id": "e9c116e4-6c00-4db7-8873-7161ac1ddc1c",
+    "date": "2025-10-17",
+    "a": "Central Cambria",
+    "b": "Somerset",
+    "winner": "Central Cambria"
+  },
+  {
+    "id": "fc90fda9-076d-4493-a367-aecee6da18fb",
+    "date": "2025-10-17",
+    "a": "Westmont Hilltop",
+    "b": "Chestnut Ridge",
+    "winner": "Chestnut Ridge"
+  },
+  {
+    "id": "01d45a20-a827-480c-8f39-d763cc9294f2",
+    "date": "2025-08-29",
+    "a": "Clearfield",
+    "b": "Bedford",
+    "winner": "Clearfield"
+  },
+  {
+    "id": "a85f6bad-2486-481e-9ad2-443ffb1e7bce",
+    "date": "2025-09-05",
+    "a": "Clearfield",
+    "b": "Philipsburg-Osceola",
+    "winner": "Clearfield"
+  },
+  {
+    "id": "095c01f0-7c89-459b-84fa-7f83c08d8ba1",
+    "date": "2025-10-03",
+    "a": "Clearfield",
+    "b": "Bald Eagle Area",
+    "winner": "Clearfield"
+  },
+  {
+    "id": "0eb51b71-3795-44ac-9c08-e4ce3d3d1f86",
+    "date": "2025-10-10",
+    "a": "Clearfield",
+    "b": "Somerset",
+    "winner": "Clearfield"
+  },
+  {
+    "id": "15f21f0d-f692-4089-9815-301d616ed53d",
+    "date": "2025-10-24",
+    "a": "Clearfield",
+    "b": "Penn Cambria",
+    "winner": ""
+  },
+  {
+    "id": "adhoc-20251017-nbc-windber",
+    "date": "2025-10-17",
+    "a": "Northern Bedford County",
+    "b": "Windber",
+    "winner": "Northern Bedford County"
+  },
+  {
+    "id": "adhoc-20250822-tm-mu",
+    "date": "2025-08-22",
+    "a": "Tussey Mountain",
+    "b": "Mount Union",
+    "winner": "Mount Union"
+  }
+];
   var activeTab = 'teams';
   var scheduleHidden = false;
   var standingsAllHidden = false;
