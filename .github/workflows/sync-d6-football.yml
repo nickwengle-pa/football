@@ -1,0 +1,42 @@
+name: Refresh official D6 football data
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Four low-impact checks per day through October, plus final weekend catch-up checks.
+    - cron: "23 */6 * 8-10 *"
+    - cron: "23 6,12 1-2 11 *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: d6-football-data
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Run parser tests
+        run: node --test
+      - name: Build validated official feed
+        env:
+          D6_SEASON: "2026"
+        run: node scripts/sync-d6-data.mjs
+      - name: Commit changed source data
+        shell: bash
+        run: |
+          if git diff --quiet -- data/football-2026.json data/football-2026.js; then
+            echo "Official feed is unchanged."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/football-2026.json data/football-2026.js
+          git commit -m "data: refresh 2026 D6 football feed"
+          git push
