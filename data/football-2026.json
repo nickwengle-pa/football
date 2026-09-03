@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "season": 2026,
-  "generatedAt": "2026-09-01T22:39:15.199Z",
+  "generatedAt": "2026-09-03T01:04:31.315Z",
   "sourcePriority": [
     "piaa-d6-scoreboard",
     "piaa-classifications",
@@ -12,7 +12,7 @@
     "classifications": "https://www.piaa.org/schools/classifications/sportDistrict.aspx?district=6&sportID=10",
     "rankings": "https://sports.blkline.com/sports/reports/d6FootballRanking.action",
     "regularSeasonCutoff": "2026-10-31",
-    "rankingsUpdatedAt": "08/31/2026 20:15",
+    "rankingsUpdatedAt": "09/02/2026 20:15",
     "scoreboardPosts": [
       {
         "id": 9980,
