@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "season": 2026,
-  "generatedAt": "2026-09-06T01:08:41.214Z",
+  "generatedAt": "2026-09-06T06:40:35.380Z",
   "sourcePriority": [
     "piaa-d6-scoreboard",
     "piaa-classifications",
@@ -12,7 +12,7 @@
     "classifications": "https://www.piaa.org/schools/classifications/sportDistrict.aspx?district=6&sportID=10",
     "rankings": "https://sports.blkline.com/sports/reports/d6FootballRanking.action",
     "regularSeasonCutoff": "2026-10-31",
-    "rankingsUpdatedAt": "09/05/2026 20:16",
+    "rankingsUpdatedAt": "09/06/2026 00:16",
     "scoreboardPosts": [
       {
         "id": 9980,
@@ -25,12 +25,12 @@
       },
       {
         "id": 10007,
-        "modified": "2026-09-05T00:32:52",
+        "modified": "2026-09-05T22:31:56",
         "link": "https://piaad6.org/fall-sports/football/2026-d6-football-scoreboard-week-1/",
         "title": "2026 D6 Football Scoreboard…. Week 1",
-        "scoreLineCount": 59,
-        "parsedGameCount": 59,
-        "district6GameCount": 27
+        "scoreLineCount": 63,
+        "parsedGameCount": 63,
+        "district6GameCount": 28
       }
     ]
   },
@@ -358,6 +358,18 @@
       "recordProvisional": true
     },
     {
+      "id": "cedar-cliff",
+      "name": "Cedar Cliff",
+      "aliases": [],
+      "cls": "AAAAAA",
+      "district": 3,
+      "wins": 0,
+      "losses": 2,
+      "ties": 0,
+      "recordSource": "piaa-scoreboard-observed",
+      "recordProvisional": true
+    },
+    {
       "id": "central",
       "name": "Central",
       "aliases": [
@@ -543,7 +555,7 @@
       "aliases": [],
       "cls": "A",
       "district": 5,
-      "wins": 1,
+      "wins": 2,
       "losses": 0,
       "ties": 0,
       "recordSource": "piaa-scoreboard-observed",
@@ -736,6 +748,18 @@
       "averageAllowed": 47,
       "recordSource": "blackline-rankings",
       "recordProvisional": false
+    },
+    {
+      "id": "harrisburg",
+      "name": "Harrisburg",
+      "aliases": [],
+      "cls": "AAAAAA",
+      "district": 3,
+      "wins": 2,
+      "losses": 0,
+      "ties": 0,
+      "recordSource": "piaa-scoreboard-observed",
+      "recordProvisional": true
     },
     {
       "id": "hazleton-area",
@@ -1300,6 +1324,18 @@
       "recordProvisional": false
     },
     {
+      "id": "perry",
+      "name": "Perry",
+      "aliases": [],
+      "cls": "AA",
+      "district": 8,
+      "wins": 0,
+      "losses": 2,
+      "ties": 0,
+      "recordSource": "piaa-scoreboard-observed",
+      "recordProvisional": true
+    },
+    {
       "id": "philipsburg-osceola",
       "name": "Philipsburg-Osceola",
       "aliases": [
@@ -1498,6 +1534,18 @@
       "recordProvisional": true
     },
     {
+      "id": "shady-side-academy",
+      "name": "Shady Side Academy",
+      "aliases": [],
+      "cls": "AAA",
+      "district": 7,
+      "wins": 2,
+      "losses": 0,
+      "ties": 0,
+      "recordSource": "piaa-scoreboard-observed",
+      "recordProvisional": true
+    },
+    {
       "id": "shamokin",
       "name": "Shamokin",
       "aliases": [],
@@ -1575,7 +1623,7 @@
       "aliases": [],
       "cls": "AA",
       "district": 4,
-      "wins": 1,
+      "wins": 2,
       "losses": 0,
       "ties": 0,
       "recordSource": "piaa-scoreboard-observed",
@@ -1776,12 +1824,12 @@
       "cls": "AA",
       "district": 6,
       "wins": 0,
-      "losses": 1,
+      "losses": 2,
       "ties": 0,
       "rankingPoints": 0,
       "averagePoints": 0,
-      "averageScore": 29,
-      "averageAllowed": 31,
+      "averageScore": 18,
+      "averageAllowed": 34.5,
       "recordSource": "blackline-rankings",
       "recordProvisional": false
     },
@@ -1814,6 +1862,18 @@
       "averageAllowed": 23.5,
       "recordSource": "blackline-rankings",
       "recordProvisional": false
+    },
+    {
+      "id": "williams-valley",
+      "name": "Williams Valley",
+      "aliases": [],
+      "cls": "A",
+      "district": 11,
+      "wins": 1,
+      "losses": 1,
+      "ties": 0,
+      "recordSource": "piaa-scoreboard-observed",
+      "recordProvisional": true
     },
     {
       "id": "williamsport",
@@ -3837,12 +3897,49 @@
           "cls": "AA"
         }
       }
+    },
+    {
+      "id": "2026:2026-09-05:conemaugh-township:west-shamokin",
+      "sourceGameId": "2026:2026-09-05:conemaugh-township:west-shamokin",
+      "season": 2026,
+      "date": "2026-09-05",
+      "a": "Conemaugh Township",
+      "b": "West Shamokin",
+      "scoreA": 38,
+      "scoreB": 7,
+      "winner": "Conemaugh Township",
+      "status": "final",
+      "source": "piaa-d6-scoreboard",
+      "sourceUrl": "https://piaad6.org/fall-sports/football/2026-d6-football-scoreboard-week-1/",
+      "sourcePostId": 10007,
+      "observedRecords": {
+        "Conemaugh Township": {
+          "wins": 2,
+          "losses": 0,
+          "ties": 0
+        },
+        "West Shamokin": {
+          "wins": 0,
+          "losses": 2,
+          "ties": 0
+        }
+      },
+      "observedTeams": {
+        "Conemaugh Township": {
+          "district": 5,
+          "cls": "A"
+        },
+        "West Shamokin": {
+          "district": 6,
+          "cls": "AA"
+        }
+      }
     }
   ],
   "validation": {
     "officialDistrict6TeamCount": 40,
     "rankingRowCount": 44,
     "scoreboardPostCount": 2,
-    "district6GameCount": 53
+    "district6GameCount": 54
   }
 }
