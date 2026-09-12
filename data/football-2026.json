@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "season": 2026,
-  "generatedAt": "2026-09-12T06:40:50.117Z",
+  "generatedAt": "2026-09-12T18:30:20.725Z",
   "sourcePriority": [
     "piaa-d6-scoreboard",
     "piaa-classifications",
@@ -12,7 +12,7 @@
     "classifications": "https://www.piaa.org/schools/classifications/sportDistrict.aspx?district=6&sportID=10",
     "rankings": "https://sports.blkline.com/sports/reports/d6FootballRanking.action",
     "regularSeasonCutoff": "2026-10-31",
-    "rankingsUpdatedAt": "09/12/2026 00:52",
+    "rankingsUpdatedAt": "09/12/2026 12:16",
     "scoreboardPosts": [
       {
         "id": 9980,
@@ -34,12 +34,12 @@
       },
       {
         "id": 10074,
-        "modified": "2026-09-12T00:39:58",
+        "modified": "2026-09-12T10:07:44",
         "link": "https://piaad6.org/fall-sports/2026-d6-football-scoreboard-week-2/",
         "title": "2026 D6 Football Scoreboard…. Week 2",
-        "scoreLineCount": 47,
-        "parsedGameCount": 47,
-        "district6GameCount": 24
+        "scoreLineCount": 48,
+        "parsedGameCount": 48,
+        "district6GameCount": 25
       }
     ]
   },
@@ -4150,6 +4150,43 @@
       }
     },
     {
+      "id": "2026:2026-09-10:richland:westmont-hilltop",
+      "sourceGameId": "2026:2026-09-10:richland:westmont-hilltop",
+      "season": 2026,
+      "date": "2026-09-10",
+      "a": "Richland",
+      "b": "Westmont Hilltop",
+      "scoreA": 42,
+      "scoreB": 21,
+      "winner": "Richland",
+      "status": "final",
+      "source": "piaa-d6-scoreboard",
+      "sourceUrl": "https://piaad6.org/fall-sports/2026-d6-football-scoreboard-week-2/",
+      "sourcePostId": 10074,
+      "observedRecords": {
+        "Richland": {
+          "wins": 3,
+          "losses": 0,
+          "ties": 0
+        },
+        "Westmont Hilltop": {
+          "wins": 0,
+          "losses": 3,
+          "ties": 0
+        }
+      },
+      "observedTeams": {
+        "Richland": {
+          "district": 6,
+          "cls": "AA"
+        },
+        "Westmont Hilltop": {
+          "district": 6,
+          "cls": "AA"
+        }
+      }
+    },
+    {
       "id": "2026:2026-09-11:bald-eagle-area:penns-valley-area",
       "sourceGameId": "2026:2026-09-11:bald-eagle-area:penns-valley-area",
       "season": 2026,
@@ -5005,6 +5042,6 @@
     "officialDistrict6TeamCount": 40,
     "rankingRowCount": 44,
     "scoreboardPostCount": 3,
-    "district6GameCount": 78
+    "district6GameCount": 79
   }
 }
