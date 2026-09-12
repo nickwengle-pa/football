@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "season": 2026,
-  "generatedAt": "2026-09-11T18:33:56.425Z",
+  "generatedAt": "2026-09-12T01:00:35.117Z",
   "sourcePriority": [
     "piaa-d6-scoreboard",
     "piaa-classifications",
@@ -12,7 +12,7 @@
     "classifications": "https://www.piaa.org/schools/classifications/sportDistrict.aspx?district=6&sportID=10",
     "rankings": "https://sports.blkline.com/sports/reports/d6FootballRanking.action",
     "regularSeasonCutoff": "2026-10-31",
-    "rankingsUpdatedAt": "09/11/2026 14:16",
+    "rankingsUpdatedAt": "09/11/2026 20:16",
     "scoreboardPosts": [
       {
         "id": 9980,
@@ -31,6 +31,15 @@
         "scoreLineCount": 63,
         "parsedGameCount": 63,
         "district6GameCount": 28
+      },
+      {
+        "id": 10074,
+        "modified": "2026-09-11T20:18:14",
+        "link": "https://piaad6.org/fall-sports/2026-d6-football-scoreboard-week-2/",
+        "title": "2026 D6 Football Scoreboard…. Week 2",
+        "scoreLineCount": 5,
+        "parsedGameCount": 5,
+        "district6GameCount": 1
       }
     ]
   },
@@ -442,6 +451,18 @@
       "recordProvisional": true
     },
     {
+      "id": "central-dauphin-east",
+      "name": "Central Dauphin East",
+      "aliases": [],
+      "cls": "AAAAAA",
+      "district": 3,
+      "wins": 0,
+      "losses": 3,
+      "ties": 0,
+      "recordSource": "piaa-scoreboard-observed",
+      "recordProvisional": true
+    },
+    {
       "id": "central-mountain",
       "name": "Central Mountain",
       "aliases": [
@@ -501,6 +522,18 @@
       "aliases": [],
       "cls": "AA",
       "district": 5,
+      "wins": 1,
+      "losses": 1,
+      "ties": 0,
+      "recordSource": "piaa-scoreboard-observed",
+      "recordProvisional": true
+    },
+    {
+      "id": "clairton",
+      "name": "Clairton",
+      "aliases": [],
+      "cls": "A",
+      "district": 7,
       "wins": 1,
       "losses": 1,
       "ties": 0,
@@ -714,6 +747,42 @@
       "recordProvisional": true
     },
     {
+      "id": "franklin",
+      "name": "Franklin",
+      "aliases": [],
+      "cls": "AAAA",
+      "district": 10,
+      "wins": 0,
+      "losses": 3,
+      "ties": 0,
+      "recordSource": "piaa-scoreboard-observed",
+      "recordProvisional": true
+    },
+    {
+      "id": "garfield-heights-oh",
+      "name": "Garfield Heights (OH)",
+      "aliases": [],
+      "cls": "AAA",
+      "district": 99,
+      "wins": 0,
+      "losses": 1,
+      "ties": 0,
+      "recordSource": "piaa-scoreboard-observed",
+      "recordProvisional": true
+    },
+    {
+      "id": "general-mclane",
+      "name": "General McLane",
+      "aliases": [],
+      "cls": "AAAA",
+      "district": 10,
+      "wins": 3,
+      "losses": 0,
+      "ties": 0,
+      "recordSource": "piaa-scoreboard-observed",
+      "recordProvisional": true
+    },
+    {
       "id": "glendale",
       "name": "Glendale",
       "aliases": [
@@ -748,6 +817,18 @@
       "averageAllowed": 47,
       "recordSource": "blackline-rankings",
       "recordProvisional": false
+    },
+    {
+      "id": "harbor-creek",
+      "name": "Harbor Creek",
+      "aliases": [],
+      "cls": "AAAA",
+      "district": 10,
+      "wins": 3,
+      "losses": 0,
+      "ties": 0,
+      "recordSource": "piaa-scoreboard-observed",
+      "recordProvisional": true
     },
     {
       "id": "harrisburg",
@@ -995,13 +1076,13 @@
       "aliases": [],
       "cls": "AAAAAA",
       "district": 10,
-      "wins": 1,
+      "wins": 2,
       "losses": 1,
       "ties": 0,
-      "rankingPoints": 70,
-      "averagePoints": 35,
-      "averageScore": 34,
-      "averageAllowed": 31,
+      "rankingPoints": 140,
+      "averagePoints": 46.67,
+      "averageScore": 29.67,
+      "averageAllowed": 27.33,
       "recordSource": "blackline-rankings",
       "recordProvisional": false
     },
@@ -1760,6 +1841,18 @@
       "averageAllowed": 46,
       "recordSource": "blackline-rankings",
       "recordProvisional": false
+    },
+    {
+      "id": "warren",
+      "name": "Warren",
+      "aliases": [],
+      "cls": "AAAA",
+      "district": 10,
+      "wins": 1,
+      "losses": 2,
+      "ties": 0,
+      "recordSource": "piaa-scoreboard-observed",
+      "recordProvisional": true
     },
     {
       "id": "warrior-run",
@@ -3934,12 +4027,49 @@
           "cls": "AA"
         }
       }
+    },
+    {
+      "id": "2026:2026-09-10:altoona:central-dauphin-east",
+      "sourceGameId": "2026:2026-09-10:altoona:central-dauphin-east",
+      "season": 2026,
+      "date": "2026-09-10",
+      "a": "Altoona",
+      "b": "Central Dauphin East",
+      "scoreA": 41,
+      "scoreB": 33,
+      "winner": "Altoona",
+      "status": "final",
+      "source": "piaa-d6-scoreboard",
+      "sourceUrl": "https://piaad6.org/fall-sports/2026-d6-football-scoreboard-week-2/",
+      "sourcePostId": 10074,
+      "observedRecords": {
+        "Altoona": {
+          "wins": 2,
+          "losses": 1,
+          "ties": 0
+        },
+        "Central Dauphin East": {
+          "wins": 0,
+          "losses": 3,
+          "ties": 0
+        }
+      },
+      "observedTeams": {
+        "Altoona": {
+          "district": 6,
+          "cls": "AAAAAA"
+        },
+        "Central Dauphin East": {
+          "district": 3,
+          "cls": "AAAAAA"
+        }
+      }
     }
   ],
   "validation": {
     "officialDistrict6TeamCount": 40,
     "rankingRowCount": 44,
-    "scoreboardPostCount": 2,
-    "district6GameCount": 54
+    "scoreboardPostCount": 3,
+    "district6GameCount": 55
   }
 }
