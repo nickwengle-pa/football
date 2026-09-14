@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "season": 2026,
-  "generatedAt": "2026-09-14T12:42:19.664Z",
+  "generatedAt": "2026-09-14T18:34:27.512Z",
   "sourcePriority": [
     "piaa-d6-scoreboard",
     "piaa-classifications",
@@ -34,7 +34,7 @@
       },
       {
         "id": 10074,
-        "modified": "2026-09-12T22:21:52",
+        "modified": "2026-09-14T10:18:47",
         "link": "https://piaad6.org/fall-sports/2026-d6-football-scoreboard-week-2/",
         "title": "2026 D6 Football Scoreboard…. Week 2",
         "scoreLineCount": 51,
@@ -4820,35 +4820,35 @@
       "sourceGameId": "2026:2026-09-11:homer-center:marion-center",
       "season": 2026,
       "date": "2026-09-11",
-      "a": "Homer-Center",
-      "b": "Marion Center",
+      "a": "Marion Center",
+      "b": "Homer-Center",
       "scoreA": 22,
       "scoreB": 14,
-      "winner": "Homer-Center",
+      "winner": "Marion Center",
       "status": "final",
       "source": "piaa-d6-scoreboard",
       "sourceUrl": "https://piaad6.org/fall-sports/2026-d6-football-scoreboard-week-2/",
       "sourcePostId": 10074,
       "observedRecords": {
-        "Homer-Center": {
+        "Marion Center": {
           "wins": 3,
           "losses": 0,
           "ties": 0
         },
-        "Marion Center": {
+        "Homer-Center": {
           "wins": 2,
           "losses": 1,
           "ties": 0
         }
       },
       "observedTeams": {
-        "Homer-Center": {
-          "district": 6,
-          "cls": "A"
-        },
         "Marion Center": {
           "district": 6,
           "cls": "AA"
+        },
+        "Homer-Center": {
+          "district": 6,
+          "cls": "A"
         }
       }
     },
