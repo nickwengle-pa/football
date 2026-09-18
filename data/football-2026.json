@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "season": 2026,
-  "generatedAt": "2026-09-18T01:03:20.167Z",
+  "generatedAt": "2026-09-18T06:45:23.951Z",
   "sourcePriority": [
     "piaa-d6-scoreboard",
     "piaa-classifications",
@@ -12,7 +12,7 @@
     "classifications": "https://www.piaa.org/schools/classifications/sportDistrict.aspx?district=6&sportID=10",
     "rankings": "https://sports.blkline.com/sports/reports/d6FootballRanking.action",
     "regularSeasonCutoff": "2026-10-31",
-    "rankingsUpdatedAt": "09/17/2026 20:16",
+    "rankingsUpdatedAt": "09/18/2026 00:16",
     "scoreboardPosts": [
       {
         "id": 9980,
@@ -707,12 +707,12 @@
       "cls": "AAAAAA",
       "district": 10,
       "wins": 2,
-      "losses": 1,
+      "losses": 2,
       "ties": 0,
       "rankingPoints": 190,
-      "averagePoints": 63.33,
-      "averageScore": 11.67,
-      "averageAllowed": 23.33,
+      "averagePoints": 47.5,
+      "averageScore": 10.25,
+      "averageAllowed": 33.25,
       "recordSource": "blackline-rankings",
       "recordProvisional": false
     },
@@ -1112,13 +1112,13 @@
       "aliases": [],
       "cls": "AAAAAA",
       "district": 10,
-      "wins": 2,
+      "wins": 3,
       "losses": 1,
       "ties": 0,
-      "rankingPoints": 140,
-      "averagePoints": 46.67,
-      "averageScore": 29.67,
-      "averageAllowed": 27.33,
+      "rankingPoints": 260,
+      "averagePoints": 65,
+      "averageScore": 38,
+      "averageAllowed": 22,
       "recordSource": "blackline-rankings",
       "recordProvisional": false
     },
