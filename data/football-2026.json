@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "season": 2026,
-  "generatedAt": "2026-09-26T12:38:18.481Z",
+  "generatedAt": "2026-09-26T18:34:31.800Z",
   "sourcePriority": [
     "piaa-d6-scoreboard",
     "piaa-classifications",
@@ -12,7 +12,7 @@
     "classifications": "https://www.piaa.org/schools/classifications/sportDistrict.aspx?district=6&sportID=10",
     "rankings": "https://sports.blkline.com/sports/reports/d6FootballRanking.action",
     "regularSeasonCutoff": "2026-10-31",
-    "rankingsUpdatedAt": "09/26/2026 08:16",
+    "rankingsUpdatedAt": "09/26/2026 14:16",
     "scoreboardPosts": [
       {
         "id": 9980,
@@ -52,11 +52,11 @@
       },
       {
         "id": 10194,
-        "modified": "2026-09-25T23:26:38",
+        "modified": "2026-09-26T09:47:51",
         "link": "https://piaad6.org/fall-sports/2026-d6-football-scoreboard-week-4/",
         "title": "2026 D6 Football Scoreboard…. Week 4",
-        "scoreLineCount": 57,
-        "parsedGameCount": 57,
+        "scoreLineCount": 58,
+        "parsedGameCount": 58,
         "district6GameCount": 24
       }
     ]
@@ -116,6 +116,18 @@
       "district": 4,
       "wins": 4,
       "losses": 1,
+      "ties": 0,
+      "recordSource": "piaa-scoreboard-observed",
+      "recordProvisional": true
+    },
+    {
+      "id": "austintown-fitch-oh",
+      "name": "Austintown Fitch (OH)",
+      "aliases": [],
+      "cls": "AAA",
+      "district": 99,
+      "wins": 2,
+      "losses": 0,
       "ties": 0,
       "recordSource": "piaa-scoreboard-observed",
       "recordProvisional": true
