@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "season": 2026,
-  "generatedAt": "2026-09-25T18:34:59.109Z",
+  "generatedAt": "2026-09-26T06:43:56.661Z",
   "sourcePriority": [
     "piaa-d6-scoreboard",
     "piaa-classifications",
@@ -12,7 +12,7 @@
     "classifications": "https://www.piaa.org/schools/classifications/sportDistrict.aspx?district=6&sportID=10",
     "rankings": "https://sports.blkline.com/sports/reports/d6FootballRanking.action",
     "regularSeasonCutoff": "2026-10-31",
-    "rankingsUpdatedAt": "09/25/2026 14:16",
+    "rankingsUpdatedAt": "09/26/2026 00:16",
     "scoreboardPosts": [
       {
         "id": 9980,
@@ -49,6 +49,15 @@
         "scoreLineCount": 64,
         "parsedGameCount": 64,
         "district6GameCount": 26
+      },
+      {
+        "id": 10194,
+        "modified": "2026-09-25T23:26:38",
+        "link": "https://piaad6.org/fall-sports/2026-d6-football-scoreboard-week-4/",
+        "title": "2026 D6 Football Scoreboard…. Week 4",
+        "scoreLineCount": 57,
+        "parsedGameCount": 57,
+        "district6GameCount": 24
       }
     ]
   },
@@ -90,12 +99,12 @@
       "cls": "AAAAAA",
       "district": 6,
       "wins": 3,
-      "losses": 1,
+      "losses": 2,
       "ties": 0,
-      "rankingPoints": 310,
-      "averagePoints": 77.5,
-      "averageScore": 29.25,
-      "averageAllowed": 24.25,
+      "rankingPoints": 320,
+      "averagePoints": 64,
+      "averageScore": 27.4,
+      "averageAllowed": 27.4,
       "recordSource": "blackline-rankings",
       "recordProvisional": false
     },
@@ -105,7 +114,7 @@
       "aliases": [],
       "cls": "AAA",
       "district": 4,
-      "wins": 3,
+      "wins": 4,
       "losses": 1,
       "ties": 0,
       "recordSource": "piaa-scoreboard-observed",
@@ -120,12 +129,12 @@
       "cls": "AA",
       "district": 6,
       "wins": 3,
-      "losses": 1,
+      "losses": 2,
       "ties": 0,
-      "rankingPoints": 360,
-      "averagePoints": 90,
-      "averageScore": 26.75,
-      "averageAllowed": 20.25,
+      "rankingPoints": 380,
+      "averagePoints": 76,
+      "averageScore": 24.2,
+      "averageAllowed": 20.6,
       "recordSource": "blackline-rankings",
       "recordProvisional": false
     },
@@ -136,7 +145,7 @@
       "cls": "AAAAA",
       "district": 7,
       "wins": 1,
-      "losses": 3,
+      "losses": 4,
       "ties": 0,
       "recordSource": "piaa-scoreboard-observed",
       "recordProvisional": true
@@ -148,7 +157,7 @@
       "cls": "AAA",
       "district": 5,
       "wins": 1,
-      "losses": 3,
+      "losses": 4,
       "ties": 0,
       "recordSource": "piaa-scoreboard-observed",
       "recordProvisional": true
@@ -162,12 +171,12 @@
       "cls": "AAAA",
       "district": 6,
       "wins": 2,
-      "losses": 2,
+      "losses": 3,
       "ties": 0,
       "rankingPoints": 230,
-      "averagePoints": 57.5,
-      "averageScore": 15.75,
-      "averageAllowed": 22.75,
+      "averagePoints": 46,
+      "averageScore": 16.4,
+      "averageAllowed": 23.4,
       "recordSource": "blackline-rankings",
       "recordProvisional": false
     },
@@ -179,13 +188,13 @@
       ],
       "cls": "AA",
       "district": 6,
-      "wins": 3,
+      "wins": 4,
       "losses": 1,
       "ties": 0,
-      "rankingPoints": 350,
-      "averagePoints": 87.5,
-      "averageScore": 28.75,
-      "averageAllowed": 13.5,
+      "rankingPoints": 510,
+      "averagePoints": 102,
+      "averageScore": 30.4,
+      "averageAllowed": 13.6,
       "recordSource": "blackline-rankings",
       "recordProvisional": false
     },
@@ -195,7 +204,7 @@
       "aliases": [],
       "cls": "AA",
       "district": 5,
-      "wins": 4,
+      "wins": 5,
       "losses": 0,
       "ties": 0,
       "recordSource": "piaa-scoreboard-observed",
@@ -212,8 +221,8 @@
       "wins": 3,
       "losses": 1,
       "ties": 0,
-      "rankingPoints": 390,
-      "averagePoints": 97.5,
+      "rankingPoints": 410,
+      "averagePoints": 102.5,
       "averageScore": 34.75,
       "averageAllowed": 8.75,
       "recordSource": "blackline-rankings",
@@ -227,13 +236,13 @@
       ],
       "cls": "A",
       "district": 6,
-      "wins": 1,
+      "wins": 2,
       "losses": 3,
       "ties": 0,
-      "rankingPoints": 120,
-      "averagePoints": 30,
-      "averageScore": 20.5,
-      "averageAllowed": 25.5,
+      "rankingPoints": 250,
+      "averagePoints": 50,
+      "averageScore": 28.2,
+      "averageAllowed": 26,
       "recordSource": "blackline-rankings",
       "recordProvisional": false
     },
@@ -243,7 +252,7 @@
       "aliases": [],
       "cls": "AAAAAA",
       "district": 3,
-      "wins": 3,
+      "wins": 4,
       "losses": 1,
       "ties": 0,
       "recordSource": "piaa-scoreboard-observed",
@@ -255,8 +264,20 @@
       "aliases": [],
       "cls": "AA",
       "district": 4,
-      "wins": 4,
+      "wins": 5,
       "losses": 0,
+      "ties": 0,
+      "recordSource": "piaa-scoreboard-observed",
+      "recordProvisional": true
+    },
+    {
+      "id": "boardman-oh",
+      "name": "Boardman (OH)",
+      "aliases": [],
+      "cls": "AAA",
+      "district": 99,
+      "wins": 0,
+      "losses": 2,
       "ties": 0,
       "recordSource": "piaa-scoreboard-observed",
       "recordProvisional": true
@@ -268,7 +289,7 @@
       "cls": "AAAA",
       "district": 9,
       "wins": 1,
-      "losses": 3,
+      "losses": 4,
       "ties": 0,
       "recordSource": "piaa-scoreboard-observed",
       "recordProvisional": true
@@ -280,7 +301,7 @@
       "cls": "AAAA",
       "district": 8,
       "wins": 2,
-      "losses": 2,
+      "losses": 3,
       "ties": 0,
       "recordSource": "piaa-scoreboard-observed",
       "recordProvisional": true
@@ -291,7 +312,7 @@
       "aliases": [],
       "cls": "A",
       "district": 9,
-      "wins": 2,
+      "wins": 3,
       "losses": 2,
       "ties": 0,
       "recordSource": "piaa-scoreboard-observed",
@@ -304,7 +325,7 @@
       "cls": "AAA",
       "district": 9,
       "wins": 0,
-      "losses": 4,
+      "losses": 5,
       "ties": 0,
       "recordSource": "piaa-scoreboard-observed",
       "recordProvisional": true
@@ -316,7 +337,7 @@
       "cls": "A",
       "district": 4,
       "wins": 0,
-      "losses": 3,
+      "losses": 4,
       "ties": 0,
       "recordSource": "piaa-scoreboard-observed",
       "recordProvisional": true
@@ -341,13 +362,13 @@
       ],
       "cls": "AAA",
       "district": 6,
-      "wins": 4,
+      "wins": 5,
       "losses": 0,
       "ties": 0,
-      "rankingPoints": 430,
-      "averagePoints": 107.5,
-      "averageScore": 31.5,
-      "averageAllowed": 10.75,
+      "rankingPoints": 560,
+      "averagePoints": 112,
+      "averageScore": 34.4,
+      "averageAllowed": 9.8,
       "recordSource": "blackline-rankings",
       "recordProvisional": false
     },
@@ -358,7 +379,7 @@
       "cls": "A",
       "district": 9,
       "wins": 2,
-      "losses": 2,
+      "losses": 3,
       "ties": 0,
       "recordSource": "piaa-scoreboard-observed",
       "recordProvisional": true
@@ -370,7 +391,7 @@
       "cls": "AA",
       "district": 3,
       "wins": 0,
-      "losses": 4,
+      "losses": 5,
       "ties": 0,
       "recordSource": "piaa-scoreboard-observed",
       "recordProvisional": true
@@ -382,7 +403,7 @@
       "cls": "A",
       "district": 4,
       "wins": 3,
-      "losses": 1,
+      "losses": 2,
       "ties": 0,
       "recordSource": "piaa-scoreboard-observed",
       "recordProvisional": true
@@ -406,7 +427,7 @@
       "cls": "AAA",
       "district": 8,
       "wins": 0,
-      "losses": 3,
+      "losses": 4,
       "ties": 0,
       "recordSource": "piaa-scoreboard-observed",
       "recordProvisional": true
@@ -418,7 +439,7 @@
       "cls": "AAAAAA",
       "district": 3,
       "wins": 1,
-      "losses": 3,
+      "losses": 4,
       "ties": 0,
       "recordSource": "piaa-scoreboard-observed",
       "recordProvisional": true
@@ -434,8 +455,8 @@
       "wins": 4,
       "losses": 0,
       "ties": 0,
-      "rankingPoints": 500,
-      "averagePoints": 125,
+      "rankingPoints": 520,
+      "averagePoints": 130,
       "averageScore": 34,
       "averageAllowed": 15,
       "recordSource": "blackline-rankings",
@@ -449,13 +470,13 @@
       ],
       "cls": "AAA",
       "district": 6,
-      "wins": 3,
+      "wins": 4,
       "losses": 1,
       "ties": 0,
-      "rankingPoints": 320,
-      "averagePoints": 80,
-      "averageScore": 26.25,
-      "averageAllowed": 18.5,
+      "rankingPoints": 460,
+      "averagePoints": 92,
+      "averageScore": 24,
+      "averageAllowed": 17.6,
       "recordSource": "blackline-rankings",
       "recordProvisional": false
     },
@@ -465,7 +486,7 @@
       "aliases": [],
       "cls": "AA",
       "district": 9,
-      "wins": 1,
+      "wins": 2,
       "losses": 3,
       "ties": 0,
       "recordSource": "piaa-scoreboard-observed",
@@ -478,7 +499,7 @@
       "cls": "AAA",
       "district": 4,
       "wins": 0,
-      "losses": 4,
+      "losses": 5,
       "ties": 0,
       "recordSource": "piaa-scoreboard-observed",
       "recordProvisional": true
@@ -490,7 +511,7 @@
       "cls": "AAAAAA",
       "district": 3,
       "wins": 0,
-      "losses": 3,
+      "losses": 5,
       "ties": 0,
       "recordSource": "piaa-scoreboard-observed",
       "recordProvisional": true
@@ -516,12 +537,12 @@
       "cls": "AAAA",
       "district": 6,
       "wins": 0,
-      "losses": 4,
+      "losses": 5,
       "ties": 0,
       "rankingPoints": 0,
       "averagePoints": 0,
-      "averageScore": 10.75,
-      "averageAllowed": 37,
+      "averageScore": 8.6,
+      "averageAllowed": 40.6,
       "recordSource": "blackline-rankings",
       "recordProvisional": false
     },
@@ -531,7 +552,7 @@
       "aliases": [],
       "cls": "AAAAAA",
       "district": 3,
-      "wins": 2,
+      "wins": 3,
       "losses": 2,
       "ties": 0,
       "recordSource": "piaa-scoreboard-observed",
@@ -543,7 +564,7 @@
       "aliases": [],
       "cls": "AAAAAA",
       "district": 3,
-      "wins": 0,
+      "wins": 1,
       "losses": 4,
       "ties": 0,
       "recordSource": "piaa-scoreboard-observed",
@@ -567,7 +588,7 @@
       "aliases": [],
       "cls": "AA",
       "district": 5,
-      "wins": 1,
+      "wins": 2,
       "losses": 3,
       "ties": 0,
       "recordSource": "piaa-scoreboard-observed",
@@ -594,12 +615,12 @@
       "cls": "AAAA",
       "district": 6,
       "wins": 0,
-      "losses": 4,
+      "losses": 5,
       "ties": 0,
       "rankingPoints": 0,
       "averagePoints": 0,
-      "averageScore": 10,
-      "averageAllowed": 41.5,
+      "averageScore": 10.8,
+      "averageAllowed": 44.8,
       "recordSource": "blackline-rankings",
       "recordProvisional": false
     },
@@ -610,7 +631,7 @@
       "cls": "AAAA",
       "district": 9,
       "wins": 1,
-      "losses": 3,
+      "losses": 4,
       "ties": 0,
       "recordSource": "piaa-scoreboard-observed",
       "recordProvisional": true
@@ -633,7 +654,7 @@
       "aliases": [],
       "cls": "A",
       "district": 5,
-      "wins": 3,
+      "wins": 4,
       "losses": 1,
       "ties": 0,
       "recordSource": "piaa-scoreboard-observed",
@@ -648,12 +669,12 @@
       "cls": "A",
       "district": 6,
       "wins": 0,
-      "losses": 4,
+      "losses": 5,
       "ties": 0,
       "rankingPoints": 0,
       "averagePoints": 0,
-      "averageScore": 11.25,
-      "averageAllowed": 50,
+      "averageScore": 10.2,
+      "averageAllowed": 44.2,
       "recordSource": "blackline-rankings",
       "recordProvisional": false
     },
@@ -664,7 +685,7 @@
       "cls": "A",
       "district": 9,
       "wins": 1,
-      "losses": 3,
+      "losses": 4,
       "ties": 0,
       "recordSource": "piaa-scoreboard-observed",
       "recordProvisional": true
@@ -675,8 +696,8 @@
       "aliases": [],
       "cls": "AAA",
       "district": 4,
-      "wins": 0,
-      "losses": 2,
+      "wins": 2,
+      "losses": 3,
       "ties": 0,
       "recordSource": "piaa-scoreboard-observed",
       "recordProvisional": true
@@ -688,7 +709,7 @@
       "cls": "AAAAAA",
       "district": 3,
       "wins": 2,
-      "losses": 2,
+      "losses": 3,
       "ties": 0,
       "recordSource": "piaa-scoreboard-observed",
       "recordProvisional": true
@@ -700,7 +721,7 @@
       "cls": "A",
       "district": 9,
       "wins": 0,
-      "losses": 4,
+      "losses": 5,
       "ties": 0,
       "recordSource": "piaa-scoreboard-observed",
       "recordProvisional": true
@@ -712,7 +733,7 @@
       "cls": "AAA",
       "district": 4,
       "wins": 3,
-      "losses": 1,
+      "losses": 2,
       "ties": 0,
       "recordSource": "piaa-scoreboard-observed",
       "recordProvisional": true
@@ -724,12 +745,12 @@
       "cls": "AAAAA",
       "district": 9,
       "wins": 3,
-      "losses": 1,
+      "losses": 2,
       "ties": 0,
-      "rankingPoints": 260,
-      "averagePoints": 65,
-      "averageScore": 22.5,
-      "averageAllowed": 12.75,
+      "rankingPoints": 290,
+      "averagePoints": 58,
+      "averageScore": 20.8,
+      "averageAllowed": 14.2,
       "recordSource": "blackline-rankings",
       "recordProvisional": false
     },
@@ -782,14 +803,26 @@
       "cls": "AAAA",
       "district": 6,
       "wins": 2,
-      "losses": 2,
+      "losses": 3,
       "ties": 0,
-      "rankingPoints": 180,
-      "averagePoints": 45,
-      "averageScore": 18.5,
-      "averageAllowed": 24.25,
+      "rankingPoints": 200,
+      "averagePoints": 40,
+      "averageScore": 16.2,
+      "averageAllowed": 26.2,
       "recordSource": "blackline-rankings",
       "recordProvisional": false
+    },
+    {
+      "id": "fort-hill-md",
+      "name": "Fort Hill (MD)",
+      "aliases": [],
+      "cls": "AAA",
+      "district": 99,
+      "wins": 4,
+      "losses": 0,
+      "ties": 0,
+      "recordSource": "piaa-scoreboard-observed",
+      "recordProvisional": true
     },
     {
       "id": "fox-chapel",
@@ -848,12 +881,12 @@
       "cls": "A",
       "district": 6,
       "wins": 2,
-      "losses": 2,
+      "losses": 3,
       "ties": 0,
-      "rankingPoints": 220,
-      "averagePoints": 55,
-      "averageScore": 23,
-      "averageAllowed": 28,
+      "rankingPoints": 230,
+      "averagePoints": 46,
+      "averageScore": 20.8,
+      "averageAllowed": 27.8,
       "recordSource": "blackline-rankings",
       "recordProvisional": false
     },
@@ -866,12 +899,12 @@
       "cls": "AAAA",
       "district": 6,
       "wins": 1,
-      "losses": 3,
+      "losses": 4,
       "ties": 0,
       "rankingPoints": 90,
-      "averagePoints": 22.5,
-      "averageScore": 18.75,
-      "averageAllowed": 37,
+      "averagePoints": 18,
+      "averageScore": 15,
+      "averageAllowed": 34.4,
       "recordSource": "blackline-rankings",
       "recordProvisional": false
     },
@@ -905,7 +938,7 @@
       "aliases": [],
       "cls": "AAAAAA",
       "district": 3,
-      "wins": 3,
+      "wins": 5,
       "losses": 0,
       "ties": 0,
       "recordSource": "piaa-scoreboard-observed",
@@ -919,6 +952,18 @@
       "district": 2,
       "wins": 0,
       "losses": 2,
+      "ties": 0,
+      "recordSource": "piaa-scoreboard-observed",
+      "recordProvisional": true
+    },
+    {
+      "id": "hershey",
+      "name": "Hershey",
+      "aliases": [],
+      "cls": "AAAAA",
+      "district": 3,
+      "wins": 4,
+      "losses": 1,
       "ties": 0,
       "recordSource": "piaa-scoreboard-observed",
       "recordProvisional": true
@@ -944,12 +989,12 @@
       "cls": "AAAAA",
       "district": 6,
       "wins": 3,
-      "losses": 1,
+      "losses": 2,
       "ties": 0,
       "rankingPoints": 330,
-      "averagePoints": 82.5,
-      "averageScore": 27.75,
-      "averageAllowed": 12.75,
+      "averagePoints": 66,
+      "averageScore": 26.4,
+      "averageAllowed": 17.2,
       "recordSource": "blackline-rankings",
       "recordProvisional": false
     },
@@ -961,13 +1006,13 @@
       ],
       "cls": "A",
       "district": 6,
-      "wins": 3,
+      "wins": 4,
       "losses": 1,
       "ties": 0,
-      "rankingPoints": 340,
-      "averagePoints": 85,
-      "averageScore": 33.25,
-      "averageAllowed": 16,
+      "rankingPoints": 490,
+      "averagePoints": 98,
+      "averageScore": 31.2,
+      "averageAllowed": 16.2,
       "recordSource": "blackline-rankings",
       "recordProvisional": false
     },
@@ -977,7 +1022,7 @@
       "aliases": [],
       "cls": "AA",
       "district": 4,
-      "wins": 0,
+      "wins": 1,
       "losses": 4,
       "ties": 0,
       "recordSource": "piaa-scoreboard-observed",
@@ -991,13 +1036,13 @@
       ],
       "cls": "AAA",
       "district": 6,
-      "wins": 1,
+      "wins": 2,
       "losses": 3,
       "ties": 0,
-      "rankingPoints": 100,
-      "averagePoints": 25,
-      "averageScore": 15.25,
-      "averageAllowed": 30.25,
+      "rankingPoints": 220,
+      "averagePoints": 44,
+      "averageScore": 20.8,
+      "averageAllowed": 28,
       "recordSource": "blackline-rankings",
       "recordProvisional": false
     },
@@ -1008,7 +1053,7 @@
       "cls": "AAAA",
       "district": 4,
       "wins": 3,
-      "losses": 1,
+      "losses": 2,
       "ties": 0,
       "recordSource": "piaa-scoreboard-observed",
       "recordProvisional": true
@@ -1022,12 +1067,12 @@
       "cls": "AAA",
       "district": 6,
       "wins": 0,
-      "losses": 4,
+      "losses": 5,
       "ties": 0,
       "rankingPoints": 0,
       "averagePoints": 0,
-      "averageScore": 5.75,
-      "averageAllowed": 29.75,
+      "averageScore": 6,
+      "averageAllowed": 32,
       "recordSource": "blackline-rankings",
       "recordProvisional": false
     },
@@ -1039,13 +1084,13 @@
       ],
       "cls": "A",
       "district": 6,
-      "wins": 2,
+      "wins": 3,
       "losses": 2,
       "ties": 0,
-      "rankingPoints": 240,
-      "averagePoints": 60,
-      "averageScore": 15.75,
-      "averageAllowed": 20,
+      "rankingPoints": 380,
+      "averagePoints": 76,
+      "averageScore": 24.2,
+      "averageAllowed": 18.8,
       "recordSource": "blackline-rankings",
       "recordProvisional": false
     },
@@ -1056,7 +1101,7 @@
       "cls": "AA",
       "district": 9,
       "wins": 1,
-      "losses": 3,
+      "losses": 4,
       "ties": 0,
       "recordSource": "piaa-scoreboard-observed",
       "recordProvisional": true
@@ -1067,7 +1112,7 @@
       "aliases": [],
       "cls": "AA",
       "district": 9,
-      "wins": 4,
+      "wins": 5,
       "losses": 0,
       "ties": 0,
       "recordSource": "piaa-scoreboard-observed",
@@ -1079,7 +1124,7 @@
       "aliases": [],
       "cls": "A",
       "district": 9,
-      "wins": 3,
+      "wins": 4,
       "losses": 1,
       "ties": 0,
       "recordSource": "piaa-scoreboard-observed",
@@ -1103,7 +1148,7 @@
       "aliases": [],
       "cls": "A",
       "district": 4,
-      "wins": 4,
+      "wins": 5,
       "losses": 0,
       "ties": 0,
       "recordSource": "piaa-scoreboard-observed",
@@ -1116,7 +1161,7 @@
       "cls": "AAA",
       "district": 4,
       "wins": 3,
-      "losses": 1,
+      "losses": 2,
       "ties": 0,
       "recordSource": "piaa-scoreboard-observed",
       "recordProvisional": true
@@ -1129,13 +1174,13 @@
       ],
       "cls": "AA",
       "district": 6,
-      "wins": 3,
+      "wins": 4,
       "losses": 1,
       "ties": 0,
-      "rankingPoints": 320,
-      "averagePoints": 80,
-      "averageScore": 26.25,
-      "averageAllowed": 5,
+      "rankingPoints": 440,
+      "averagePoints": 88,
+      "averageScore": 30.6,
+      "averageAllowed": 5.2,
       "recordSource": "blackline-rankings",
       "recordProvisional": false
     },
@@ -1145,13 +1190,13 @@
       "aliases": [],
       "cls": "AAAAAA",
       "district": 10,
-      "wins": 3,
+      "wins": 4,
       "losses": 1,
       "ties": 0,
-      "rankingPoints": 260,
-      "averagePoints": 65,
-      "averageScore": 38,
-      "averageAllowed": 22,
+      "rankingPoints": 330,
+      "averagePoints": 66,
+      "averageScore": 40,
+      "averageAllowed": 21.8,
       "recordSource": "blackline-rankings",
       "recordProvisional": false
     },
@@ -1173,7 +1218,7 @@
       "aliases": [],
       "cls": "A",
       "district": 5,
-      "wins": 3,
+      "wins": 4,
       "losses": 1,
       "ties": 0,
       "recordSource": "piaa-scoreboard-observed",
@@ -1186,7 +1231,7 @@
       "cls": "AAAA",
       "district": 4,
       "wins": 1,
-      "losses": 3,
+      "losses": 4,
       "ties": 0,
       "recordSource": "piaa-scoreboard-observed",
       "recordProvisional": true
@@ -1212,12 +1257,12 @@
       "cls": "AAAAA",
       "district": 6,
       "wins": 1,
-      "losses": 3,
+      "losses": 4,
       "ties": 0,
       "rankingPoints": 90,
-      "averagePoints": 22.5,
-      "averageScore": 23.5,
-      "averageAllowed": 31.25,
+      "averagePoints": 18,
+      "averageScore": 20.2,
+      "averageAllowed": 28.4,
       "recordSource": "blackline-rankings",
       "recordProvisional": false
     },
@@ -1227,7 +1272,7 @@
       "aliases": [],
       "cls": "AAA",
       "district": 4,
-      "wins": 2,
+      "wins": 3,
       "losses": 2,
       "ties": 0,
       "recordSource": "piaa-scoreboard-observed",
@@ -1240,7 +1285,7 @@
       "cls": "AAAA",
       "district": 4,
       "wins": 1,
-      "losses": 3,
+      "losses": 4,
       "ties": 0,
       "recordSource": "piaa-scoreboard-observed",
       "recordProvisional": true
@@ -1263,7 +1308,7 @@
       "aliases": [],
       "cls": "AA",
       "district": 9,
-      "wins": 1,
+      "wins": 2,
       "losses": 3,
       "ties": 0,
       "recordSource": "piaa-scoreboard-observed",
@@ -1275,7 +1320,7 @@
       "aliases": [],
       "cls": "A",
       "district": 4,
-      "wins": 3,
+      "wins": 4,
       "losses": 1,
       "ties": 0,
       "recordSource": "piaa-scoreboard-observed",
@@ -1287,7 +1332,7 @@
       "aliases": [],
       "cls": "AAA",
       "district": 4,
-      "wins": 2,
+      "wins": 3,
       "losses": 2,
       "ties": 0,
       "recordSource": "piaa-scoreboard-observed",
@@ -1301,13 +1346,13 @@
       ],
       "cls": "A",
       "district": 6,
-      "wins": 3,
+      "wins": 4,
       "losses": 1,
       "ties": 0,
-      "rankingPoints": 370,
-      "averagePoints": 92.5,
-      "averageScore": 24.25,
-      "averageAllowed": 16.25,
+      "rankingPoints": 510,
+      "averagePoints": 102,
+      "averageScore": 24.8,
+      "averageAllowed": 15.4,
       "recordSource": "blackline-rankings",
       "recordProvisional": false
     },
@@ -1317,7 +1362,7 @@
       "aliases": [],
       "cls": "AAA",
       "district": 4,
-      "wins": 4,
+      "wins": 5,
       "losses": 0,
       "ties": 0,
       "recordSource": "piaa-scoreboard-observed",
@@ -1331,13 +1376,13 @@
       ],
       "cls": "AA",
       "district": 6,
-      "wins": 4,
+      "wins": 5,
       "losses": 0,
       "ties": 0,
-      "rankingPoints": 400,
+      "rankingPoints": 500,
       "averagePoints": 100,
-      "averageScore": 47,
-      "averageAllowed": 8.75,
+      "averageScore": 50.2,
+      "averageAllowed": 10.8,
       "recordSource": "blackline-rankings",
       "recordProvisional": false
     },
@@ -1348,7 +1393,7 @@
       "cls": "A",
       "district": 4,
       "wins": 3,
-      "losses": 1,
+      "losses": 2,
       "ties": 0,
       "recordSource": "piaa-scoreboard-observed",
       "recordProvisional": true
@@ -1384,7 +1429,7 @@
       "cls": "AA",
       "district": 4,
       "wins": 0,
-      "losses": 4,
+      "losses": 5,
       "ties": 0,
       "recordSource": "piaa-scoreboard-observed",
       "recordProvisional": true
@@ -1420,7 +1465,7 @@
       "cls": "A",
       "district": 5,
       "wins": 1,
-      "losses": 2,
+      "losses": 3,
       "ties": 0,
       "recordSource": "piaa-scoreboard-observed",
       "recordProvisional": true
@@ -1434,12 +1479,12 @@
       "cls": "A",
       "district": 6,
       "wins": 2,
-      "losses": 2,
+      "losses": 3,
       "ties": 0,
-      "rankingPoints": 210,
-      "averagePoints": 52.5,
-      "averageScore": 27.25,
-      "averageAllowed": 18.75,
+      "rankingPoints": 220,
+      "averagePoints": 44,
+      "averageScore": 23,
+      "averageAllowed": 24.2,
       "recordSource": "blackline-rankings",
       "recordProvisional": false
     },
@@ -1449,8 +1494,8 @@
       "aliases": [],
       "cls": "A",
       "district": 4,
-      "wins": 2,
-      "losses": 0,
+      "wins": 4,
+      "losses": 1,
       "ties": 0,
       "recordSource": "piaa-scoreboard-observed",
       "recordProvisional": true
@@ -1461,7 +1506,7 @@
       "aliases": [],
       "cls": "A",
       "district": 9,
-      "wins": 2,
+      "wins": 3,
       "losses": 2,
       "ties": 0,
       "recordSource": "piaa-scoreboard-observed",
@@ -1500,12 +1545,12 @@
       "cls": "AAA",
       "district": 6,
       "wins": 3,
-      "losses": 1,
+      "losses": 2,
       "ties": 0,
       "rankingPoints": 340,
-      "averagePoints": 85,
-      "averageScore": 35.25,
-      "averageAllowed": 18.75,
+      "averagePoints": 68,
+      "averageScore": 31,
+      "averageAllowed": 18,
       "recordSource": "blackline-rankings",
       "recordProvisional": false
     },
@@ -1518,12 +1563,12 @@
       "cls": "A",
       "district": 6,
       "wins": 1,
-      "losses": 3,
+      "losses": 4,
       "ties": 0,
       "rankingPoints": 100,
-      "averagePoints": 25,
-      "averageScore": 18.75,
-      "averageAllowed": 38,
+      "averagePoints": 20,
+      "averageScore": 17.8,
+      "averageAllowed": 37.4,
       "recordSource": "blackline-rankings",
       "recordProvisional": false
     },
@@ -1535,13 +1580,13 @@
       ],
       "cls": "AA",
       "district": 6,
-      "wins": 0,
+      "wins": 1,
       "losses": 4,
       "ties": 0,
-      "rankingPoints": 0,
-      "averagePoints": 0,
-      "averageScore": 17.25,
-      "averageAllowed": 37.25,
+      "rankingPoints": 140,
+      "averagePoints": 28,
+      "averageScore": 19,
+      "averageAllowed": 33.6,
       "recordSource": "blackline-rankings",
       "recordProvisional": false
     },
@@ -1565,13 +1610,13 @@
       ],
       "cls": "AAA",
       "district": 6,
-      "wins": 3,
+      "wins": 4,
       "losses": 1,
       "ties": 0,
-      "rankingPoints": 310,
-      "averagePoints": 77.5,
-      "averageScore": 34.25,
-      "averageAllowed": 28.25,
+      "rankingPoints": 450,
+      "averagePoints": 90,
+      "averageScore": 31.8,
+      "averageAllowed": 25.4,
       "recordSource": "blackline-rankings",
       "recordProvisional": false
     },
@@ -1581,7 +1626,7 @@
       "aliases": [],
       "cls": "A",
       "district": 9,
-      "wins": 3,
+      "wins": 4,
       "losses": 1,
       "ties": 0,
       "recordSource": "piaa-scoreboard-observed",
@@ -1596,12 +1641,12 @@
       "cls": "A",
       "district": 6,
       "wins": 2,
-      "losses": 2,
+      "losses": 3,
       "ties": 0,
       "rankingPoints": 220,
-      "averagePoints": 55,
-      "averageScore": 23.5,
-      "averageAllowed": 24.75,
+      "averagePoints": 44,
+      "averageScore": 21.6,
+      "averageAllowed": 27.8,
       "recordSource": "blackline-rankings",
       "recordProvisional": false
     },
@@ -1637,13 +1682,13 @@
       ],
       "cls": "A",
       "district": 6,
-      "wins": 2,
+      "wins": 3,
       "losses": 2,
       "ties": 0,
-      "rankingPoints": 240,
-      "averagePoints": 60,
-      "averageScore": 24.25,
-      "averageAllowed": 26.25,
+      "rankingPoints": 350,
+      "averagePoints": 70,
+      "averageScore": 26.4,
+      "averageAllowed": 23.8,
       "recordSource": "blackline-rankings",
       "recordProvisional": false
     },
@@ -1666,7 +1711,7 @@
       "cls": "A",
       "district": 9,
       "wins": 3,
-      "losses": 1,
+      "losses": 2,
       "ties": 0,
       "recordSource": "piaa-scoreboard-observed",
       "recordProvisional": true
@@ -1679,13 +1724,13 @@
       ],
       "cls": "AA",
       "district": 6,
-      "wins": 4,
+      "wins": 5,
       "losses": 0,
       "ties": 0,
-      "rankingPoints": 470,
-      "averagePoints": 117.5,
-      "averageScore": 31.75,
-      "averageAllowed": 18,
+      "rankingPoints": 640,
+      "averagePoints": 128,
+      "averageScore": 32.2,
+      "averageAllowed": 15.8,
       "recordSource": "blackline-rankings",
       "recordProvisional": false
     },
@@ -1695,7 +1740,7 @@
       "aliases": [],
       "cls": "A",
       "district": 9,
-      "wins": 3,
+      "wins": 4,
       "losses": 1,
       "ties": 0,
       "recordSource": "piaa-scoreboard-observed",
@@ -1710,12 +1755,12 @@
       "cls": "AA",
       "district": 6,
       "wins": 3,
-      "losses": 1,
+      "losses": 2,
       "ties": 0,
-      "rankingPoints": 330,
-      "averagePoints": 82.5,
-      "averageScore": 39.25,
-      "averageAllowed": 19,
+      "rankingPoints": 340,
+      "averagePoints": 68,
+      "averageScore": 34.8,
+      "averageAllowed": 19.8,
       "recordSource": "blackline-rankings",
       "recordProvisional": false
     },
@@ -1762,7 +1807,7 @@
       "cls": "AAAA",
       "district": 4,
       "wins": 2,
-      "losses": 2,
+      "losses": 3,
       "ties": 0,
       "recordSource": "piaa-scoreboard-observed",
       "recordProvisional": true
@@ -1785,7 +1830,7 @@
       "aliases": [],
       "cls": "AAAA",
       "district": 4,
-      "wins": 4,
+      "wins": 5,
       "losses": 0,
       "ties": 0,
       "recordSource": "piaa-scoreboard-observed",
@@ -1797,7 +1842,7 @@
       "aliases": [],
       "cls": "AAAA",
       "district": 4,
-      "wins": 3,
+      "wins": 4,
       "losses": 1,
       "ties": 0,
       "recordSource": "piaa-scoreboard-observed",
@@ -1821,7 +1866,7 @@
       "aliases": [],
       "cls": "A",
       "district": 9,
-      "wins": 3,
+      "wins": 4,
       "losses": 1,
       "ties": 0,
       "recordSource": "piaa-scoreboard-observed",
@@ -1834,7 +1879,19 @@
       "cls": "AAA",
       "district": 5,
       "wins": 0,
-      "losses": 4,
+      "losses": 5,
+      "ties": 0,
+      "recordSource": "piaa-scoreboard-observed",
+      "recordProvisional": true
+    },
+    {
+      "id": "south-western",
+      "name": "South Western",
+      "aliases": [],
+      "cls": "AAAAA",
+      "district": 3,
+      "wins": 2,
+      "losses": 3,
       "ties": 0,
       "recordSource": "piaa-scoreboard-observed",
       "recordProvisional": true
@@ -1845,7 +1902,7 @@
       "aliases": [],
       "cls": "AA",
       "district": 4,
-      "wins": 2,
+      "wins": 3,
       "losses": 2,
       "ties": 0,
       "recordSource": "piaa-scoreboard-observed",
@@ -1857,7 +1914,7 @@
       "aliases": [],
       "cls": "AA",
       "district": 4,
-      "wins": 2,
+      "wins": 5,
       "losses": 0,
       "ties": 0,
       "recordSource": "piaa-scoreboard-observed",
@@ -1871,13 +1928,13 @@
       ],
       "cls": "AA",
       "district": 6,
-      "wins": 2,
+      "wins": 3,
       "losses": 2,
       "ties": 0,
-      "rankingPoints": 190,
-      "averagePoints": 47.5,
-      "averageScore": 26.75,
-      "averageAllowed": 11.75,
+      "rankingPoints": 280,
+      "averagePoints": 56,
+      "averageScore": 31,
+      "averageAllowed": 11,
       "recordSource": "blackline-rankings",
       "recordProvisional": false
     },
@@ -1901,13 +1958,13 @@
       ],
       "cls": "AAAAAA",
       "district": 6,
-      "wins": 4,
+      "wins": 5,
       "losses": 0,
       "ties": 0,
-      "rankingPoints": 450,
-      "averagePoints": 112.5,
-      "averageScore": 35.5,
-      "averageAllowed": 12,
+      "rankingPoints": 600,
+      "averagePoints": 120,
+      "averageScore": 37.2,
+      "averageAllowed": 9.6,
       "recordSource": "blackline-rankings",
       "recordProvisional": false
     },
@@ -1917,7 +1974,7 @@
       "aliases": [],
       "cls": "A",
       "district": 3,
-      "wins": 2,
+      "wins": 3,
       "losses": 1,
       "ties": 0,
       "recordSource": "piaa-scoreboard-observed",
@@ -1966,7 +2023,7 @@
       "cls": "AA",
       "district": 4,
       "wins": 2,
-      "losses": 2,
+      "losses": 3,
       "ties": 0,
       "recordSource": "piaa-scoreboard-observed",
       "recordProvisional": true
@@ -1989,7 +2046,7 @@
       "aliases": [],
       "cls": "AA",
       "district": 4,
-      "wins": 3,
+      "wins": 4,
       "losses": 1,
       "ties": 0,
       "recordSource": "piaa-scoreboard-observed",
@@ -2002,7 +2059,7 @@
       "cls": "A",
       "district": 5,
       "wins": 0,
-      "losses": 4,
+      "losses": 5,
       "ties": 0,
       "recordSource": "piaa-scoreboard-observed",
       "recordProvisional": true
@@ -2016,12 +2073,12 @@
       "cls": "AAA",
       "district": 6,
       "wins": 3,
-      "losses": 1,
+      "losses": 2,
       "ties": 0,
-      "rankingPoints": 350,
-      "averagePoints": 87.5,
-      "averageScore": 19.25,
-      "averageAllowed": 10.25,
+      "rankingPoints": 360,
+      "averagePoints": 72,
+      "averageScore": 18.2,
+      "averageAllowed": 15.6,
       "recordSource": "blackline-rankings",
       "recordProvisional": false
     },
@@ -2032,7 +2089,7 @@
       "cls": "A",
       "district": 9,
       "wins": 2,
-      "losses": 2,
+      "losses": 3,
       "ties": 0,
       "recordSource": "piaa-scoreboard-observed",
       "recordProvisional": true
@@ -2045,13 +2102,13 @@
       ],
       "cls": "AA",
       "district": 6,
-      "wins": 0,
+      "wins": 1,
       "losses": 4,
       "ties": 0,
-      "rankingPoints": 0,
-      "averagePoints": 0,
-      "averageScore": 3.25,
-      "averageAllowed": 31.5,
+      "rankingPoints": 90,
+      "averagePoints": 18,
+      "averageScore": 6.8,
+      "averageAllowed": 26.4,
       "recordSource": "blackline-rankings",
       "recordProvisional": false
     },
@@ -2061,7 +2118,7 @@
       "aliases": [],
       "cls": "AAAA",
       "district": 8,
-      "wins": 1,
+      "wins": 2,
       "losses": 2,
       "ties": 0,
       "recordSource": "piaa-scoreboard-observed",
@@ -2110,7 +2167,7 @@
       "cls": "AAA",
       "district": 4,
       "wins": 1,
-      "losses": 3,
+      "losses": 4,
       "ties": 0,
       "recordSource": "piaa-scoreboard-observed",
       "recordProvisional": true
@@ -2124,12 +2181,12 @@
       "cls": "A",
       "district": 6,
       "wins": 1,
-      "losses": 3,
+      "losses": 4,
       "ties": 0,
       "rankingPoints": 130,
-      "averagePoints": 32.5,
-      "averageScore": 17,
-      "averageAllowed": 36.25,
+      "averagePoints": 26,
+      "averageScore": 17.4,
+      "averageAllowed": 41.6,
       "recordSource": "blackline-rankings",
       "recordProvisional": false
     },
@@ -2154,12 +2211,12 @@
       "cls": "AA",
       "district": 6,
       "wins": 1,
-      "losses": 3,
+      "losses": 4,
       "ties": 0,
       "rankingPoints": 100,
-      "averagePoints": 25,
-      "averageScore": 21.75,
-      "averageAllowed": 33.25,
+      "averagePoints": 20,
+      "averageScore": 18.6,
+      "averageAllowed": 36.2,
       "recordSource": "blackline-rankings",
       "recordProvisional": false
     },
@@ -2183,13 +2240,13 @@
       ],
       "cls": "AA",
       "district": 6,
-      "wins": 1,
+      "wins": 2,
       "losses": 3,
       "ties": 0,
-      "rankingPoints": 110,
-      "averagePoints": 27.5,
-      "averageScore": 15.25,
-      "averageAllowed": 27,
+      "rankingPoints": 240,
+      "averagePoints": 48,
+      "averageScore": 17,
+      "averageAllowed": 21.6,
       "recordSource": "blackline-rankings",
       "recordProvisional": false
     },
@@ -2211,7 +2268,7 @@
       "aliases": [],
       "cls": "AAAAAA",
       "district": 4,
-      "wins": 3,
+      "wins": 4,
       "losses": 1,
       "ties": 0,
       "recordSource": "piaa-scoreboard-observed",
@@ -2223,7 +2280,7 @@
       "aliases": [],
       "cls": "A",
       "district": 5,
-      "wins": 3,
+      "wins": 4,
       "losses": 1,
       "ties": 0,
       "recordSource": "piaa-scoreboard-observed",
@@ -6188,12 +6245,900 @@
           "cls": "AAA"
         }
       }
+    },
+    {
+      "id": "2026:2026-09-25:altoona:harrisburg",
+      "sourceGameId": "2026:2026-09-25:altoona:harrisburg",
+      "season": 2026,
+      "date": "2026-09-25",
+      "a": "Harrisburg",
+      "b": "Altoona",
+      "scoreA": 40,
+      "scoreB": 20,
+      "winner": "Harrisburg",
+      "status": "final",
+      "source": "piaa-d6-scoreboard",
+      "sourceUrl": "https://piaad6.org/fall-sports/2026-d6-football-scoreboard-week-4/",
+      "sourcePostId": 10194,
+      "observedRecords": {
+        "Harrisburg": {
+          "wins": 5,
+          "losses": 0,
+          "ties": 0
+        },
+        "Altoona": {
+          "wins": 3,
+          "losses": 2,
+          "ties": 0
+        }
+      },
+      "observedTeams": {
+        "Harrisburg": {
+          "district": 3,
+          "cls": "AAAAAA"
+        },
+        "Altoona": {
+          "district": 6,
+          "cls": "AAAAAA"
+        }
+      }
+    },
+    {
+      "id": "2026:2026-09-25:bald-eagle-area:philipsburg-osceola",
+      "sourceGameId": "2026:2026-09-25:bald-eagle-area:philipsburg-osceola",
+      "season": 2026,
+      "date": "2026-09-25",
+      "a": "Philipsburg-Osceola",
+      "b": "Bald Eagle Area",
+      "scoreA": 22,
+      "scoreB": 14,
+      "winner": "Philipsburg-Osceola",
+      "status": "final",
+      "source": "piaa-d6-scoreboard",
+      "sourceUrl": "https://piaad6.org/fall-sports/2026-d6-football-scoreboard-week-4/",
+      "sourcePostId": 10194,
+      "observedRecords": {
+        "Philipsburg-Osceola": {
+          "wins": 4,
+          "losses": 1,
+          "ties": 0
+        },
+        "Bald Eagle Area": {
+          "wins": 3,
+          "losses": 2,
+          "ties": 0
+        }
+      },
+      "observedTeams": {
+        "Philipsburg-Osceola": {
+          "district": 6,
+          "cls": "AAA"
+        },
+        "Bald Eagle Area": {
+          "district": 6,
+          "cls": "AA"
+        }
+      }
+    },
+    {
+      "id": "2026:2026-09-25:bellefonte:penns-valley-area",
+      "sourceGameId": "2026:2026-09-25:bellefonte:penns-valley-area",
+      "season": 2026,
+      "date": "2026-09-25",
+      "a": "Penns Valley Area",
+      "b": "Bellefonte",
+      "scoreA": 26,
+      "scoreB": 19,
+      "winner": "Penns Valley Area",
+      "status": "final",
+      "source": "piaa-d6-scoreboard",
+      "sourceUrl": "https://piaad6.org/fall-sports/2026-d6-football-scoreboard-week-4/",
+      "sourcePostId": 10194,
+      "observedRecords": {
+        "Penns Valley Area": {
+          "wins": 1,
+          "losses": 4,
+          "ties": 0
+        },
+        "Bellefonte": {
+          "wins": 2,
+          "losses": 3,
+          "ties": 0
+        }
+      },
+      "observedTeams": {
+        "Penns Valley Area": {
+          "district": 6,
+          "cls": "AA"
+        },
+        "Bellefonte": {
+          "district": 6,
+          "cls": "AAAA"
+        }
+      }
+    },
+    {
+      "id": "2026:2026-09-25:bellwood-antis:tyrone",
+      "sourceGameId": "2026:2026-09-25:bellwood-antis:tyrone",
+      "season": 2026,
+      "date": "2026-09-25",
+      "a": "Bellwood-Antis",
+      "b": "Tyrone",
+      "scoreA": 37,
+      "scoreB": 14,
+      "winner": "Bellwood-Antis",
+      "status": "final",
+      "source": "piaa-d6-scoreboard",
+      "sourceUrl": "https://piaad6.org/fall-sports/2026-d6-football-scoreboard-week-4/",
+      "sourcePostId": 10194,
+      "observedRecords": {
+        "Bellwood-Antis": {
+          "wins": 4,
+          "losses": 1,
+          "ties": 0
+        },
+        "Tyrone": {
+          "wins": 3,
+          "losses": 2,
+          "ties": 0
+        }
+      },
+      "observedTeams": {
+        "Bellwood-Antis": {
+          "district": 6,
+          "cls": "AA"
+        },
+        "Tyrone": {
+          "district": 6,
+          "cls": "AAA"
+        }
+      }
+    },
+    {
+      "id": "2026:2026-09-25:bishop-mccort:somerset",
+      "sourceGameId": "2026:2026-09-25:bishop-mccort:somerset",
+      "season": 2026,
+      "date": "2026-09-25",
+      "a": "Bishop McCort",
+      "b": "Somerset",
+      "scoreA": 59,
+      "scoreB": 28,
+      "winner": "Bishop McCort",
+      "status": "final",
+      "source": "piaa-d6-scoreboard",
+      "sourceUrl": "https://piaad6.org/fall-sports/2026-d6-football-scoreboard-week-4/",
+      "sourcePostId": 10194,
+      "observedRecords": {
+        "Bishop McCort": {
+          "wins": 2,
+          "losses": 3,
+          "ties": 0
+        },
+        "Somerset": {
+          "wins": 0,
+          "losses": 5,
+          "ties": 0
+        }
+      },
+      "observedTeams": {
+        "Bishop McCort": {
+          "district": 6,
+          "cls": "A"
+        },
+        "Somerset": {
+          "district": 5,
+          "cls": "AAA"
+        }
+      }
+    },
+    {
+      "id": "2026:2026-09-25:cambria-heights:northern-cambria",
+      "sourceGameId": "2026:2026-09-25:cambria-heights:northern-cambria",
+      "season": 2026,
+      "date": "2026-09-25",
+      "a": "Cambria Heights",
+      "b": "Northern Cambria",
+      "scoreA": 46,
+      "scoreB": 6,
+      "winner": "Cambria Heights",
+      "status": "final",
+      "source": "piaa-d6-scoreboard",
+      "sourceUrl": "https://piaad6.org/fall-sports/2026-d6-football-scoreboard-week-4/",
+      "sourcePostId": 10194,
+      "observedRecords": {
+        "Cambria Heights": {
+          "wins": 5,
+          "losses": 0,
+          "ties": 0
+        },
+        "Northern Cambria": {
+          "wins": 2,
+          "losses": 3,
+          "ties": 0
+        }
+      },
+      "observedTeams": {
+        "Cambria Heights": {
+          "district": 6,
+          "cls": "AAA"
+        },
+        "Northern Cambria": {
+          "district": 6,
+          "cls": "A"
+        }
+      }
+    },
+    {
+      "id": "2026:2026-09-25:cedar-cliff:state-college",
+      "sourceGameId": "2026:2026-09-25:cedar-cliff:state-college",
+      "season": 2026,
+      "date": "2026-09-25",
+      "a": "State College",
+      "b": "Cedar Cliff",
+      "scoreA": 44,
+      "scoreB": 0,
+      "winner": "State College",
+      "status": "final",
+      "source": "piaa-d6-scoreboard",
+      "sourceUrl": "https://piaad6.org/fall-sports/2026-d6-football-scoreboard-week-4/",
+      "sourcePostId": 10194,
+      "observedRecords": {
+        "State College": {
+          "wins": 5,
+          "losses": 0,
+          "ties": 0
+        },
+        "Cedar Cliff": {
+          "wins": 1,
+          "losses": 4,
+          "ties": 0
+        }
+      },
+      "observedTeams": {
+        "State College": {
+          "district": 6,
+          "cls": "AAAAAA"
+        },
+        "Cedar Cliff": {
+          "district": 3,
+          "cls": "AAAAAA"
+        }
+      }
+    },
+    {
+      "id": "2026:2026-09-25:central-cambria:penn-cambria",
+      "sourceGameId": "2026:2026-09-25:central-cambria:penn-cambria",
+      "season": 2026,
+      "date": "2026-09-25",
+      "a": "Central Cambria",
+      "b": "Penn Cambria",
+      "scoreA": 15,
+      "scoreB": 14,
+      "winner": "Central Cambria",
+      "status": "final",
+      "source": "piaa-d6-scoreboard",
+      "sourceUrl": "https://piaad6.org/fall-sports/2026-d6-football-scoreboard-week-4/",
+      "sourcePostId": 10194,
+      "observedRecords": {
+        "Central Cambria": {
+          "wins": 4,
+          "losses": 1,
+          "ties": 0
+        },
+        "Penn Cambria": {
+          "wins": 3,
+          "losses": 2,
+          "ties": 0
+        }
+      },
+      "observedTeams": {
+        "Central Cambria": {
+          "district": 6,
+          "cls": "AAA"
+        },
+        "Penn Cambria": {
+          "district": 6,
+          "cls": "AAA"
+        }
+      }
+    },
+    {
+      "id": "2026:2026-09-25:central-mountain:shamokin",
+      "sourceGameId": "2026:2026-09-25:central-mountain:shamokin",
+      "season": 2026,
+      "date": "2026-09-25",
+      "a": "Shamokin",
+      "b": "Central Mountain",
+      "scoreA": 55,
+      "scoreB": 0,
+      "winner": "Shamokin",
+      "status": "final",
+      "source": "piaa-d6-scoreboard",
+      "sourceUrl": "https://piaad6.org/fall-sports/2026-d6-football-scoreboard-week-4/",
+      "sourcePostId": 10194,
+      "observedRecords": {
+        "Shamokin": {
+          "wins": 5,
+          "losses": 0,
+          "ties": 0
+        },
+        "Central Mountain": {
+          "wins": 0,
+          "losses": 5,
+          "ties": 0
+        }
+      },
+      "observedTeams": {
+        "Shamokin": {
+          "district": 4,
+          "cls": "AAAA"
+        },
+        "Central Mountain": {
+          "district": 6,
+          "cls": "AAAA"
+        }
+      }
+    },
+    {
+      "id": "2026:2026-09-25:claysburg-kimmel:juniata-valley",
+      "sourceGameId": "2026:2026-09-25:claysburg-kimmel:juniata-valley",
+      "season": 2026,
+      "date": "2026-09-25",
+      "a": "Juniata Valley",
+      "b": "Claysburg-Kimmel",
+      "scoreA": 58,
+      "scoreB": 14,
+      "winner": "Juniata Valley",
+      "status": "final",
+      "source": "piaa-d6-scoreboard",
+      "sourceUrl": "https://piaad6.org/fall-sports/2026-d6-football-scoreboard-week-4/",
+      "sourcePostId": 10194,
+      "observedRecords": {
+        "Juniata Valley": {
+          "wins": 3,
+          "losses": 2,
+          "ties": 0
+        },
+        "Claysburg-Kimmel": {
+          "wins": 0,
+          "losses": 5,
+          "ties": 0
+        }
+      },
+      "observedTeams": {
+        "Juniata Valley": {
+          "district": 6,
+          "cls": "A"
+        },
+        "Claysburg-Kimmel": {
+          "district": 6,
+          "cls": "AAAA"
+        }
+      }
+    },
+    {
+      "id": "2026:2026-09-25:clearfield:huntingdon",
+      "sourceGameId": "2026:2026-09-25:clearfield:huntingdon",
+      "season": 2026,
+      "date": "2026-09-25",
+      "a": "Huntingdon",
+      "b": "Clearfield",
+      "scoreA": 43,
+      "scoreB": 19,
+      "winner": "Huntingdon",
+      "status": "final",
+      "source": "piaa-d6-scoreboard",
+      "sourceUrl": "https://piaad6.org/fall-sports/2026-d6-football-scoreboard-week-4/",
+      "sourcePostId": 10194,
+      "observedRecords": {
+        "Huntingdon": {
+          "wins": 2,
+          "losses": 3,
+          "ties": 0
+        },
+        "Clearfield": {
+          "wins": 1,
+          "losses": 4,
+          "ties": 0
+        }
+      },
+      "observedTeams": {
+        "Huntingdon": {
+          "district": 6,
+          "cls": "AAA"
+        },
+        "Clearfield": {
+          "district": 9,
+          "cls": "AAAA"
+        }
+      }
+    },
+    {
+      "id": "2026:2026-09-25:conemaugh-township:portage",
+      "sourceGameId": "2026:2026-09-25:conemaugh-township:portage",
+      "season": 2026,
+      "date": "2026-09-25",
+      "a": "Conemaugh Township",
+      "b": "Portage",
+      "scoreA": 40,
+      "scoreB": 14,
+      "winner": "Conemaugh Township",
+      "status": "final",
+      "source": "piaa-d6-scoreboard",
+      "sourceUrl": "https://piaad6.org/fall-sports/2026-d6-football-scoreboard-week-4/",
+      "sourcePostId": 10194,
+      "observedRecords": {
+        "Conemaugh Township": {
+          "wins": 4,
+          "losses": 1,
+          "ties": 0
+        },
+        "Portage": {
+          "wins": 2,
+          "losses": 3,
+          "ties": 0
+        }
+      },
+      "observedTeams": {
+        "Conemaugh Township": {
+          "district": 5,
+          "cls": "A"
+        },
+        "Portage": {
+          "district": 6,
+          "cls": "A"
+        }
+      }
+    },
+    {
+      "id": "2026:2026-09-25:conemaugh-valley:united-valley-co-op-blacklick-valley-united",
+      "sourceGameId": "2026:2026-09-25:conemaugh-valley:united-valley-co-op-blacklick-valley-united",
+      "season": 2026,
+      "date": "2026-09-25",
+      "a": "United Valley co-op [Blacklick Valley/United]",
+      "b": "Conemaugh Valley",
+      "scoreA": 21,
+      "scoreB": 6,
+      "winner": "United Valley co-op [Blacklick Valley/United]",
+      "status": "final",
+      "source": "piaa-d6-scoreboard",
+      "sourceUrl": "https://piaad6.org/fall-sports/2026-d6-football-scoreboard-week-4/",
+      "sourcePostId": 10194,
+      "observedRecords": {
+        "United Valley co-op [Blacklick Valley/United]": {
+          "wins": 1,
+          "losses": 4,
+          "ties": 0
+        },
+        "Conemaugh Valley": {
+          "wins": 0,
+          "losses": 5,
+          "ties": 0
+        }
+      },
+      "observedTeams": {
+        "United Valley co-op [Blacklick Valley/United]": {
+          "district": 6,
+          "cls": "AA"
+        },
+        "Conemaugh Valley": {
+          "district": 6,
+          "cls": "A"
+        }
+      }
+    },
+    {
+      "id": "2026:2026-09-25:curwensville:southern-huntingdon-county",
+      "sourceGameId": "2026:2026-09-25:curwensville:southern-huntingdon-county",
+      "season": 2026,
+      "date": "2026-09-25",
+      "a": "Southern Huntingdon County",
+      "b": "Curwensville",
+      "scoreA": 48,
+      "scoreB": 8,
+      "winner": "Southern Huntingdon County",
+      "status": "final",
+      "source": "piaa-d6-scoreboard",
+      "sourceUrl": "https://piaad6.org/fall-sports/2026-d6-football-scoreboard-week-4/",
+      "sourcePostId": 10194,
+      "observedRecords": {
+        "Southern Huntingdon County": {
+          "wins": 3,
+          "losses": 2,
+          "ties": 0
+        },
+        "Curwensville": {
+          "wins": 0,
+          "losses": 5,
+          "ties": 0
+        }
+      },
+      "observedTeams": {
+        "Southern Huntingdon County": {
+          "district": 6,
+          "cls": "AA"
+        },
+        "Curwensville": {
+          "district": 9,
+          "cls": "A"
+        }
+      }
+    },
+    {
+      "id": "2026:2026-09-25:forest-hills:richland",
+      "sourceGameId": "2026:2026-09-25:forest-hills:richland",
+      "season": 2026,
+      "date": "2026-09-25",
+      "a": "Richland",
+      "b": "Forest Hills",
+      "scoreA": 34,
+      "scoreB": 7,
+      "winner": "Richland",
+      "status": "final",
+      "source": "piaa-d6-scoreboard",
+      "sourceUrl": "https://piaad6.org/fall-sports/2026-d6-football-scoreboard-week-4/",
+      "sourcePostId": 10194,
+      "observedRecords": {
+        "Richland": {
+          "wins": 5,
+          "losses": 0,
+          "ties": 0
+        },
+        "Forest Hills": {
+          "wins": 2,
+          "losses": 3,
+          "ties": 0
+        }
+      },
+      "observedTeams": {
+        "Richland": {
+          "district": 6,
+          "cls": "AA"
+        },
+        "Forest Hills": {
+          "district": 6,
+          "cls": "AAAA"
+        }
+      }
+    },
+    {
+      "id": "2026:2026-09-25:fort-hill-md:hollidaysburg",
+      "sourceGameId": "2026:2026-09-25:fort-hill-md:hollidaysburg",
+      "season": 2026,
+      "date": "2026-09-25",
+      "a": "Fort Hill (MD)",
+      "b": "Hollidaysburg",
+      "scoreA": 35,
+      "scoreB": 21,
+      "winner": "Fort Hill (MD)",
+      "status": "final",
+      "source": "piaa-d6-scoreboard",
+      "sourceUrl": "https://piaad6.org/fall-sports/2026-d6-football-scoreboard-week-4/",
+      "sourcePostId": 10194,
+      "observedRecords": {
+        "Fort Hill (MD)": {
+          "wins": 4,
+          "losses": 0,
+          "ties": 0
+        },
+        "Hollidaysburg": {
+          "wins": 3,
+          "losses": 2,
+          "ties": 0
+        }
+      },
+      "observedTeams": {
+        "Fort Hill (MD)": {
+          "district": 99,
+          "cls": "AAA"
+        },
+        "Hollidaysburg": {
+          "district": 6,
+          "cls": "AAAAA"
+        }
+      }
+    },
+    {
+      "id": "2026:2026-09-25:glendale:moshannon-valley",
+      "sourceGameId": "2026:2026-09-25:glendale:moshannon-valley",
+      "season": 2026,
+      "date": "2026-09-25",
+      "a": "Moshannon Valley",
+      "b": "Glendale",
+      "scoreA": 27,
+      "scoreB": 12,
+      "winner": "Moshannon Valley",
+      "status": "final",
+      "source": "piaa-d6-scoreboard",
+      "sourceUrl": "https://piaad6.org/fall-sports/2026-d6-football-scoreboard-week-4/",
+      "sourcePostId": 10194,
+      "observedRecords": {
+        "Moshannon Valley": {
+          "wins": 4,
+          "losses": 1,
+          "ties": 0
+        },
+        "Glendale": {
+          "wins": 2,
+          "losses": 3,
+          "ties": 0
+        }
+      },
+      "observedTeams": {
+        "Moshannon Valley": {
+          "district": 6,
+          "cls": "A"
+        },
+        "Glendale": {
+          "district": 6,
+          "cls": "A"
+        }
+      }
+    },
+    {
+      "id": "2026:2026-09-25:greater-johnstown:westmont-hilltop",
+      "sourceGameId": "2026:2026-09-25:greater-johnstown:westmont-hilltop",
+      "season": 2026,
+      "date": "2026-09-25",
+      "a": "Westmont Hilltop",
+      "b": "Greater Johnstown",
+      "scoreA": 24,
+      "scoreB": 0,
+      "winner": "Westmont Hilltop",
+      "status": "final",
+      "source": "piaa-d6-scoreboard",
+      "sourceUrl": "https://piaad6.org/fall-sports/2026-d6-football-scoreboard-week-4/",
+      "sourcePostId": 10194,
+      "observedRecords": {
+        "Westmont Hilltop": {
+          "wins": 2,
+          "losses": 3,
+          "ties": 0
+        },
+        "Greater Johnstown": {
+          "wins": 1,
+          "losses": 4,
+          "ties": 0
+        }
+      },
+      "observedTeams": {
+        "Westmont Hilltop": {
+          "district": 6,
+          "cls": "AA"
+        },
+        "Greater Johnstown": {
+          "district": 6,
+          "cls": "AAAA"
+        }
+      }
+    },
+    {
+      "id": "2026:2026-09-25:hershey:mifflin-county",
+      "sourceGameId": "2026:2026-09-25:hershey:mifflin-county",
+      "season": 2026,
+      "date": "2026-09-25",
+      "a": "Hershey",
+      "b": "Mifflin County",
+      "scoreA": 17,
+      "scoreB": 7,
+      "winner": "Hershey",
+      "status": "final",
+      "source": "piaa-d6-scoreboard",
+      "sourceUrl": "https://piaad6.org/fall-sports/2026-d6-football-scoreboard-week-4/",
+      "sourcePostId": 10194,
+      "observedRecords": {
+        "Hershey": {
+          "wins": 4,
+          "losses": 1,
+          "ties": 0
+        },
+        "Mifflin County": {
+          "wins": 1,
+          "losses": 4,
+          "ties": 0
+        }
+      },
+      "observedTeams": {
+        "Hershey": {
+          "district": 3,
+          "cls": "AAAAA"
+        },
+        "Mifflin County": {
+          "district": 6,
+          "cls": "AAAAA"
+        }
+      }
+    },
+    {
+      "id": "2026:2026-09-25:homer-center:river-valley",
+      "sourceGameId": "2026:2026-09-25:homer-center:river-valley",
+      "season": 2026,
+      "date": "2026-09-25",
+      "a": "Homer-Center",
+      "b": "River Valley",
+      "scoreA": 23,
+      "scoreB": 17,
+      "winner": "Homer-Center",
+      "status": "final",
+      "source": "piaa-d6-scoreboard",
+      "sourceUrl": "https://piaad6.org/fall-sports/2026-d6-football-scoreboard-week-4/",
+      "sourcePostId": 10194,
+      "observedRecords": {
+        "Homer-Center": {
+          "wins": 4,
+          "losses": 1,
+          "ties": 0
+        },
+        "River Valley": {
+          "wins": 3,
+          "losses": 2,
+          "ties": 0
+        }
+      },
+      "observedTeams": {
+        "Homer-Center": {
+          "district": 6,
+          "cls": "A"
+        },
+        "River Valley": {
+          "district": 6,
+          "cls": "AA"
+        }
+      }
+    },
+    {
+      "id": "2026:2026-09-25:juniata:steelton-highspire",
+      "sourceGameId": "2026:2026-09-25:juniata:steelton-highspire",
+      "season": 2026,
+      "date": "2026-09-25",
+      "a": "Steelton-Highspire",
+      "b": "Juniata",
+      "scoreA": 41,
+      "scoreB": 7,
+      "winner": "Steelton-Highspire",
+      "status": "final",
+      "source": "piaa-d6-scoreboard",
+      "sourceUrl": "https://piaad6.org/fall-sports/2026-d6-football-scoreboard-week-4/",
+      "sourcePostId": 10194,
+      "observedRecords": {
+        "Steelton-Highspire": {
+          "wins": 3,
+          "losses": 1,
+          "ties": 0
+        },
+        "Juniata": {
+          "wins": 0,
+          "losses": 5,
+          "ties": 0
+        }
+      },
+      "observedTeams": {
+        "Steelton-Highspire": {
+          "district": 3,
+          "cls": "A"
+        },
+        "Juniata": {
+          "district": 6,
+          "cls": "AAA"
+        }
+      }
+    },
+    {
+      "id": "2026:2026-09-25:marion-center:west-shamokin",
+      "sourceGameId": "2026:2026-09-25:marion-center:west-shamokin",
+      "season": 2026,
+      "date": "2026-09-25",
+      "a": "Marion Center",
+      "b": "West Shamokin",
+      "scoreA": 48,
+      "scoreB": 6,
+      "winner": "Marion Center",
+      "status": "final",
+      "source": "piaa-d6-scoreboard",
+      "sourceUrl": "https://piaad6.org/fall-sports/2026-d6-football-scoreboard-week-4/",
+      "sourcePostId": 10194,
+      "observedRecords": {
+        "Marion Center": {
+          "wins": 4,
+          "losses": 1,
+          "ties": 0
+        },
+        "West Shamokin": {
+          "wins": 1,
+          "losses": 4,
+          "ties": 0
+        }
+      },
+      "observedTeams": {
+        "Marion Center": {
+          "district": 6,
+          "cls": "AA"
+        },
+        "West Shamokin": {
+          "district": 6,
+          "cls": "AA"
+        }
+      }
+    },
+    {
+      "id": "2026:2026-09-25:mount-union:west-branch",
+      "sourceGameId": "2026:2026-09-25:mount-union:west-branch",
+      "season": 2026,
+      "date": "2026-09-25",
+      "a": "Mount Union",
+      "b": "West Branch",
+      "scoreA": 63,
+      "scoreB": 19,
+      "winner": "Mount Union",
+      "status": "final",
+      "source": "piaa-d6-scoreboard",
+      "sourceUrl": "https://piaad6.org/fall-sports/2026-d6-football-scoreboard-week-4/",
+      "sourcePostId": 10194,
+      "observedRecords": {
+        "Mount Union": {
+          "wins": 5,
+          "losses": 0,
+          "ties": 0
+        },
+        "West Branch": {
+          "wins": 1,
+          "losses": 4,
+          "ties": 0
+        }
+      },
+      "observedTeams": {
+        "Mount Union": {
+          "district": 6,
+          "cls": "AA"
+        },
+        "West Branch": {
+          "district": 6,
+          "cls": "A"
+        }
+      }
+    },
+    {
+      "id": "2026:2026-09-25:penns-manor:purchase-line",
+      "sourceGameId": "2026:2026-09-25:penns-manor:purchase-line",
+      "season": 2026,
+      "date": "2026-09-25",
+      "a": "Purchase Line",
+      "b": "Penns Manor",
+      "scoreA": 35,
+      "scoreB": 14,
+      "winner": "Purchase Line",
+      "status": "final",
+      "source": "piaa-d6-scoreboard",
+      "sourceUrl": "https://piaad6.org/fall-sports/2026-d6-football-scoreboard-week-4/",
+      "sourcePostId": 10194,
+      "observedRecords": {
+        "Purchase Line": {
+          "wins": 3,
+          "losses": 2,
+          "ties": 0
+        },
+        "Penns Manor": {
+          "wins": 1,
+          "losses": 4,
+          "ties": 0
+        }
+      },
+      "observedTeams": {
+        "Purchase Line": {
+          "district": 6,
+          "cls": "A"
+        },
+        "Penns Manor": {
+          "district": 6,
+          "cls": "A"
+        }
+      }
     }
   ],
   "validation": {
     "officialDistrict6TeamCount": 40,
     "rankingRowCount": 44,
-    "scoreboardPostCount": 4,
-    "district6GameCount": 106
+    "scoreboardPostCount": 5,
+    "district6GameCount": 130
   }
 }
