@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "season": 2026,
-  "generatedAt": "2026-09-27T01:12:33.920Z",
+  "generatedAt": "2026-09-27T06:45:58.481Z",
   "sourcePriority": [
     "piaa-d6-scoreboard",
     "piaa-classifications",
@@ -12,7 +12,7 @@
     "classifications": "https://www.piaa.org/schools/classifications/sportDistrict.aspx?district=6&sportID=10",
     "rankings": "https://sports.blkline.com/sports/reports/d6FootballRanking.action",
     "regularSeasonCutoff": "2026-10-31",
-    "rankingsUpdatedAt": "09/26/2026 20:16",
+    "rankingsUpdatedAt": "09/27/2026 02:16",
     "scoreboardPosts": [
       {
         "id": 9980,
@@ -52,12 +52,12 @@
       },
       {
         "id": 10194,
-        "modified": "2026-09-26T09:47:51",
+        "modified": "2026-09-27T02:22:49",
         "link": "https://piaad6.org/fall-sports/2026-d6-football-scoreboard-week-4/",
         "title": "2026 D6 Football Scoreboard…. Week 4",
-        "scoreLineCount": 58,
-        "parsedGameCount": 58,
-        "district6GameCount": 24
+        "scoreLineCount": 60,
+        "parsedGameCount": 60,
+        "district6GameCount": 25
       }
     ]
   },
@@ -230,13 +230,13 @@
       ],
       "cls": "A",
       "district": 6,
-      "wins": 3,
+      "wins": 4,
       "losses": 1,
       "ties": 0,
-      "rankingPoints": 410,
-      "averagePoints": 102.5,
-      "averageScore": 34.75,
-      "averageAllowed": 8.75,
+      "rankingPoints": 570,
+      "averagePoints": 114,
+      "averageScore": 36.2,
+      "averageAllowed": 8.4,
       "recordSource": "blackline-rankings",
       "recordProvisional": false
     },
@@ -465,12 +465,12 @@
       "cls": "AAA",
       "district": 6,
       "wins": 4,
-      "losses": 0,
+      "losses": 1,
       "ties": 0,
       "rankingPoints": 520,
-      "averagePoints": 130,
-      "averageScore": 34,
-      "averageAllowed": 15,
+      "averagePoints": 104,
+      "averageScore": 28.6,
+      "averageAllowed": 20.4,
       "recordSource": "blackline-rankings",
       "recordProvisional": false
     },
@@ -1739,8 +1739,8 @@
       "wins": 5,
       "losses": 0,
       "ties": 0,
-      "rankingPoints": 640,
-      "averagePoints": 128,
+      "rankingPoints": 650,
+      "averagePoints": 130,
       "averageScore": 32.2,
       "averageAllowed": 15.8,
       "recordSource": "blackline-rankings",
@@ -1794,7 +1794,7 @@
       "aliases": [],
       "cls": "A",
       "district": 4,
-      "wins": 1,
+      "wins": 2,
       "losses": 3,
       "ties": 0,
       "recordSource": "piaa-scoreboard-observed",
@@ -2305,7 +2305,7 @@
       "cls": "AA",
       "district": 4,
       "wins": 0,
-      "losses": 1,
+      "losses": 5,
       "ties": 0,
       "recordSource": "piaa-scoreboard-observed",
       "recordProvisional": true
@@ -7145,12 +7145,49 @@
           "cls": "A"
         }
       }
+    },
+    {
+      "id": "2026:2026-09-26:bishop-guilfoyle:central",
+      "sourceGameId": "2026:2026-09-26:bishop-guilfoyle:central",
+      "season": 2026,
+      "date": "2026-09-26",
+      "a": "Bishop Guilfoyle",
+      "b": "Central",
+      "scoreA": 42,
+      "scoreB": 7,
+      "winner": "Bishop Guilfoyle",
+      "status": "final",
+      "source": "piaa-d6-scoreboard",
+      "sourceUrl": "https://piaad6.org/fall-sports/2026-d6-football-scoreboard-week-4/",
+      "sourcePostId": 10194,
+      "observedRecords": {
+        "Bishop Guilfoyle": {
+          "wins": 4,
+          "losses": 1,
+          "ties": 0
+        },
+        "Central": {
+          "wins": 4,
+          "losses": 1,
+          "ties": 0
+        }
+      },
+      "observedTeams": {
+        "Bishop Guilfoyle": {
+          "district": 6,
+          "cls": "A"
+        },
+        "Central": {
+          "district": 6,
+          "cls": "AAA"
+        }
+      }
     }
   ],
   "validation": {
     "officialDistrict6TeamCount": 40,
     "rankingRowCount": 44,
     "scoreboardPostCount": 5,
-    "district6GameCount": 130
+    "district6GameCount": 131
   }
 }
