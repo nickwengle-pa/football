@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "season": 2026,
-  "generatedAt": "2026-09-28T12:47:51.667Z",
+  "generatedAt": "2026-09-29T01:09:47.233Z",
   "sourcePriority": [
     "piaa-d6-scoreboard",
     "piaa-classifications",
@@ -12,7 +12,7 @@
     "classifications": "https://www.piaa.org/schools/classifications/sportDistrict.aspx?district=6&sportID=10",
     "rankings": "https://sports.blkline.com/sports/reports/d6FootballRanking.action",
     "regularSeasonCutoff": "2026-10-31",
-    "rankingsUpdatedAt": "09/28/2026 06:16",
+    "rankingsUpdatedAt": "09/28/2026 20:16",
     "scoreboardPosts": [
       {
         "id": 9980,
@@ -52,7 +52,7 @@
       },
       {
         "id": 10194,
-        "modified": "2026-09-27T02:22:49",
+        "modified": "2026-09-28T18:16:35",
         "link": "https://piaad6.org/fall-sports/2026-d6-football-scoreboard-week-4/",
         "title": "2026 D6 Football Scoreboard…. Week 4",
         "scoreLineCount": 60,
