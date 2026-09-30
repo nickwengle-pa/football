@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "season": 2026,
-  "generatedAt": "2026-09-30T06:50:45.324Z",
+  "generatedAt": "2026-09-30T18:38:38.205Z",
   "sourcePriority": [
     "piaa-d6-scoreboard",
     "piaa-classifications",
@@ -12,7 +12,7 @@
     "classifications": "https://www.piaa.org/schools/classifications/sportDistrict.aspx?district=6&sportID=10",
     "rankings": "https://sports.blkline.com/sports/reports/d6FootballRanking.action",
     "regularSeasonCutoff": "2026-10-31",
-    "rankingsUpdatedAt": "09/29/2026 22:16",
+    "rankingsUpdatedAt": "09/30/2026 11:17",
     "scoreboardPosts": [
       {
         "id": 9980,
@@ -52,7 +52,7 @@
       },
       {
         "id": 10194,
-        "modified": "2026-09-28T18:16:35",
+        "modified": "2026-09-30T11:53:38",
         "link": "https://piaad6.org/fall-sports/2026-d6-football-scoreboard-week-4/",
         "title": "2026 D6 Football Scoreboard…. Week 4",
         "scoreLineCount": 60,
@@ -157,7 +157,7 @@
       "cls": "AAAAA",
       "district": 7,
       "wins": 1,
-      "losses": 4,
+      "losses": 3,
       "ties": 0,
       "recordSource": "piaa-scoreboard-observed",
       "recordProvisional": true
@@ -1464,7 +1464,7 @@
       "aliases": [],
       "cls": "AA",
       "district": 5,
-      "wins": 3,
+      "wins": 4,
       "losses": 1,
       "ties": 0,
       "recordSource": "piaa-scoreboard-observed",
@@ -2292,8 +2292,8 @@
       "aliases": [],
       "cls": "A",
       "district": 5,
-      "wins": 4,
-      "losses": 1,
+      "wins": 3,
+      "losses": 2,
       "ties": 0,
       "recordSource": "piaa-scoreboard-observed",
       "recordProvisional": true
