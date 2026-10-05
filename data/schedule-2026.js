@@ -1,4 +1,5 @@
-// Remaining 2026 regular-season games for District 6 Class A teams.
+// Remaining 2026 regular-season games for District 6 Class A teams and for every team
+// they have played or will play (opponents' wins feed Class A power points).
 // Read by hand from each team's MaxPreps schedule tab on 2026-10-05 (not scraped).
 // "home" is the host. Once a game's official final arrives, the simulator drops
 // the placeholder and uses the real result.
@@ -48,11 +49,67 @@ window.D6_SCHEDULE_2026 = {
     { date: "2026-10-30", home: "North Star", away: "Glendale" },
     { date: "2026-10-30", home: "West Branch", away: "Tussey Mountain" },
     { date: "2026-10-30", home: "Marion Center", away: "Penns Manor" },
-    { date: "2026-10-30", home: "Conemaugh Valley", away: "Conemaugh Township" }
+    { date: "2026-10-30", home: "Conemaugh Valley", away: "Conemaugh Township" },
+
+    // Class A opponents' remaining games that do not involve a Class A team
+    { date: "2026-10-09", home: "Somerset", away: "Bedford" },
+    { date: "2026-10-09", home: "Bellefonte", away: "Philipsburg-Osceola" },
+    { date: "2026-10-09", home: "Tussey Mountain", away: "Berlin Brothersvalley" },
+    { date: "2026-10-09", home: "Central", away: "Penns Valley Area" },
+    { date: "2026-10-09", home: "Chestnut Ridge", away: "Penn Cambria" },
+    { date: "2026-10-09", home: "Clearfield", away: "Bald Eagle Area" },
+    { date: "2026-10-09", home: "Forest Hills", away: "Central Cambria" },
+    { date: "2026-10-09", home: "Richland", away: "Greater Johnstown" },
+    { date: "2026-10-09", home: "Huntingdon", away: "Tyrone" },
+    { date: "2026-10-09", home: "Line Mountain", away: "Steelton-Highspire" },
+    { date: "2026-10-09", home: "Northern Bedford County", away: "Meyersdale" },
+    { date: "2026-10-09", home: "Northern Garrett", away: "North Star" },
+    { date: "2026-10-09", home: "West Shamokin", away: "United Valley co-op [Blacklick Valley/United]" },
+    { date: "2026-10-09", home: "Windber", away: "Everett" },
+
+    { date: "2026-10-16", home: "Huntingdon", away: "Bedford" },
+    { date: "2026-10-16", home: "Bellefonte", away: "Richland" },
+    { date: "2026-10-16", home: "Bellwood-Antis", away: "Chestnut Ridge" },
+    { date: "2026-10-16", home: "Berlin Brothersvalley", away: "Windber" },
+    { date: "2026-10-16", home: "Cambria Heights", away: "Conemaugh Township" },
+    { date: "2026-10-16", home: "Central", away: "Central Cambria" },
+    { date: "2026-10-16", home: "Claysburg-Kimmel", away: "Curwensville" },
+    { date: "2026-10-16", home: "Clearfield", away: "Somerset" },
+    { date: "2026-10-16", home: "Penns Valley Area", away: "Greater Johnstown" },
+    { date: "2026-10-16", home: "Line Mountain", away: "Halifax" },
+    { date: "2026-10-16", home: "Meyersdale", away: "Wilmington" },
+    { date: "2026-10-16", home: "North Star", away: "Northern Bedford County" },
+    { date: "2026-10-16", home: "Everett", away: "Tussey Mountain" },
+    { date: "2026-10-16", home: "Tyrone", away: "Penn Cambria" },
+    { date: "2026-10-16", home: "Bald Eagle Area", away: "Westmont Hilltop" },
+
+    { date: "2026-10-23", home: "Bedford", away: "Richland" },
+    { date: "2026-10-23", home: "Bellefonte", away: "Bellwood-Antis" },
+    { date: "2026-10-23", home: "Berlin Brothersvalley", away: "North Star" },
+    { date: "2026-10-23", home: "Bald Eagle Area", away: "Central" },
+    { date: "2026-10-23", home: "Chestnut Ridge", away: "Westmont Hilltop" },
+    { date: "2026-10-23", home: "Penn Cambria", away: "Greater Johnstown" },
+    { date: "2026-10-23", home: "Penns Valley Area", away: "Huntingdon" },
+    { date: "2026-10-23", home: "Juniata", away: "Line Mountain" },
+    { date: "2026-10-23", home: "River Valley", away: "Marion Center" },
+    { date: "2026-10-23", home: "Meyersdale", away: "Everett" },
+    { date: "2026-10-23", home: "Mount Union", away: "Southern Huntingdon County" },
+    { date: "2026-10-23", home: "Northern Bedford County", away: "Windber" },
+    { date: "2026-10-23", home: "Philipsburg-Osceola", away: "Tyrone" },
+    { date: "2026-10-23", home: "Central Cambria", away: "Somerset" },
+
+    { date: "2026-10-30", home: "Cambria Heights", away: "West Shamokin" },
+    { date: "2026-10-30", home: "Northern Bedford County", away: "Claysburg-Kimmel" },
+    { date: "2026-10-30", home: "Curwensville", away: "Everett" },
+    { date: "2026-10-30", home: "Line Mountain", away: "Newport" },
+    { date: "2026-10-30", home: "Windber", away: "Mount Union" },
+    { date: "2026-10-30", home: "Southern Huntingdon County", away: "Clear Spring" }
   ],
   // Listed on MaxPreps with no opponent yet; add them once the matchups are set.
   tba: [
     { date: "2026-10-30", team: "Bishop Guilfoyle", note: "@ TBA (crossover game)" },
     { date: "2026-10-30", team: "Bishop McCort", note: "vs TBA" }
-  ]
+  ],
+  // Opponents whose Week 9 (Oct 30) game shows "TBA" on MaxPreps (likely District 6 crossovers).
+  opponentTba: ["Central", "Clearfield", "Forest Hills", "Philipsburg-Osceola", "Richland", "Somerset", "Tyrone", "Westmont Hilltop"]
 };

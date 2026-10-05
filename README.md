@@ -26,9 +26,9 @@ Node 20 on GitHub Actions can use `node --test` directly; `--test-isolation=none
 
 ## Remaining schedule and playoff scenarios
 
-`data/schedule-2026.js` lists the remaining District 6 Class A games, read by hand from each team's MaxPreps schedule tab (not scraped). The simulator adds them as unplayed games, and the Class A tab lets you pick a winner for each one (or fill the open ones with favorites). The Class A rankings sort by average points, which is how District 6 ranks, and draw the Top 8 playoff cut line. When an official final arrives for a scheduled game, the real result replaces any pick. To change a matchup, edit that file and fill in `tba` entries once their opponents are set.
+`data/schedule-2026.js` lists the remaining games for District 6 Class A teams and for every team they have played or will play, read by hand from each team's MaxPreps schedule tab (not scraped). The simulator adds them as unplayed games, and the Class A tab lets you pick a winner for each one (or fill the open ones with favorites). The Class A rankings sort by average points, which is how District 6 ranks, and draw the Top 8 playoff cut line. When an official final arrives for a scheduled game, the real result replaces any pick. To change a matchup, edit that file and fill in `tba` entries once their opponents are set.
 
-Opponents' remaining games against teams outside this list are not loaded, so an opponent's win total only changes through games in the file.
+Opponents' games appear in their own panel because each win by a team a Class A team beat adds 10 power points to that Class A team. Week 9 games MaxPreps still lists as TBA are noted under `tba` and `opponentTba`.
 
 ## Schedule source boundary
 

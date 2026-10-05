@@ -557,8 +557,13 @@ Beat Conemaugh Valley (+10 wins from their total)</pre></div></details></td></tr
                 <button class="btn small" onclick="pickFavorites()">Pick favorites for open games</button>
                 <button class="btn small" onclick="clearWeek10()">Clear all picks</button>
               </div>
-              <p class="tiny">Every remaining Class A game (schedules from MaxPreps). Pick winners to see the projected final rankings above; real results replace your picks as they come in. Opponents' other remaining games are not loaded, so their win totals only change through games listed here.</p>
+              <p class="tiny">Every remaining Class A game (schedules from MaxPreps). Pick winners to see the projected final rankings above; real results replace your picks as they come in. "Pick favorites" also fills the opponents' games below.</p>
               <div id="d6FutureGames" class="quick-games"><div classname="quick-game" class="quick-game"><div classname="info" class="info">2025-10-24 · Bishop Guilfoyle vs TBA* (@ Saint Francis University)</div><select><option value="">- Winner -</option><option value="Bishop Guilfoyle">Bishop Guilfoyle</option><option value="TBA* (@ Saint Francis University)">TBA* (@ Saint Francis University)</option></select></div><div classname="quick-game" class="quick-game"><div classname="info" class="info">2025-10-24 · Claysburg-Kimmel vs Everett</div><select><option value="">- Winner -</option><option value="Claysburg-Kimmel">Claysburg-Kimmel</option><option value="Everett">Everett</option></select></div><div classname="quick-game" class="quick-game"><div classname="info" class="info">2025-10-24 · Conemaugh Township vs Conemaugh Valley</div><select><option value="">- Winner -</option><option value="Conemaugh Township">Conemaugh Township</option><option value="Conemaugh Valley">Conemaugh Valley</option></select></div><div classname="quick-game" class="quick-game"><div classname="info" class="info">2025-10-24 · Glendale vs Northern Bedford County</div><select><option value="">- Winner -</option><option value="Glendale">Glendale</option><option value="Northern Bedford County">Northern Bedford County</option></select></div><div classname="quick-game" class="quick-game"><div classname="info" class="info">2025-10-24 · Homer-Center vs Portage</div><select><option value="">- Winner -</option><option value="Homer-Center">Homer-Center</option><option value="Portage">Portage</option></select></div><div classname="quick-game" class="quick-game"><div classname="info" class="info">2025-10-24 · Juniata Valley vs Windber</div><select><option value="">- Winner -</option><option value="Juniata Valley">Juniata Valley</option><option value="Windber">Windber</option></select></div><div classname="quick-game" class="quick-game"><div classname="info" class="info">2025-10-24 · Marion Center vs Penns Manor</div><select><option value="">- Winner -</option><option value="Marion Center">Marion Center</option><option value="Penns Manor">Penns Manor</option></select></div><div classname="quick-game" class="quick-game"><div classname="info" class="info">2025-10-24 · Moshannon Valley vs Berlin Brothersvalley</div><select><option value="">- Winner -</option><option value="Moshannon Valley">Moshannon Valley</option><option value="Berlin Brothersvalley">Berlin Brothersvalley</option></select></div><div classname="quick-game" class="quick-game"><div classname="info" class="info">2025-10-24 · Northern Cambria vs River Valley</div><select><option value="">- Winner -</option><option value="Northern Cambria">Northern Cambria</option><option value="River Valley">River Valley</option></select></div><div classname="quick-game" class="quick-game"><div classname="info" class="info">2025-10-24 · Purchase Line vs United Valley co-op [Blacklick Valley/United]</div><select><option value="">- Winner -</option><option value="Purchase Line">Purchase Line</option><option value="United Valley co-op [Blacklick Valley/United]">United Valley co-op [Blacklick Valley/United]</option></select></div><div classname="quick-game" class="quick-game"><div classname="info" class="info">2025-10-24 · West Branch vs North Star</div><select><option value="">- Winner -</option><option value="West Branch">West Branch</option><option value="North Star">North Star</option></select></div></div>
+            </div>
+            <div class="quick-panel">
+              <h3>Class A Opponents' Remaining Games</h3>
+              <p class="tiny">Every Class A team earns 10 points for each win by a team it beat, so these games move the Class A rankings too. Covers every team that has played or will play a Class A team.</p>
+              <div id="d6AOppGames" class="quick-games"></div>
             </div>
             <div class="quick-panel">
               <h3>Upcoming D6-AA Week 10</h3>
@@ -3429,7 +3434,7 @@ function isD6AAATeam(name){ return D6_AAA_LIST.indexOf(name) !== -1; }
     });
     var ranked=(keyD==='avgPoints'||keyD==='totalPoints');
     renderTable('#standingsD6A tbody', sorted, {avg:true, cut:ranked?D6_A_PLAYOFF_SPOTS:0});
-    renderD6FutureGames(); renderD6ClassWeek10(D6_AA_LIST,'d6AAFutureGames'); renderD6ClassWeek10(D6_AAA_LIST,'d6AAAFutureGames'); renderD6ClassWeek10(D6_AAAA_LIST,'d6AAAAFutureGames'); renderOppWeek10ForList(D6_AA_LIST,'oppWeek10GamesAA'); renderOppWeek10ForList(D6_AAA_LIST,'oppWeek10GamesAAA'); renderOppWeek10ForList(D6_AAAA_LIST,'oppWeek10GamesAAAA'); renderOppWeek10Games();
+    renderD6FutureGames(); renderD6AOpponentGames(); renderD6ClassWeek10(D6_AA_LIST,'d6AAFutureGames'); renderD6ClassWeek10(D6_AAA_LIST,'d6AAAFutureGames'); renderD6ClassWeek10(D6_AAAA_LIST,'d6AAAAFutureGames'); renderOppWeek10ForList(D6_AA_LIST,'oppWeek10GamesAA'); renderOppWeek10ForList(D6_AAA_LIST,'oppWeek10GamesAAA'); renderOppWeek10ForList(D6_AAAA_LIST,'oppWeek10GamesAAAA'); renderOppWeek10Games();
   }
 
   function renderTable(sel, rows, opts){
@@ -3466,10 +3471,34 @@ function isD6AAATeam(name){ return D6_AAA_LIST.indexOf(name) !== -1; }
   }
   function renderD6FutureGames(){
     var host=$('d6FutureGames'); if(!host) return;
-    host.innerHTML='';
     var upcoming=gamesForActiveSeason().filter(function(g){ return (isD6ATeam(g.a) || isD6ATeam(g.b)) && isScenarioGame(g); });
+    var sched=window.D6_SCHEDULE_2026, footer='';
+    if(sched && parseInt(sched.season,10)===activeSeason && Array.isArray(sched.tba) && sched.tba.length){
+      footer='Not scheduled yet: '+sched.tba.map(function(t){ return t.team+' '+t.note+' ('+dayLabel(t.date)+')'; }).join('; ')+'.';
+    }
+    renderPickList(host, upcoming, 'No upcoming D6-A games pending.', footer);
+  }
+  // Remaining games between teams that have played or will play a Class A team. Their final
+  // win totals feed the power points of every Class A team that beats them.
+  function renderD6AOpponentGames(){
+    var host=$('d6AOppGames'); if(!host) return;
+    var seasonGames=gamesForActiveSeason(), opponents={};
+    for(var i=0;i<seasonGames.length;i++){
+      var g=seasonGames[i];
+      if(isD6ATeam(g.a) && !isD6ATeam(g.b)) opponents[g.b]=true;
+      if(isD6ATeam(g.b) && !isD6ATeam(g.a)) opponents[g.a]=true;
+    }
+    var upcoming=seasonGames.filter(function(g){ return !isD6ATeam(g.a) && !isD6ATeam(g.b) && (opponents[g.a] || opponents[g.b]) && isScenarioGame(g); });
+    var sched=window.D6_SCHEDULE_2026, footer='';
+    if(sched && parseInt(sched.season,10)===activeSeason && Array.isArray(sched.opponentTba) && sched.opponentTba.length){
+      footer='No Week 9 opponent listed yet for: '+sched.opponentTba.join(', ')+'.';
+    }
+    renderPickList(host, upcoming, 'No remaining opponent games pending.', footer);
+  }
+  function renderPickList(host, upcoming, emptyText, footer){
+    host.innerHTML='';
     if(!upcoming.length){
-      host.innerHTML = '<p class="tiny">No upcoming D6-A games pending.</p>';
+      host.appendChild(e('p',{className:'tiny',textContent:emptyText}));
       return;
     }
     upcoming.sort(function(a,b){
@@ -3503,10 +3532,7 @@ function isD6AAATeam(name){ return D6_AAA_LIST.indexOf(name) !== -1; }
         host.appendChild(row);
       })(upcoming[j]);
     }
-    var sched=window.D6_SCHEDULE_2026;
-    if(sched && parseInt(sched.season,10)===activeSeason && Array.isArray(sched.tba) && sched.tba.length){
-      host.appendChild(e('p',{className:'tiny',textContent:'Not scheduled yet: '+sched.tba.map(function(t){ return t.team+' '+t.note+' ('+dayLabel(t.date)+')'; }).join('; ')+'.'}));
-    }
+    if(footer) host.appendChild(e('p',{className:'tiny',textContent:footer}));
   }
   function gameLabel(g){
     if(g.home && (g.home===g.a || g.home===g.b)) return (g.home===g.a ? g.b : g.a)+' @ '+g.home;
@@ -3943,7 +3969,7 @@ function exportBakedHTML(){
       var picked=0;
       for(var i=0;i<games.length;i++){
         var g=games[i]; if(!isScenarioGame(g) || g.officialWinner || g.winner) continue;
-        if(!(isD6ATeam(g.a) || isD6ATeam(g.b))) continue;
+        if(!(isD6ATeam(g.a) || isD6ATeam(g.b) || g.source==='maxpreps-schedule')) continue;
         g.winner=favoriteOf(g); g.manualOverride=true; picked++;
       }
       saveAll(); renderAll(); alert('Picked the favorite in '+picked+' open game'+(picked===1?'':'s')+' (better record, then power-point average, then home team). Change any pick below.');
