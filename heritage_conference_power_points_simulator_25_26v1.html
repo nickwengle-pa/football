@@ -168,6 +168,10 @@
       letter-spacing:0.05em;
       color:#d7e7f3;
     }
+    .quick-week{margin:12px 0 0;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:#8fb6cc}
+    .quick-game.picked{border-color:rgba(98,196,140,0.75)}
+    #standingsD6A tr.cut-line td{padding:4px 8px;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:#f0b85a;border-top:2px dashed #f0b85a;background:transparent}
+    #standingsD6A tr.out td{opacity:0.6}
     .quick-game select{
       flex:0 0 200px;
       background:rgba(6,24,35,0.92);
@@ -480,11 +484,11 @@ Beat Northern Bedford County (+10 wins from their total)</pre></div></details></
 
   <div class="quick-panel">
     <div class="row">
-      <button class="btn small" onclick="clearWeek10()">Clear Week 10 winners</button>
+      <button class="btn small" onclick="clearWeek10()">Clear all picks</button>
       <button class="btn small" onclick="snapshotWeek10()">Save scenario</button>
       <button class="btn small" onclick="restoreWeek10()">Load scenario</button>
     </div>
-    <p class="tiny">These buttons affect the selected season's final regular-season Friday: <b id="scenarioDateLabel">—</b>.</p>
+    <p class="tiny">These buttons affect every unplayed game plus the final regular-season Friday: <b id="scenarioDateLabel">—</b>.</p>
   </div>
 
           <div class="row">
@@ -495,6 +499,7 @@ Beat Northern Bedford County (+10 wins from their total)</pre></div></details></
             <div class="row">
               <span class="pill">Sort by 
                 <select id="sortKeyD6A">
+                  <option value="avgPoints" selected>Average Points (D6 rank)</option>
                   <option value="totalPoints">Total Points</option>
                   <option value="basePoints">Base Points</option>
                   <option value="powerPoints">Power Points</option>
@@ -506,7 +511,7 @@ Beat Northern Bedford County (+10 wins from their total)</pre></div></details></
               <button class="alt" id="btnAddD6A2" style="flex:0 0 auto">Add missing D6-A teams</button>
             </div>
             <table id="standingsD6A" style="margin-top:10px">
-              <thead><tr><th>#</th><th>Team</th><th>Class</th><th>W</th><th>L</th><th>Base</th><th>Power</th><th>Total</th><th>Details</th></tr></thead>
+              <thead><tr><th>#</th><th>Team</th><th>Class</th><th>W</th><th>L</th><th>Base</th><th>Power</th><th>Total</th><th>Avg</th><th>Details</th></tr></thead>
               <tbody><tr><td>1</td><td><div>Bishop Guilfoyle <span class="badge A">A</span></div></td><td>A</td><td>8</td><td>1</td><td>960</td><td>360</td><td>1320</td><td><details><summary>view</summary><div><pre class="tiny mono">Beat Penns Valley Area (+10 wins from their total)
 Beat Bellefonte (+10 wins from their total)
 Beat Huntingdon (+10 wins from their total)
@@ -548,7 +553,11 @@ Beat Conemaugh Valley (+10 wins from their total)</pre></div></details></td></tr
             </table>
             <div class="quick-panel">
               <h3>Upcoming D6-A Games</h3>
-              <p class="tiny">Set winners below to see live impact.</p>
+              <div class="row">
+                <button class="btn small" onclick="pickFavorites()">Pick favorites for open games</button>
+                <button class="btn small" onclick="clearWeek10()">Clear all picks</button>
+              </div>
+              <p class="tiny">Every remaining Class A game (schedules from MaxPreps). Pick winners to see the projected final rankings above; real results replace your picks as they come in. Opponents' other remaining games are not loaded, so their win totals only change through games listed here.</p>
               <div id="d6FutureGames" class="quick-games"><div classname="quick-game" class="quick-game"><div classname="info" class="info">2025-10-24 · Bishop Guilfoyle vs TBA* (@ Saint Francis University)</div><select><option value="">- Winner -</option><option value="Bishop Guilfoyle">Bishop Guilfoyle</option><option value="TBA* (@ Saint Francis University)">TBA* (@ Saint Francis University)</option></select></div><div classname="quick-game" class="quick-game"><div classname="info" class="info">2025-10-24 · Claysburg-Kimmel vs Everett</div><select><option value="">- Winner -</option><option value="Claysburg-Kimmel">Claysburg-Kimmel</option><option value="Everett">Everett</option></select></div><div classname="quick-game" class="quick-game"><div classname="info" class="info">2025-10-24 · Conemaugh Township vs Conemaugh Valley</div><select><option value="">- Winner -</option><option value="Conemaugh Township">Conemaugh Township</option><option value="Conemaugh Valley">Conemaugh Valley</option></select></div><div classname="quick-game" class="quick-game"><div classname="info" class="info">2025-10-24 · Glendale vs Northern Bedford County</div><select><option value="">- Winner -</option><option value="Glendale">Glendale</option><option value="Northern Bedford County">Northern Bedford County</option></select></div><div classname="quick-game" class="quick-game"><div classname="info" class="info">2025-10-24 · Homer-Center vs Portage</div><select><option value="">- Winner -</option><option value="Homer-Center">Homer-Center</option><option value="Portage">Portage</option></select></div><div classname="quick-game" class="quick-game"><div classname="info" class="info">2025-10-24 · Juniata Valley vs Windber</div><select><option value="">- Winner -</option><option value="Juniata Valley">Juniata Valley</option><option value="Windber">Windber</option></select></div><div classname="quick-game" class="quick-game"><div classname="info" class="info">2025-10-24 · Marion Center vs Penns Manor</div><select><option value="">- Winner -</option><option value="Marion Center">Marion Center</option><option value="Penns Manor">Penns Manor</option></select></div><div classname="quick-game" class="quick-game"><div classname="info" class="info">2025-10-24 · Moshannon Valley vs Berlin Brothersvalley</div><select><option value="">- Winner -</option><option value="Moshannon Valley">Moshannon Valley</option><option value="Berlin Brothersvalley">Berlin Brothersvalley</option></select></div><div classname="quick-game" class="quick-game"><div classname="info" class="info">2025-10-24 · Northern Cambria vs River Valley</div><select><option value="">- Winner -</option><option value="Northern Cambria">Northern Cambria</option><option value="River Valley">River Valley</option></select></div><div classname="quick-game" class="quick-game"><div classname="info" class="info">2025-10-24 · Purchase Line vs United Valley co-op [Blacklick Valley/United]</div><select><option value="">- Winner -</option><option value="Purchase Line">Purchase Line</option><option value="United Valley co-op [Blacklick Valley/United]">United Valley co-op [Blacklick Valley/United]</option></select></div><div classname="quick-game" class="quick-game"><div classname="info" class="info">2025-10-24 · West Branch vs North Star</div><select><option value="">- Winner -</option><option value="West Branch">West Branch</option><option value="North Star">North Star</option></select></div></div>
             </div>
             <div class="quick-panel">
@@ -582,6 +591,7 @@ Beat Conemaugh Valley (+10 wins from their total)</pre></div></details></td></tr
     </div>
   </div>
 <script src="data/football-2026.js"></script>
+<script src="data/schedule-2026.js"></script>
 <script>
 (function(){
   // Polyfills / compatibility
@@ -631,6 +641,9 @@ Beat Conemaugh Valley (+10 wins from their total)</pre></div></details></td></tr
       BASE[CLASSES[_wc]][CLASSES[_lc]] = 100 + (10 * (_lc - _wc));
     }
   }
+
+  // District 6 Class A playoff field (2026: top 8 by average points)
+  var D6_A_PLAYOFF_SPOTS = 8;
 
   // District 6 Class A reference list
   var D6_A_LIST = [
@@ -2845,6 +2858,7 @@ function isD6AAATeam(name){ return D6_AAA_LIST.indexOf(name) !== -1; }
       var found=null;
       for(var gi=0;gi<games.length;gi++){ if(sameGame(games[gi],incoming)){ found=games[gi]; break; } }
       if(found){
+        if(found.source==='maxpreps-schedule'){ found.id=incoming.id; found.manualOverride=false; found.winner=''; }
         found.sourceGameId=incoming.sourceGameId; found.season=season; found.date=incoming.date;
         found.a=a; found.b=b; found.officialWinner=incoming.officialWinner;
         found.scoreA=incoming.scoreA; found.scoreB=incoming.scoreB; found.status=incoming.status;
@@ -2868,6 +2882,7 @@ function isD6AAATeam(name){ return D6_AAA_LIST.indexOf(name) !== -1; }
       }else removedGames++;
     }
     games=reconciledGames;
+    mergeSchedule();
     activeSeason=season;
     save('activeSeason',activeSeason);
     save('lastOfficialSync',{season:season,checkedAt:new Date().toISOString(),generatedAt:feed.generatedAt||new Date().toISOString(),source:feed.sources||{}});
@@ -3116,6 +3131,47 @@ function isD6AAATeam(name){ return D6_AAA_LIST.indexOf(name) !== -1; }
 
   // De-dupe (games)
   function pairKey(a,b){ var A=(a||'').trim(), B=(b||'').trim(); return (A<B)? A+'~'+B : B+'~'+A; }
+  // Scheduled games may land on the scoreboard a day off (Saturday games), so match within a few days.
+  function nearDate(d1,d2){
+    var t1=Date.parse(String(d1||'').slice(0,10)), t2=Date.parse(String(d2||'').slice(0,10));
+    return isFinite(t1) && isFinite(t2) && Math.abs(t1-t2)<=3*86400000;
+  }
+  // Games a scenario pick applies to: anything without an official result, plus the final Friday.
+  function isScenarioGame(g){
+    return !g.inactiveOfficial && gameSeason(g)===activeSeason && (!g.officialWinner || (g.date||'').slice(0,10)===scenarioDate());
+  }
+  // Adds the remaining schedule (data/schedule-2026.js) as unplayed games, and drops
+  // placeholders once the official feed has a final for that matchup.
+  function mergeSchedule(){
+    var sched=window.D6_SCHEDULE_2026;
+    if(!sched || !Array.isArray(sched.games)) return 0;
+    var season=parseInt(sched.season,10), changed=0;
+    function hasFinal(g){
+      return games.some(function(o){ return o!==g && o.officialWinner && !o.inactiveOfficial && gameSeason(o)===gameSeason(g) && pairKey(o.a,o.b)===pairKey(g.a,g.b) && nearDate(o.date,g.date); });
+    }
+    var kept=games.filter(function(g){ return g.source!=='maxpreps-schedule' || !hasFinal(g); });
+    changed+=games.length-kept.length; games=kept;
+    for(var i=0;i<sched.games.length;i++){
+      var row=sched.games[i]; var a=canonicalTeamName(row.home), b=canonicalTeamName(row.away);
+      if(!a || !b || !row.date) continue;
+      var exists=games.some(function(o){ return gameSeason(o)===season && pairKey(o.a,o.b)===pairKey(a,b) && nearDate(o.date,row.date); });
+      if(exists) continue;
+      games.push({id:'sched:'+season+':'+row.date+':'+pairKey(a,b),season:season,date:row.date,a:a,b:b,home:a,winner:'',status:'scheduled',source:'maxpreps-schedule'});
+      changed++;
+    }
+    return changed;
+  }
+  // Favorite = better current record, then better official power-point average, then the home team.
+  function favoriteOf(g){
+    function strength(name){
+      var r=recordForTeam(findTeam(name))||{}; var gp=(r.wins||0)+(r.losses||0)+(r.ties||0);
+      return {pct:gp?(r.wins||0)/gp:0, avg:(gp && isFinite(r.rankingPoints))? r.rankingPoints/gp : 0};
+    }
+    var A=strength(g.a), B=strength(g.b);
+    if(A.pct!==B.pct) return A.pct>B.pct? g.a : g.b;
+    if(A.avg!==B.avg) return A.avg>B.avg? g.a : g.b;
+    return g.home || g.a;
+  }
   function datesEqual(d1,d2){ function f(x){ return (x||'').slice(0,10); } return f(d1)===f(d2); }
   function upsertGame(obj){
     var date = obj.date||''; var a=obj.a; var b=obj.b; var winner=obj.winner||'';
@@ -3345,6 +3401,7 @@ function isD6AAATeam(name){ return D6_AAA_LIST.indexOf(name) !== -1; }
       t=seasonTeams[i]; var s=stat[t.name]; var pp=0;
       for(var b=0;b<s.beats.length;b++){ var opp=s.beats[b]; pp += 10 * (winsForPP[opp]||0); }
       s.powerPoints=pp; s.totalPoints=s.basePoints+s.powerPoints;
+      var played=s.wins+s.losses; s.avgPoints=played? Math.round(100*s.totalPoints/played)/100 : 0;
     }
     var arr=[]; for(var k in stat){ arr.push(stat[k]); }
     return arr;
@@ -3364,21 +3421,29 @@ function isD6AAATeam(name){ return D6_AAA_LIST.indexOf(name) !== -1; }
     // D6-A only
     var d6aSet={}; for(var i=0;i<D6_A_LIST.length;i++){ d6aSet[D6_A_LIST[i].toLowerCase()]=1; }
     var only=[]; for(i=0;i<rows.length;i++){ var r=rows[i]; if(d6aSet[r.name.toLowerCase()] && r.cls==='A') only.push(r); }
-    var keyD=$('sortKeyD6A')?$('sortKeyD6A').value:'totalPoints';
+    var keyD=$('sortKeyD6A')?$('sortKeyD6A').value:'avgPoints';
     var sorted = only.slice().sort(function(a,b){
       if(keyD==='name') return a.name.localeCompare(b.name);
       var d=(b[keyD]||0)-(a[keyD]||0); if(d!==0) return d;
       if(b.wins!==a.wins) return b.wins-a.wins; return a.name.localeCompare(b.name);
     });
-    renderTable('#standingsD6A tbody', sorted);
+    var ranked=(keyD==='avgPoints'||keyD==='totalPoints');
+    renderTable('#standingsD6A tbody', sorted, {avg:true, cut:ranked?D6_A_PLAYOFF_SPOTS:0});
     renderD6FutureGames(); renderD6ClassWeek10(D6_AA_LIST,'d6AAFutureGames'); renderD6ClassWeek10(D6_AAA_LIST,'d6AAAFutureGames'); renderD6ClassWeek10(D6_AAAA_LIST,'d6AAAAFutureGames'); renderOppWeek10ForList(D6_AA_LIST,'oppWeek10GamesAA'); renderOppWeek10ForList(D6_AAA_LIST,'oppWeek10GamesAAA'); renderOppWeek10ForList(D6_AAAA_LIST,'oppWeek10GamesAAAA'); renderOppWeek10Games();
   }
 
-  function renderTable(sel, rows){
+  function renderTable(sel, rows, opts){
+    opts=opts||{};
     var tb=q(sel); tb.innerHTML='';
     for(var i=0;i<rows.length;i++){
       var r=rows[i];
+      if(opts.cut && i===opts.cut){
+        var cutTr=e('tr',null); cutTr.className='cut-line';
+        var cutTd=e('td',{textContent:'Top '+opts.cut+' make the district playoffs'}); cutTd.colSpan=10;
+        cutTr.appendChild(cutTd); tb.appendChild(cutTr);
+      }
       var tr=e('tr',null);
+      if(opts.cut && i>=opts.cut) tr.className='out';
       var badge=e('span'); badge.className='badge '+r.cls; badge.textContent=r.cls;
       var det=e('details');
       var sList = r.beats.length ?
@@ -3394,6 +3459,7 @@ function isD6AAATeam(name){ return D6_AAA_LIST.indexOf(name) !== -1; }
       tr.appendChild(e('td',{textContent:r.basePoints}));
       tr.appendChild(e('td',{textContent:r.powerPoints}));
       tr.appendChild(e('td',{textContent:r.totalPoints}));
+      if(opts.avg) tr.appendChild(e('td',{textContent:(r.avgPoints||0).toFixed(2)}));
       tr.appendChild(e('td',null,det));
       tb.appendChild(tr);
     }
@@ -3401,31 +3467,28 @@ function isD6AAATeam(name){ return D6_AAA_LIST.indexOf(name) !== -1; }
   function renderD6FutureGames(){
     var host=$('d6FutureGames'); if(!host) return;
     host.innerHTML='';
-    var upcoming=[];
-    var seasonGames=gamesForActiveSeason();
-    for(var i=0;i<seasonGames.length;i++){
-      var g=seasonGames[i];
-      if(!(isD6ATeam(g.a) || isD6ATeam(g.b))) continue;
-// keep Single A rows visible after picking a winner
-var _d=(g.date||'').slice(0,10); if(_d===scenarioDate()) upcoming.push(g);
-    }
+    var upcoming=gamesForActiveSeason().filter(function(g){ return (isD6ATeam(g.a) || isD6ATeam(g.b)) && isScenarioGame(g); });
     if(!upcoming.length){
       host.innerHTML = '<p class="tiny">No upcoming D6-A games pending.</p>';
       return;
     }
     upcoming.sort(function(a,b){
-      var da=a.date||'', db=b.date||'';
-      if(da===db) return (a.a+a.b).localeCompare(b.a+b.b);
+      var da=(a.date||'').slice(0,10), db=(b.date||'').slice(0,10);
+      if(da===db) return gameLabel(a).localeCompare(gameLabel(b));
       if(!da) return 1;
       if(!db) return -1;
       return da<db?-1:1;
     });
+    var picked=upcoming.filter(function(g){ return g.manualOverride && g.winner; }).length;
+    host.appendChild(e('p',{className:'tiny',textContent:upcoming.length+' games · '+picked+' picked'}));
+    var lastDate=null;
     for(var j=0;j<upcoming.length;j++){
       (function(g){
-        var row=e('div',{className:'quick-game'});
+        var d=(g.date||'').slice(0,10);
+        if(d!==lastDate){ host.appendChild(e('div',{className:'quick-week',textContent:d?dayLabel(d):'Date TBD'})); lastDate=d; }
+        var row=e('div',{className:'quick-game'+(g.manualOverride && g.winner ? ' picked' : '')});
         var info=e('div',{className:'info'});
-        var label=(g.date?fmtDate(g.date):'TBD')+' · '+g.a+' vs '+g.b;
-        info.textContent = label;
+        info.textContent = gameLabel(g) + (g.officialWinner ? ' (final: '+g.officialWinner+' won)' : '');
         var sel=e('select');
         setWinnerOptions(sel, g.a, g.b, g.winner||'');
         sel.onchange=function(){
@@ -3440,8 +3503,19 @@ var _d=(g.date||'').slice(0,10); if(_d===scenarioDate()) upcoming.push(g);
         host.appendChild(row);
       })(upcoming[j]);
     }
+    var sched=window.D6_SCHEDULE_2026;
+    if(sched && parseInt(sched.season,10)===activeSeason && Array.isArray(sched.tba) && sched.tba.length){
+      host.appendChild(e('p',{className:'tiny',textContent:'Not scheduled yet: '+sched.tba.map(function(t){ return t.team+' '+t.note+' ('+dayLabel(t.date)+')'; }).join('; ')+'.'}));
+    }
   }
-
+  function gameLabel(g){
+    if(g.home && (g.home===g.a || g.home===g.b)) return (g.home===g.a ? g.b : g.a)+' @ '+g.home;
+    return g.a+' vs '+g.b;
+  }
+  function dayLabel(d){
+    var t=new Date(String(d).slice(0,10)+'T12:00:00');
+    return isFinite(t.getTime()) ? t.toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'}) : String(d||'');
+  }
 
   function renderOppWeek10Games(){
     var host=$('oppWeek10Games'); if(!host) return;
@@ -3858,27 +3932,36 @@ function exportBakedHTML(){
   }
   window.HCSim = {
     clearScenario:function(){
-      var target=scenarioDate(), changed=0;
+      var changed=0;
       for(var i=0;i<games.length;i++){
-        var g=games[i]; if(g.inactiveOfficial || gameSeason(g)!==activeSeason || (g.date||'').slice(0,10)!==target) continue;
+        var g=games[i]; if(!isScenarioGame(g) || !g.manualOverride) continue;
         g.winner=g.officialWinner||''; g.manualOverride=false; changed++;
       }
-      saveAll(); renderAll(); alert('Cleared '+changed+' scenario pick'+(changed===1?'':'s')+' for '+target+'.');
+      saveAll(); renderAll(); alert('Cleared '+changed+' scenario pick'+(changed===1?'':'s')+'.');
+    },
+    pickFavorites:function(){
+      var picked=0;
+      for(var i=0;i<games.length;i++){
+        var g=games[i]; if(!isScenarioGame(g) || g.officialWinner || g.winner) continue;
+        if(!(isD6ATeam(g.a) || isD6ATeam(g.b))) continue;
+        g.winner=favoriteOf(g); g.manualOverride=true; picked++;
+      }
+      saveAll(); renderAll(); alert('Picked the favorite in '+picked+' open game'+(picked===1?'':'s')+' (better record, then power-point average, then home team). Change any pick below.');
     },
     snapshotScenario:function(){
-      var target=scenarioDate(), snaps=[];
+      var snaps=[];
       for(var i=0;i<games.length;i++){
-        var g=games[i]; if(g.inactiveOfficial || gameSeason(g)!==activeSeason || (g.date||'').slice(0,10)!==target) continue;
+        var g=games[i]; if(!isScenarioGame(g)) continue;
         snaps.push({id:g.id||'',date:g.date||'',a:g.a||'',b:g.b||'',winner:g.winner||'',manualOverride:!!g.manualOverride});
       }
-      save('scenario_week10_'+activeSeason,snaps); alert('Saved '+snaps.length+' scenario pick'+(snaps.length===1?'':'s')+' for '+target+'.');
+      save('scenario_week10_'+activeSeason,snaps); alert('Saved '+snaps.length+' scenario game'+(snaps.length===1?'':'s')+'.');
     },
     restoreScenario:function(){
       var snaps=load('scenario_week10_'+activeSeason)||[], restored=0;
       for(var j=0;j<snaps.length;j++){
         var s=snaps[j],found=null;
         for(var i=0;i<games.length;i++){
-          var g=games[i]; if(g.inactiveOfficial || gameSeason(g)!==activeSeason || (g.date||'').slice(0,10)!==scenarioDate()) continue;
+          var g=games[i]; if(!isScenarioGame(g)) continue;
           if((s.id&&g.id===s.id)||(g.date===s.date&&pairKey(g.a,g.b)===pairKey(s.a,s.b))){ found=g; break; }
         }
         if(found){ found.winner=s.winner||''; found.manualOverride=!!s.manualOverride; restored++; }
@@ -3887,6 +3970,7 @@ function exportBakedHTML(){
     }
   };
   try{
+    if(mergeSchedule()) saveAll();
     var startingSeason=activeSeason;
     var lastEmbeddedSync=load('lastOfficialSync');
     var embeddedFeed=window.D6_OFFICIAL_FEED;
@@ -3917,6 +4001,7 @@ function exportBakedHTML(){
 function clearWeek10(){ if(window.HCSim) window.HCSim.clearScenario(); }
 function snapshotWeek10(){ if(window.HCSim) window.HCSim.snapshotScenario(); }
 function restoreWeek10(){ if(window.HCSim) window.HCSim.restoreScenario(); }
+function pickFavorites(){ if(window.HCSim) window.HCSim.pickFavorites(); }
 </script>
 
 </body></html>

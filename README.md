@@ -24,6 +24,12 @@ node scripts/sync-d6-data.mjs
 
 Node 20 on GitHub Actions can use `node --test` directly; `--test-isolation=none` avoids a Windows sandbox child-process restriction in the local Codex environment.
 
+## Remaining schedule and playoff scenarios
+
+`data/schedule-2026.js` lists the remaining District 6 Class A games, read by hand from each team's MaxPreps schedule tab (not scraped). The simulator adds them as unplayed games, and the Class A tab lets you pick a winner for each one (or fill the open ones with favorites). The Class A rankings sort by average points, which is how District 6 ranks, and draw the Top 8 playoff cut line. When an official final arrives for a scheduled game, the real result replaces any pick. To change a matchup, edit that file and fill in `tba` entries once their opponents are set.
+
+Opponents' remaining games against teams outside this list are not loaded, so an opponent's win total only changes through games in the file.
+
 ## Schedule source boundary
 
 The official PIAA feed publishes results, not a complete future master schedule. The simulator therefore retains manual bulk/MaxPreps paste imports for future games and is ready for an official BOUND/CSV schedule adapter.
