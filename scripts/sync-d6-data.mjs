@@ -10,6 +10,7 @@ import {
 const SEASON = Number(process.env.D6_SEASON ?? new Date().getFullYear());
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const OUTPUT = resolve(ROOT, process.env.D6_OUTPUT ?? `data/football-${SEASON}.json`);
+const CORRECTIONS = resolve(ROOT, `data/score-corrections-${SEASON}.json`);
 const SCRIPT_OUTPUT = OUTPUT.toLowerCase().endsWith(".json")
   ? `${OUTPUT.slice(0, -5)}.js`
   : `${OUTPUT}.js`;
@@ -46,6 +47,10 @@ async function loadPosts() {
 async function main() {
   let prior = null;
   try { prior = JSON.parse(await readFile(OUTPUT, "utf8")); } catch {}
+  let corrections = [];
+  try { corrections = JSON.parse(await readFile(CORRECTIONS, "utf8")); } catch (error) {
+    if (error.code !== "ENOENT") throw new Error(`Could not read ${CORRECTIONS}: ${error.message}`);
+  }
   const [{ posts, postsUrl }, classificationsHtml, rankingsHtml] = await Promise.all([
     loadPosts(),
     fetchText(URLS.classifications),
@@ -58,12 +63,16 @@ async function main() {
     classifications: parsePiaaClassifications(classificationsHtml),
     rankingReport: parseBlacklineRankings(rankingsHtml),
     posts,
+    corrections,
     sourceUrls: {
       scoreboard: postsUrl,
       classifications: URLS.classifications,
       rankings: URLS.rankings
     }
   });
+  const { unmatched } = feed.sources.scoreCorrections;
+  if (unmatched.length) process.stdout.write(`Warning: score corrections with no matching game: ${unmatched.join(", ")}
+`);
   const afterRegularSeason = Date.now() >= Date.parse(`${SEASON}-11-02T13:00:00Z`);
   if (afterRegularSeason) {
     if (!prior?.teams?.length) throw new Error(`Cannot refresh ${SEASON} after the regular-season cutoff without a prior feed whose Blackline records can be frozen.`);

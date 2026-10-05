@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "season": 2026,
-  "generatedAt": "2026-10-05T18:41:04.901Z",
+  "generatedAt": "2026-10-05T21:59:37.683Z",
   "sourcePriority": [
     "piaa-d6-scoreboard",
     "piaa-classifications",
@@ -13,6 +13,12 @@
     "rankings": "https://sports.blkline.com/sports/reports/d6FootballRanking.action",
     "regularSeasonCutoff": "2026-10-31",
     "rankingsUpdatedAt": "10/05/2026 12:17",
+    "scoreCorrections": {
+      "applied": [
+        "2026:2026-10-02:northern-cambria:west-shamokin"
+      ],
+      "unmatched": []
+    },
     "scoreboardPosts": [
       {
         "id": 9980,
@@ -8012,9 +8018,9 @@
       "date": "2026-10-02",
       "a": "West Shamokin",
       "b": "Northern Cambria",
-      "scoreA": 7,
-      "scoreB": 0,
-      "winner": "West Shamokin",
+      "scoreA": 14,
+      "scoreB": 26,
+      "winner": "Northern Cambria",
       "status": "final",
       "source": "piaa-d6-scoreboard",
       "sourceUrl": "https://piaad6.org/fall-sports/football-scoreboard/2026-d6-football-scoreboard-week-5/",
@@ -8040,6 +8046,15 @@
           "district": 6,
           "cls": "A"
         }
+      },
+      "correction": {
+        "original": {
+          "scoreA": 7,
+          "scoreB": 0,
+          "winner": "West Shamokin"
+        },
+        "note": "D6 scoreboard post lists West Shamokin 7-0; actual result Northern Cambria 26-14 (matches Blackline).",
+        "confirmedAt": "2026-10-05"
       }
     },
     {

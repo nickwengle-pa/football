@@ -235,7 +235,37 @@ export function isPostseasonScoreboardPost(post) {
   return /\bplayoffs?\b|\bpostseason\b|\bsemi[- ]?finals?\b|\bquarter[- ]?finals?\b|\bchampionship\b|\bstate\s+football\b/i.test(title) || (week && Number(week[1]) >= 10);
 }
 
-export function buildFeed({ season, generatedAt, classifications, rankingReport, posts, sourceUrls }) {
+// Manually confirmed results that override a wrong official scoreboard line.
+// Each correction names the game id and the score keyed by team name, so it
+// does not depend on the order the post lists the two teams.
+export function applyScoreCorrections(games, corrections = []) {
+  const byId = new Map(games.map((game) => [game.id, game]));
+  const applied = [];
+  const unmatched = [];
+  for (const correction of corrections) {
+    const game = byId.get(correction?.id);
+    const scoreA = Number(correction?.scores?.[game?.a]);
+    const scoreB = Number(correction?.scores?.[game?.b]);
+    if (!game || !Number.isFinite(scoreA) || !Number.isFinite(scoreB)) {
+      unmatched.push(correction?.id ?? "unknown");
+      continue;
+    }
+    if (game.scoreA !== scoreA || game.scoreB !== scoreB) {
+      game.correction = {
+        original: { scoreA: game.scoreA, scoreB: game.scoreB, winner: game.winner },
+        note: correction.note ?? "",
+        confirmedAt: correction.confirmedAt ?? ""
+      };
+      game.scoreA = scoreA;
+      game.scoreB = scoreB;
+      game.winner = scoreA === scoreB ? "" : scoreA > scoreB ? game.a : game.b;
+    }
+    applied.push(game.id);
+  }
+  return { applied, unmatched };
+}
+
+export function buildFeed({ season, generatedAt, classifications, rankingReport, posts, sourceUrls, corrections = [] }) {
   const teamMap = new Map();
   const rankingTeamIds = new Set(rankingReport.rankings.map((team) => slugify(canonicalizeTeamName(team.name))));
   const putTeam = (incoming, precedence) => {
@@ -299,6 +329,7 @@ export function buildFeed({ season, generatedAt, classifications, rankingReport,
     return cleaned;
   }).sort((a, b) => a.name.localeCompare(b.name));
   const games = [...gameMap.values()].sort((a, b) => a.date.localeCompare(b.date) || a.id.localeCompare(b.id));
+  const correctionResult = applyScoreCorrections(games, corrections);
 
   validateFeed({ season, classifications, rankingReport, posts: orderedPosts, postCoverage, teams, games });
 
@@ -313,6 +344,7 @@ export function buildFeed({ season, generatedAt, classifications, rankingReport,
       rankings: sourceUrls.rankings,
       regularSeasonCutoff,
       rankingsUpdatedAt: rankingReport.updatedAtLabel,
+      scoreCorrections: correctionResult,
       scoreboardPosts: orderedPosts.map((post) => {
         const coverage = postCoverage.find((item) => item.id === post.id);
         return { id: post.id, modified: post.modified, link: post.link, title: htmlToText(post?.title?.rendered ?? post?.title ?? ""), scoreLineCount: coverage?.scoreLineCount ?? 0, parsedGameCount: coverage?.parsedGameCount ?? 0, district6GameCount: coverage?.district6GameCount ?? 0 };

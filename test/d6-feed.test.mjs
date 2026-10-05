@@ -1,6 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import {
+  applyScoreCorrections,
   canonicalizeTeamName,
   gameId,
   isPostseasonScoreboardPost,
@@ -59,4 +60,17 @@ test("parses scoreboard dates, records, scores, and deterministic ids", () => {
   assert.equal(games[0].winner, "Homer-Center");
   assert.equal(games[0].date, "2026-08-28");
   assert.equal(games[0].id, gameId(2026, "2026-08-28", "Homer-Center", "Northern Cambria"));
+});
+
+test("applies confirmed score corrections regardless of team order", () => {
+  const games = [{ id: "g1", a: "West Shamokin", b: "Northern Cambria", scoreA: 7, scoreB: 0, winner: "West Shamokin" }];
+  const result = applyScoreCorrections(games, [
+    { id: "g1", scores: { "Northern Cambria": 26, "West Shamokin": 14 }, note: "fix" },
+    { id: "missing", scores: {} }
+  ]);
+  assert.deepEqual(result, { applied: ["g1"], unmatched: ["missing"] });
+  assert.equal(games[0].scoreA, 14);
+  assert.equal(games[0].scoreB, 26);
+  assert.equal(games[0].winner, "Northern Cambria");
+  assert.deepEqual(games[0].correction.original, { scoreA: 7, scoreB: 0, winner: "West Shamokin" });
 });
