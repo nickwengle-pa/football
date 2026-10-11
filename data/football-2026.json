@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "season": 2026,
-  "generatedAt": "2026-10-11T01:16:47.296Z",
+  "generatedAt": "2026-10-11T06:49:10.775Z",
   "sourcePriority": [
     "piaa-d6-scoreboard",
     "piaa-classifications",
@@ -12,7 +12,7 @@
     "classifications": "https://www.piaa.org/schools/classifications/sportDistrict.aspx?district=6&sportID=10",
     "rankings": "https://sports.blkline.com/sports/reports/d6FootballRanking.action",
     "regularSeasonCutoff": "2026-10-31",
-    "rankingsUpdatedAt": "10/10/2026 20:16",
+    "rankingsUpdatedAt": "10/10/2026 22:16",
     "scoreCorrections": {
       "applied": [
         "2026:2026-10-02:northern-cambria:west-shamokin"
@@ -76,12 +76,12 @@
       },
       {
         "id": 10373,
-        "modified": "2026-10-10T20:21:49",
+        "modified": "2026-10-10T23:39:02",
         "link": "https://piaad6.org/fall-sports/football-scoreboard/2026-d6-football-scoreboard-week-6/",
         "title": "2026 D6 Football Scoreboard…. Week 6",
-        "scoreLineCount": 58,
-        "parsedGameCount": 58,
-        "district6GameCount": 23
+        "scoreLineCount": 59,
+        "parsedGameCount": 59,
+        "district6GameCount": 24
       }
     ]
   },
@@ -225,12 +225,12 @@
       "cls": "AA",
       "district": 6,
       "wins": 5,
-      "losses": 1,
+      "losses": 2,
       "ties": 0,
       "rankingPoints": 710,
-      "averagePoints": 118.33,
-      "averageScore": 30.83,
-      "averageAllowed": 11.33,
+      "averagePoints": 101.43,
+      "averageScore": 26.43,
+      "averageAllowed": 11.14,
       "recordSource": "blackline-rankings",
       "recordProvisional": false
     },
@@ -254,13 +254,13 @@
       ],
       "cls": "A",
       "district": 6,
-      "wins": 5,
+      "wins": 6,
       "losses": 1,
       "ties": 0,
-      "rankingPoints": 770,
-      "averagePoints": 128.33,
-      "averageScore": 37.5,
-      "averageAllowed": 9.33,
+      "rankingPoints": 930,
+      "averagePoints": 132.86,
+      "averageScore": 33.57,
+      "averageAllowed": 8,
       "recordSource": "blackline-rankings",
       "recordProvisional": false
     },
@@ -1823,8 +1823,8 @@
       "wins": 7,
       "losses": 0,
       "ties": 0,
-      "rankingPoints": 950,
-      "averagePoints": 135.71,
+      "rankingPoints": 960,
+      "averagePoints": 137.14,
       "averageScore": 32.29,
       "averageAllowed": 13.71,
       "recordSource": "blackline-rankings",
@@ -9100,12 +9100,49 @@
           "cls": "AA"
         }
       }
+    },
+    {
+      "id": "2026:2026-10-10:bellwood-antis:bishop-guilfoyle",
+      "sourceGameId": "2026:2026-10-10:bellwood-antis:bishop-guilfoyle",
+      "season": 2026,
+      "date": "2026-10-10",
+      "a": "Bishop Guilfoyle",
+      "b": "Bellwood-Antis",
+      "scoreA": 10,
+      "scoreB": 0,
+      "winner": "Bishop Guilfoyle",
+      "status": "final",
+      "source": "piaa-d6-scoreboard",
+      "sourceUrl": "https://piaad6.org/fall-sports/football-scoreboard/2026-d6-football-scoreboard-week-6/",
+      "sourcePostId": 10373,
+      "observedRecords": {
+        "Bishop Guilfoyle": {
+          "wins": 6,
+          "losses": 1,
+          "ties": 0
+        },
+        "Bellwood-Antis": {
+          "wins": 5,
+          "losses": 2,
+          "ties": 0
+        }
+      },
+      "observedTeams": {
+        "Bishop Guilfoyle": {
+          "district": 6,
+          "cls": "A"
+        },
+        "Bellwood-Antis": {
+          "district": 6,
+          "cls": "AA"
+        }
+      }
     }
   ],
   "validation": {
     "officialDistrict6TeamCount": 40,
     "rankingRowCount": 44,
     "scoreboardPostCount": 7,
-    "district6GameCount": 180
+    "district6GameCount": 181
   }
 }
