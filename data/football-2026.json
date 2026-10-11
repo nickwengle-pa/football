@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "season": 2026,
-  "generatedAt": "2026-10-10T18:37:33.839Z",
+  "generatedAt": "2026-10-11T01:16:47.296Z",
   "sourcePriority": [
     "piaa-d6-scoreboard",
     "piaa-classifications",
@@ -12,7 +12,7 @@
     "classifications": "https://www.piaa.org/schools/classifications/sportDistrict.aspx?district=6&sportID=10",
     "rankings": "https://sports.blkline.com/sports/reports/d6FootballRanking.action",
     "regularSeasonCutoff": "2026-10-31",
-    "rankingsUpdatedAt": "10/10/2026 14:17",
+    "rankingsUpdatedAt": "10/10/2026 20:16",
     "scoreCorrections": {
       "applied": [
         "2026:2026-10-02:northern-cambria:west-shamokin"
@@ -76,11 +76,11 @@
       },
       {
         "id": 10373,
-        "modified": "2026-10-10T00:40:19",
+        "modified": "2026-10-10T20:21:49",
         "link": "https://piaad6.org/fall-sports/football-scoreboard/2026-d6-football-scoreboard-week-6/",
         "title": "2026 D6 Football Scoreboard…. Week 6",
-        "scoreLineCount": 55,
-        "parsedGameCount": 55,
+        "scoreLineCount": 58,
+        "parsedGameCount": 58,
         "district6GameCount": 23
       }
     ]
@@ -379,6 +379,18 @@
       "recordProvisional": true
     },
     {
+      "id": "buffalo-st-francis-ny",
+      "name": "Buffalo St. Francis NY",
+      "aliases": [],
+      "cls": "AAA",
+      "district": 92,
+      "wins": 6,
+      "losses": 0,
+      "ties": 0,
+      "recordSource": "piaa-scoreboard-observed",
+      "recordProvisional": true
+    },
+    {
       "id": "butler",
       "name": "Butler",
       "aliases": [],
@@ -559,7 +571,7 @@
       "cls": "AAAAAA",
       "district": 3,
       "wins": 1,
-      "losses": 5,
+      "losses": 6,
       "ties": 0,
       "recordSource": "piaa-scoreboard-observed",
       "recordProvisional": true
@@ -821,12 +833,12 @@
       "cls": "AAAAAA",
       "district": 10,
       "wins": 2,
-      "losses": 4,
+      "losses": 5,
       "ties": 0,
       "rankingPoints": 230,
-      "averagePoints": 38.33,
-      "averageScore": 9.33,
-      "averageAllowed": 35.17,
+      "averagePoints": 32.86,
+      "averageScore": 8,
+      "averageAllowed": 36,
       "recordSource": "blackline-rankings",
       "recordProvisional": false
     },
@@ -998,7 +1010,7 @@
       "aliases": [],
       "cls": "AAAAAA",
       "district": 3,
-      "wins": 6,
+      "wins": 7,
       "losses": 0,
       "ties": 0,
       "recordSource": "piaa-scoreboard-observed",
@@ -1711,7 +1723,7 @@
       "cls": "A",
       "district": 9,
       "wins": 4,
-      "losses": 2,
+      "losses": 3,
       "ties": 0,
       "recordSource": "piaa-scoreboard-observed",
       "recordProvisional": true
@@ -1794,7 +1806,7 @@
       "aliases": [],
       "cls": "A",
       "district": 9,
-      "wins": 4,
+      "wins": 5,
       "losses": 2,
       "ties": 0,
       "recordSource": "piaa-scoreboard-observed",
