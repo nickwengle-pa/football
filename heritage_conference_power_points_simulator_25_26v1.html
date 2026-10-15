@@ -116,6 +116,8 @@
       font-family:var(--disp);font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;
     }
     .chip:hover{background:#e6e8ec}
+    .chip-back{background:var(--red);color:#fff;clip-path:polygon(8px 0,100% 0,100% 100%,0 100%);padding:4px 10px 4px 12px}
+    .chip-back:hover{background:var(--red);filter:brightness(1.1)}
     .theme-btn .i-sun{display:none}
     html.is-dark .theme-btn .i-sun{display:block}
     html.is-dark .theme-btn .i-moon{display:none}
@@ -273,7 +275,8 @@
     .tba-slot{flex-direction:column;align-items:stretch;margin-top:8px}
     .tba-label{font-size:14px}
     .tba-label b{font-family:var(--disp);letter-spacing:0.04em}
-    .tba-ctl{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+    .tba-ctl{display:flex;flex-wrap:wrap;gap:6px;align-items:center;min-width:0;width:100%}
+    .tba-label{min-width:0}
     .tba-ctl select{flex:1 1 180px;min-width:0}
     .tba-ctl .tba-site{flex:0 0 auto}
     .tba-ctl button{flex:0 0 auto}
@@ -284,9 +287,15 @@
     @media(max-width:520px){
       .wrap{padding:20px 10px 32px}
       .chip span{display:none}
+      .topbar{gap:8px}
+      .brand .title{font-size:15px;letter-spacing:0.05em}
       .rank-table td,.rank-table th{padding-left:6px;padding-right:6px}
       .rank-table th:nth-child(3),.rank-table td:nth-child(3),
       .rank-table th:nth-child(4),.rank-table td:nth-child(4){width:58px}
+    }
+    @media(max-width:360px){
+      .topbar{gap:8px;padding-left:10px;padding-right:10px}
+      .topbar > .chip:not(.chip-back){display:none}
     }
     @media print{
       .topbar,.drawer,.scrim,.toolbar,.more{display:none!important}
@@ -302,6 +311,7 @@
       <div class="title">D6 Scenarios</div>
       <div class="sub" id="topSub">District 6 · Class A Rankings</div>
     </div>
+    <a class="chip chip-back" href="https://dragonstats.app/" title="Back to Dragon Stats">‹ Stats</a>
     <button type="button" id="btnTheme" class="menu-btn theme-btn" aria-label="Switch to dark mode" title="Light / dark">
       <svg class="i-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
       <svg class="i-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
@@ -316,12 +326,14 @@
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"/></svg>
       </button>
     </div>
+    <a class="tab" href="https://dragonstats.app/">‹ Back to Dragon Stats<small>The PL Dragons stats app</small></a>
     <button type="button" class="tab active" data-tab="d6" data-title="District 6 · Class A Rankings">D6 Class A Rankings<small>Rankings and remaining games</small></button>
     <div class="drawer-sep">More tools</div>
     <button type="button" class="tab" data-tab="schedule" data-title="Schedule &amp; Results">Schedule &amp; Results<small>Every game, data sync, imports</small></button>
     <button type="button" class="tab" data-tab="all" data-title="All Teams Rankings">All Teams Rankings<small>Every class, every team</small></button>
     <button type="button" class="tab" data-tab="classes" data-title="AA to AAAA · Final Week">AA to AAAA<small>Final-week games for the other classes</small></button>
     <button type="button" class="tab" data-tab="teams" data-title="Teams &amp; Classes">Teams &amp; Classes<small>Edit teams, merge, export</small></button>
+    <a class="tab" href="https://sports.blkline.com/sports/reports/d6FootballRanking.action" target="_blank" rel="noopener noreferrer">Official D6 rankings ↗<small>Blackline's ranking report</small></a>
     <div class="drawer-foot">
       <p class="tiny">PIAA base points cover A through AAAAAA (100 for same class, ±10 per class). Power = +10 for each win by an opponent you beat.</p>
       <div id="diag" class="status">Storage: localStorage | randomUUID: yes</div>
