@@ -107,8 +107,10 @@ window.D6_SCHEDULE_2026 = {
   ],
   // Listed on MaxPreps with no opponent yet; add them once the matchups are set.
   tba: [
-    { date: "2026-10-30", team: "Bishop Guilfoyle", note: "@ TBA (crossover game)" },
-    { date: "2026-10-30", team: "Bishop McCort", note: "vs TBA" }
+    // "likely" opponents are filled in for everyone (the first one to start with) until the real
+    // game is scheduled; visitors can switch between them or pick any other team.
+    { date: "2026-10-30", team: "Bishop Guilfoyle", note: "@ TBA (crossover game)", likely: ["Richland"] },
+    { date: "2026-10-30", team: "Bishop McCort", note: "vs TBA", likely: ["Central", "Bellwood-Antis"] }
   ],
   // Opponents whose Week 9 (Oct 30) game shows "TBA" on MaxPreps (likely District 6 crossovers).
   opponentTba: ["Central", "Clearfield", "Forest Hills", "Philipsburg-Osceola", "Richland", "Somerset", "Tyrone", "Westmont Hilltop"]

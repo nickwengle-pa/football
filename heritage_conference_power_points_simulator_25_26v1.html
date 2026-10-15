@@ -280,6 +280,8 @@
     .tba-ctl select{flex:1 1 180px;min-width:0}
     .tba-ctl .tba-site{flex:0 0 auto}
     .tba-ctl button{flex:0 0 auto}
+    .tba-opts{display:flex;flex-wrap:wrap;gap:6px;flex:1 1 220px;min-width:0}
+    .tba-opts .pick-btn{flex:1 1 120px}
     .tba-set{flex:1 1 auto;font-family:var(--disp);font-weight:700;font-size:15px}
     .more{margin-top:18px;background:var(--surface);box-shadow:var(--shadow);padding:12px 14px}
     .more[open] summary{margin-bottom:6px}
@@ -3716,6 +3718,7 @@ function isD6AAATeam(name){ return D6_AAA_LIST.indexOf(name) !== -1; }
 
   function renderD6FutureGames(){
     var host=$('d6FutureGames'); if(!host) return;
+    if(prefillTbaSlots()) saveAll();
     var upcoming=gamesForActiveSeason().filter(function(g){ return (isD6ATeam(g.a) || isD6ATeam(g.b)) && isScenarioGame(g); });
     renderPickList(host, upcoming, 'No upcoming D6-A games pending.', '');
     renderTbaSlots(host);
@@ -3727,16 +3730,44 @@ function isD6AAATeam(name){ return D6_AAA_LIST.indexOf(name) !== -1; }
     var team=canonicalTeamName(slot.team);
     for(var i=0;i<games.length;i++){
       var g=games[i];
-      if(g.source==='tba-fill' && g.tbaKey===slot.date+'|'+team) return g;
+      if(g.source==='tba-fill' && g.tbaKey===tbaSlotKey(slot)) return g;
     }
     return null;
+  }
+  function tbaSlotKey(slot){ return String(slot.date).slice(0,10)+'|'+canonicalTeamName(slot.team); }
+  function tbaAway(slot){ return /^\s*@/.test(slot.note||''); }
+  function addTbaGame(slot, opp, away){
+    var team=canonicalTeamName(slot.team), date=String(slot.date).slice(0,10);
+    games.push({id:'tba:'+activeSeason+':'+date+':'+pairKey(team,opp),season:activeSeason,date:date,a:team,b:opp,
+      home:away?opp:team,winner:'',status:'scheduled',source:'tba-fill',tbaKey:tbaSlotKey(slot)});
+  }
+  function removeTbaGame(g){ games=games.filter(function(x){ return x!==g; }); }
+  // Fills each open slot with its likely opponent unless this device already chose something else.
+  function prefillTbaSlots(){
+    var sched=window.D6_SCHEDULE_2026, changed=false;
+    if(!sched || parseInt(sched.season,10)!==activeSeason || !Array.isArray(sched.tba)) return false;
+    var cleared=load('tbaCleared')||{};
+    sched.tba.forEach(function(slot){
+      var team=canonicalTeamName(slot.team), date=String(slot.date).slice(0,10), filled=tbaGameFor(slot);
+      // Once the real game is on the schedule or in the feed, the stand-in goes away.
+      var real=games.some(function(g){ return g.source!=='tba-fill' && gameSeason(g)===activeSeason && (g.date||'').slice(0,10)===date && (g.a===team || g.b===team); });
+      if(real){ if(filled){ removeTbaGame(filled); changed=true; } return; }
+      if(!Array.isArray(slot.likely) || !slot.likely.length || filled || cleared[tbaSlotKey(slot)]) return;
+      addTbaGame(slot, canonicalTeamName(slot.likely[0]), tbaAway(slot)); changed=true;
+    });
+    return changed;
+  }
+  function setTbaCleared(slot, on){
+    var cleared=load('tbaCleared')||{};
+    if(on) cleared[tbaSlotKey(slot)]=true; else delete cleared[tbaSlotKey(slot)];
+    save('tbaCleared', cleared);
   }
   function renderTbaSlots(host){
     var sched=window.D6_SCHEDULE_2026;
     if(!sched || parseInt(sched.season,10)!==activeSeason || !Array.isArray(sched.tba) || !sched.tba.length) return;
     var box=e('div',{className:'tba-box'});
-    box.appendChild(e('div',{className:'quick-week',textContent:'Opponent not set yet'}));
-    box.appendChild(e('p',{className:'tiny',textContent:'These games are on the schedule without an opponent. If you know or want to guess who they play, pick the team and the game is added above so you can pick a winner. It is saved on this device only.'}));
+    box.appendChild(e('div',{className:'quick-week',textContent:'Opponent not confirmed yet'}));
+    box.appendChild(e('p',{className:'tiny',textContent:'These games are on the schedule without a confirmed opponent. They start with the most likely opponent, which is already in the games above. Tap another option, or pick any team, to try a different matchup. Your change is saved on this device only.'}));
     sched.tba.forEach(function(slot){
       var team=canonicalTeamName(slot.team), filled=tbaGameFor(slot);
       var row=e('div',{className:'quick-game tba-slot'});
@@ -3745,12 +3776,29 @@ function isD6AAATeam(name){ return D6_AAA_LIST.indexOf(name) !== -1; }
       label.appendChild(document.createTextNode(' '+(slot.note||'vs TBA')+' · '+dayLabel(slot.date)));
       row.appendChild(label);
       var ctl=e('div',{className:'tba-ctl'});
+      var likely=(Array.isArray(slot.likely)?slot.likely:[]).map(canonicalTeamName);
       if(filled){
         var opp=filled.a===team ? filled.b : filled.a;
-        ctl.appendChild(e('span',{className:'tba-set',textContent:(filled.home===team?'vs ':'@ ')+opp}));
-        var clr=e('button',{type:'button',textContent:'Change'});
+        if(likely.length){
+          var opts=e('div',{className:'tba-opts'});
+          var list=likely.indexOf(opp)===-1 ? likely.concat([opp]) : likely;
+          list.forEach(function(name){
+            var b=e('button',{type:'button',className:'pick-btn'+(name===opp?' on':''),textContent:(filled.home===team?'vs ':'@ ')+name});
+            b.onclick=function(){
+              if(name===opp) return;
+              var away=filled.home!==team;
+              removeTbaGame(filled); addTbaGame(slot, name, away);
+              saveAll(); renderGames(); renderStandings();
+            };
+            opts.appendChild(b);
+          });
+          ctl.appendChild(opts);
+        }else{
+          ctl.appendChild(e('span',{className:'tba-set',textContent:(filled.home===team?'vs ':'@ ')+opp}));
+        }
+        var clr=e('button',{type:'button',textContent:likely.length?'Other team':'Change'});
         clr.onclick=function(){
-          games=games.filter(function(g){ return g!==filled; });
+          removeTbaGame(filled); setTbaCleared(slot, true);
           saveAll(); renderGames(); renderStandings();
         };
         ctl.appendChild(clr);
@@ -3761,7 +3809,7 @@ function isD6AAATeam(name){ return D6_AAA_LIST.indexOf(name) !== -1; }
           .map(function(t){ return t.name; })
           .sort(function(x,y){ return x.localeCompare(y); })
           .forEach(function(n){ sel.appendChild(e('option',{value:n,textContent:n})); });
-        var away=/^\s*@/.test(slot.note||'');
+        var away=tbaAway(slot);
         var homeSel=e('select',{className:'tba-site'});
         homeSel.appendChild(e('option',{value:'home',textContent:'Home'}));
         homeSel.appendChild(e('option',{value:'away',textContent:'Away'}));
@@ -3769,12 +3817,15 @@ function isD6AAATeam(name){ return D6_AAA_LIST.indexOf(name) !== -1; }
         var add=e('button',{type:'button',className:'primary',textContent:'Add game'});
         add.onclick=function(){
           var opp=sel.value; if(!opp){ sel.focus(); return; }
-          var date=String(slot.date).slice(0,10);
-          games.push({id:'tba:'+activeSeason+':'+date+':'+pairKey(team,opp),season:activeSeason,date:date,a:team,b:opp,
-            home:homeSel.value==='away'?opp:team,winner:'',status:'scheduled',source:'tba-fill',tbaKey:date+'|'+team});
+          addTbaGame(slot, opp, homeSel.value==='away'); setTbaCleared(slot, false);
           saveAll(); renderGames(); renderStandings();
         };
         ctl.appendChild(sel); ctl.appendChild(homeSel); ctl.appendChild(add);
+        if(likely.length){
+          var back=e('button',{type:'button',textContent:'Use likely'});
+          back.onclick=function(){ setTbaCleared(slot, false); renderStandings(); renderGames(); };
+          ctl.appendChild(back);
+        }
       }
       row.appendChild(ctl);
       box.appendChild(row);
