@@ -1,202 +1,297 @@
 <html lang="en"><head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Heritage / District 6 Power Points Simulator (v1.7)</title>
+  <title>D6 Scenarios · Power Points</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
+    /* Dragon Stats' broadcast look: a black header bar with a red slash under it,
+       a studio-grey stage, hard corners, Chakra Petch for headings and numbers,
+       Manrope for the small print. Light is the design as drawn; dark follows
+       the device setting and keeps the same black chrome. */
     :root{
-      --bg:#041119;
-      --bg-alt:#091d2b;
-      --panel:rgba(9,29,43,0.92);
-      --panel-edge:rgba(38,97,128,0.45);
-      --muted:#122636;
-      --ink:#f1f5f9;
-      --inkd:#9fb6c5;
-      --accent:#2dd4bf;
-      --accent-dark:#0f766e;
-      --good:#4ade80;
-      --bad:#f87171;
-      --amber:#fbbf24;
-      --rounded:18px;
-      --shadow:0 20px 40px rgba(0,0,0,0.35);
+      --stage:#e6e8ec;
+      --stage-2:#eef0f3;
+      --stage-3:#dfe2e7;
+      --surface:#ffffff;
+      --surface-2:#f2f3f5;
+      --bug:#0b0d10;
+      --ink:#0b0d10;
+      --inkd:#525a66;
+      --line:#c9cdd4;
+      --red:#d7141a;
+      --red-text:#c1121a;
+      --amber:#f5a800;
+      --amber-text:#9a6700;
+      --green:#149a5b;
+      --green-text:#0f7a48;
+      --good:var(--green-text);
+      --bad:var(--red-text);
+      --accent:var(--red);
+      --shadow:0 1px 0 var(--line), 0 12px 30px rgba(11,13,16,0.08);
+      --disp:"Chakra Petch","Arial Narrow",sans-serif;
+      color-scheme:light;
+    }
+    @media (prefers-color-scheme: dark){
+      :root{
+        --stage:#0f1216;
+        --stage-2:#14181d;
+        --stage-3:#0d1014;
+        --surface:#1a1f26;
+        --surface-2:#222830;
+        --bug:#07090c;
+        --ink:#f2f3f5;
+        --inkd:#9aa3ad;
+        --line:#2c333d;
+        --red-text:#ff5a60;
+        --amber-text:#fbbf24;
+        --green-text:#4ade80;
+        --shadow:0 1px 0 var(--line), 0 12px 30px rgba(0,0,0,0.35);
+        color-scheme:dark;
+      }
     }
     *{box-sizing:border-box}
+    html{-webkit-text-size-adjust:100%}
     body{
       margin:0;
-      background:radial-gradient(circle at 20% 20%, rgba(45,212,191,0.08) 0, rgba(4,17,25,0.9) 45%), radial-gradient(circle at 80% 0, rgba(56,189,248,0.08) 0, rgba(4,17,25,0.95) 55%), var(--bg);
+      background:linear-gradient(160deg,var(--stage-2),var(--stage-3)) fixed;
       color:var(--ink);
-      font:15px/1.5 "Segoe UI",Roboto,system-ui,-apple-system,Cantarell,Arial;
+      font:15px/1.5 "Manrope",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
       min-height:100vh;
     }
-    h1,h2{margin:12px 0;text-transform:uppercase;letter-spacing:0.06em}
-    h1{font-size:24px;font-weight:700}
-    h2{font-size:18px;font-weight:600}
+    h1,h2,h3{font-family:var(--disp);text-transform:uppercase;letter-spacing:0.08em;margin:0}
+    h2{font-size:16px;font-weight:700}
+    h3{font-size:13px;font-weight:700}
     p{color:var(--inkd)}
-    .wrap{max-width:1240px;margin:18px auto 32px auto;padding:0 18px}
-    .wrap>.row:first-child{
-      background:linear-gradient(120deg,rgba(8,27,39,0.9),rgba(5,18,27,0.95));
-      padding:18px 22px;
-      border-radius:var(--rounded);
-      border:1px solid rgba(52,120,144,0.45);
-      box-shadow:var(--shadow);
+    a{color:inherit}
+
+    /* ── header + side menu ── */
+    .topbar{
+      position:sticky;top:0;z-index:30;
+      background:var(--bug);color:#fff;
+      display:flex;align-items:center;gap:12px;
+      padding:calc(10px + env(safe-area-inset-top)) 16px 10px;
     }
+    .topbar::after{
+      content:"";position:absolute;left:0;right:0;bottom:-6px;height:6px;background:var(--red);
+      clip-path:polygon(0 0,100% 0,calc(100% - 12px) 100%,0 100%);
+    }
+    .menu-btn{
+      width:40px;height:40px;flex:0 0 auto;display:flex;align-items:center;justify-content:center;
+      background:transparent;border:0;color:#fff;padding:0;box-shadow:none;cursor:pointer;
+    }
+    .menu-btn:hover{background:rgba(255,255,255,0.08)}
+    .brand{flex:1;min-width:0}
+    .brand .title{font-family:var(--disp);font-size:18px;line-height:20px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .brand .sub{font-family:var(--disp);font-size:10px;line-height:13px;margin-top:2px;color:rgba(255,255,255,0.6);letter-spacing:0.06em;text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .chip{
+      flex:0 0 auto;display:flex;align-items:center;gap:5px;
+      background:#fff;color:var(--bug);text-decoration:none;
+      padding:4px 12px 4px 10px;clip-path:polygon(0 0,100% 0,calc(100% - 8px) 100%,0 100%);
+      font-family:var(--disp);font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;
+    }
+    .chip:hover{background:#e6e8ec}
+    .scrim{position:fixed;inset:0;z-index:40;background:rgba(0,0,0,0.45)}
+    .drawer{
+      position:fixed;top:0;bottom:0;left:0;z-index:50;width:min(300px,86vw);
+      background:var(--bug);color:#fff;overflow-y:auto;
+      transform:translateX(-102%);transition:transform .2s ease;
+      display:flex;flex-direction:column;
+      padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom);
+    }
+    .drawer.open{transform:none;box-shadow:0 0 40px rgba(0,0,0,0.5)}
+    .drawer-hd{display:flex;align-items:center;justify-content:space-between;padding:14px 12px 14px 18px;border-bottom:3px solid var(--red)}
+    .drawer-hd b{font-family:var(--disp);font-size:14px;letter-spacing:0.14em;text-transform:uppercase}
+    .drawer-sep{font-family:var(--disp);font-size:10px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.45);padding:16px 18px 6px}
+    .drawer .tab{
+      display:block;width:100%;text-align:left;background:transparent;border:0;border-left:4px solid transparent;
+      color:rgba(255,255,255,0.8);padding:12px 18px 12px 14px;box-shadow:none;
+      font-family:var(--disp);font-size:14px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;
+    }
+    .drawer .tab small{display:block;font-family:"Manrope",sans-serif;font-size:11px;font-weight:500;letter-spacing:0;text-transform:none;color:rgba(255,255,255,0.5)}
+    .drawer .tab:hover{background:rgba(255,255,255,0.06);color:#fff}
+    .drawer .tab.active{border-left-color:var(--red);background:rgba(255,255,255,0.08);color:#fff}
+    .drawer a.tab{text-decoration:none}
+    .drawer-foot{margin-top:auto;padding:16px 18px;border-top:1px solid rgba(255,255,255,0.12)}
+    .drawer-foot p,.drawer-foot .tiny{color:rgba(255,255,255,0.55)}
+    .drawer-foot .status{background:transparent;color:rgba(255,255,255,0.6);border-color:rgba(255,255,255,0.2)}
+
+    /* ── page ── */
+    .wrap{max-width:1100px;margin:0 auto;padding:22px 16px 40px}
+    .tab-panel{display:none}
+    .tab-panel.active{display:block}
+    .card{background:var(--surface);box-shadow:var(--shadow);padding:16px}
+    /* The editing tables are wider than a phone; let them scroll inside their card, not the page. */
+    .card{overflow-x:auto;max-width:100%}
+    .pill{max-width:100%}
+    .pill select,.pill input{min-width:0;max-width:100%}
     .grid{display:grid;gap:16px}
     @media(min-width:980px){.grid{grid-template-columns:1.2fr 1.8fr}}
-    .card{
-      background:linear-gradient(155deg,rgba(15,41,56,0.92),rgba(7,25,36,0.92));
-      border:1px solid var(--panel-edge);
-      border-radius:var(--rounded);
-      padding:18px;
-      box-shadow:var(--shadow);
-      backdrop-filter:blur(6px);
-    }
-    .row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+    .row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
     .row>*{flex:1}
-    select,input,button,textarea{
-      background:rgba(6,24,35,0.92);
-      border:1px solid rgba(77,139,167,0.45);
-      color:var(--ink);
-      border-radius:14px;
-      padding:10px 14px;
-      transition:all .18s ease;
-    }
-    select:focus,input:focus,textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 2px rgba(45,212,191,0.25)}
-    textarea{min-height:120px;font-family:ui-monospace,Menlo,Consolas,monospace;background:rgba(6,24,35,0.92)}
-    button{
-      cursor:pointer;
-      font-weight:600;
-      text-transform:uppercase;
-      letter-spacing:0.05em;
-      border-radius:14px;
-      box-shadow:0 10px 25px rgba(0,0,0,0.28);
-    }
-    button:hover{filter:brightness(1.08);transform:translateY(-1px)}
-    button:active{transform:translateY(0)}
-    button.primary{background:linear-gradient(135deg,var(--accent),#1ba2a2);border-color:var(--accent-dark);color:#042026}
-    button.alt{background:linear-gradient(135deg,#3b82f6,#1d4ed8);border-color:#1e40af}
-    button.warn{background:linear-gradient(135deg,#f97316,#ea580c);border-color:#c2410c}
-    table{width:100%;border-collapse:separate;border-spacing:0;background:rgba(7,23,33,0.65);border-radius:14px;overflow:hidden}
-    th,td{padding:12px;border-bottom:1px solid rgba(56,87,109,0.35);vertical-align:middle}
-    th{position:sticky;top:0;background:rgba(3,14,21,0.9);z-index:1;text-transform:uppercase;font-size:11px;letter-spacing:0.08em;color:var(--inkd)}
-    tr:hover td{background:rgba(8,31,46,0.9)}
     .tiny{font-size:12px;color:var(--inkd)}
-    .pill{
-      display:inline-flex;align-items:center;gap:6px;padding:6px 10px;
-      border-radius:999px;background:rgba(6,24,35,0.85);border:1px solid rgba(52,120,144,0.6);color:#d2dee8;
-      flex:0 0 auto;text-transform:uppercase;font-size:11px;letter-spacing:0.05em;
-    }
-    .badge{
-      font-weight:700;
-      padding:4px 10px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,0.12);
-      box-shadow:inset 0 0 12px rgba(255,255,255,0.08);
-    }
-    .A{background:rgba(45,212,191,0.15)}
-    .AA{background:rgba(56,189,248,0.12)}
-    .AAA{background:rgba(249,115,22,0.15)}
-    .AAAA{background:rgba(251,191,36,0.18);color:#1f2937}
-    .AAAAA{background:rgba(192,132,252,0.18)}
-    .AAAAAA{background:rgba(244,114,182,0.18)}
-    details{user-select:none} summary{cursor:pointer;color:var(--accent)}
-    .drop{border:2px dashed rgba(45,212,191,0.4);border-radius:18px;padding:14px;text-align:center;color:#94d3c8;background:rgba(4,17,25,0.75);transition:border-color .18s}
-    .drop.drag{border-color:var(--accent);color:#e0fffa;background:rgba(9,36,46,0.85)}
     .mono{font-family:ui-monospace,Menlo,Consolas,monospace}
-    .status{
-      font-size:12px;
-      padding:8px 14px;
-      border:1px solid rgba(45,212,191,0.45);
-      border-radius:999px;
-      background:rgba(4,24,32,0.85);
-      text-transform:uppercase;
-      letter-spacing:0.08em;
-      box-shadow:0 12px 25px rgba(0,0,0,0.25);
-    }
     .is-hidden{display:none!important}
-    .sync-panel{border-color:rgba(45,212,191,0.65);background:linear-gradient(145deg,rgba(8,44,51,0.9),rgba(5,25,36,0.92))}
+
+    select,input,button,textarea{
+      font:inherit;font-size:14px;
+      background:var(--surface);color:var(--ink);
+      border:1px solid var(--line);border-radius:0;padding:9px 12px;
+    }
+    select:focus,input:focus,textarea:focus{outline:2px solid var(--red);outline-offset:-1px}
+    textarea{min-height:120px;width:100%;font-family:ui-monospace,Menlo,Consolas,monospace}
+    button{
+      cursor:pointer;background:var(--surface-2);
+      font-family:var(--disp);font-weight:700;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;
+    }
+    button:hover{background:var(--stage-3)}
+    button.primary{background:var(--red);border-color:var(--red);color:#fff}
+    button.primary:hover{filter:brightness(1.08)}
+    button.alt{background:var(--bug);border-color:var(--bug);color:#fff}
+    button.warn{background:transparent;border-color:var(--red-text);color:var(--red-text)}
+
+    table{width:100%;border-collapse:collapse;background:var(--surface)}
+    th,td{padding:10px;border-bottom:1px solid var(--line);vertical-align:middle;text-align:left}
+    th{background:var(--bug);color:rgba(255,255,255,0.75);font-family:var(--disp);font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;position:sticky;top:0;z-index:1}
+    td{font-variant-numeric:tabular-nums}
+    .pill{
+      display:inline-flex;align-items:center;gap:6px;flex:0 0 auto;
+      padding:4px 4px 4px 10px;background:var(--surface-2);border:1px solid var(--line);
+      font-family:var(--disp);font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--inkd);
+    }
+    .pill select,.pill input{padding:5px 8px;font-size:13px}
+    .badge{font-family:var(--disp);font-size:10px;font-weight:700;letter-spacing:0.08em;padding:1px 6px;background:var(--surface-2);border:1px solid var(--line);color:var(--inkd)}
+    details{user-select:none}
+    summary{cursor:pointer;font-family:var(--disp);font-weight:700;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:var(--red-text)}
+    .drop{border:2px dashed var(--line);padding:14px;text-align:center;color:var(--inkd)}
+    .drop.drag{border-color:var(--red)}
+    .status{font-family:var(--disp);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;padding:6px 10px;border:1px solid var(--line)}
     .sync-state{font-size:12px;color:var(--inkd);margin:8px 0 0}
     .sync-state.good{color:var(--good)}
     .sync-state.bad{color:var(--bad)}
-    .tabs{margin-top:16px}
-    .tab-bar{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:16px}
-    .tab-bar .tab{
-      flex:1;min-width:150px;
-      background:linear-gradient(140deg,rgba(8,29,41,0.95),rgba(6,22,32,0.9));
-      border:1px solid rgba(61,138,170,0.55);
-      color:var(--inkd);
-      border-radius:14px;
-      padding:12px;
-      font-weight:700;
-      text-align:center;
-      cursor:pointer;
-      transition:transform .18s ease, background .18s ease, color .18s ease, border-color .18s ease;
-      text-transform:uppercase;
-      letter-spacing:0.08em;
+    .quick-panel{margin-top:16px;padding:14px;background:var(--surface-2);border-left:4px solid var(--bug)}
+    .quick-panel h3{margin:0 0 8px}
+    .sync-panel{border-left-color:var(--red)}
+    .tab-panel>h2,.tab-panel>.row>h2{margin:0 0 10px}
+
+    .intro{background:var(--surface);box-shadow:var(--shadow);padding:12px 14px;margin-bottom:12px;border-left:4px solid var(--red)}
+    .intro p{margin:0;color:var(--ink);font-size:14px}
+    .intro details{margin-top:8px}
+    .how{margin:8px 0 0;padding-left:18px;font-size:13px;color:var(--inkd)}
+    .how li{margin:4px 0}
+    .how b{color:var(--ink)}
+    /* ── main screen: our team ── */
+    .us-card{background:var(--bug);color:#fff;display:flex;align-items:stretch;box-shadow:var(--shadow)}
+    .us-rank{background:var(--red);min-width:84px;padding:10px 18px 10px 14px;display:flex;flex-direction:column;justify-content:center;clip-path:polygon(0 0,100% 0,calc(100% - 10px) 100%,0 100%)}
+    .us-rank b{font-family:var(--disp);font-size:36px;line-height:36px;font-weight:700;font-variant-numeric:tabular-nums}
+    .us-rank span{font-family:var(--disp);font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;opacity:0.85}
+    .us-main{flex:1;min-width:0;padding:10px 14px}
+    .us-name{font-family:var(--disp);font-size:18px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase}
+    .us-stats{display:flex;flex-wrap:wrap;gap:4px 14px;font-family:var(--disp);font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.7)}
+    .us-stats b{color:#fff;font-size:14px}
+    .us-line{margin-top:4px;font-size:13px;color:rgba(255,255,255,0.85)}
+    .us-line .in{color:#4ade80;font-weight:700}
+    .us-line .out{color:#ff5a60;font-weight:700}
+    .us-proj{display:inline-block;margin-top:6px;font-family:var(--disp);font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;background:var(--amber);color:var(--bug);padding:2px 8px}
+
+    .sec-hd{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:24px 0 8px}
+    .sec-hd h2{flex:1;min-width:0}
+    .sec-hd .pill{background:var(--surface)}
+    .sec-note{margin:6px 0 0}
+
+    /* ── main screen: rankings ── */
+    .rank-table td{padding:9px 10px}
+    .rank-table th:nth-child(1),.rank-table td:nth-child(1){width:44px;text-align:center;font-family:var(--disp);font-weight:700}
+    .rank-table th:nth-child(3),.rank-table td:nth-child(3),
+    .rank-table th:nth-child(4),.rank-table td:nth-child(4){width:72px;text-align:right;font-family:var(--disp);font-weight:600}
+    .rank-table tr.team{cursor:pointer}
+    .rank-table tr.team:hover td{background:var(--surface-2)}
+    .rank-table .tname{font-weight:700}
+    .rank-table .chev{display:inline-block;margin-left:6px;color:var(--inkd);transition:transform .15s}
+    .rank-table tr.team.open .chev{transform:rotate(90deg)}
+    .rank-table tr.us td{background:var(--red);color:#fff;border-bottom-color:var(--red)}
+    .rank-table tr.us:hover td{background:var(--red);filter:brightness(1.06)}
+    .rank-table tr.us .chev{color:rgba(255,255,255,0.8)}
+    .rank-table tr.out td{color:var(--inkd)}
+    .rank-table tr.out.us td{color:#fff;opacity:0.9}
+    .rank-table tr.cut-line td{padding:4px 10px;background:var(--stage-3);border-top:2px solid var(--amber);border-bottom:2px solid var(--amber);font-family:var(--disp);font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--amber-text);text-align:center}
+    .rank-table tr.detail td{background:var(--surface-2);padding:10px 14px 12px;font-size:13px}
+    .det-stats{display:flex;flex-wrap:wrap;gap:4px 16px;font-family:var(--disp);font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--inkd)}
+    .det-stats b{color:var(--ink);font-size:14px}
+    .det-beats{margin:6px 0 0;color:var(--ink)}
+    .det-beats span{color:var(--inkd)}
+
+    /* ── main screen: games ── */
+    .toolbar{display:flex;flex-wrap:wrap;gap:4px}
+    .toolbar button{flex:0 0 auto;padding:8px 12px;font-size:12px}
+    .quick-games{display:flex;flex-direction:column;gap:6px;margin-top:8px}
+    .quick-week{margin:14px 0 2px;font-family:var(--disp);font-size:12px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink);border-bottom:2px solid var(--bug);padding-bottom:2px}
+    .quick-game{display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:var(--surface);box-shadow:0 1px 0 var(--line);padding:8px 10px;border-left:4px solid transparent}
+    .quick-game.picked{border-left-color:var(--amber)}
+    .quick-game .info{flex:1 1 160px;min-width:0;font-size:12px;color:var(--inkd)}
+    .pick{display:flex;align-items:center;gap:6px;flex:1 1 320px}
+    .pick .at{flex:0 0 auto;font-family:var(--disp);font-size:12px;font-weight:700;color:var(--inkd)}
+    .pick-btn{
+      flex:1 1 0;min-width:0;min-height:44px;padding:8px 10px;
+      background:var(--surface-2);border:1px solid var(--line);color:var(--ink);
+      font-family:var(--disp);font-size:14px;font-weight:600;letter-spacing:0.04em;text-transform:none;
+      white-space:normal;line-height:1.2;
     }
-    .tab-bar .tab:hover{border-color:var(--accent);color:var(--ink);transform:translateY(-2px);background:linear-gradient(140deg,rgba(18,62,79,0.95),rgba(6,22,32,0.92))}
-    .tab-bar .tab.active{background:linear-gradient(135deg,var(--accent),#1ba2a2);border-color:var(--accent);color:#042026;box-shadow:0 12px 28px rgba(18,144,129,0.35)}
-    .tab-panels{position:relative}
-    .tab-panel{display:none}
-    .tab-panel.active{display:block}
-    .quick-panel{
-      margin-top:16px;
-      padding:16px;
-      border-radius:14px;
-      border:1px solid rgba(61,138,170,0.4);
-      background:rgba(6,22,33,0.75);
-      box-shadow:0 12px 24px rgba(0,0,0,0.25);
+    .pick-btn.us{font-weight:800}
+    .pick-btn.on{background:var(--bug);border-color:var(--bug);color:#fff}
+    .pick-btn.on::before{content:"✓ ";color:#4ade80}
+    .pick-btn.final{cursor:default}
+    .more{margin-top:18px;background:var(--surface);box-shadow:var(--shadow);padding:12px 14px}
+    .more[open] summary{margin-bottom:6px}
+
+    @media(max-width:520px){
+      .wrap{padding:20px 10px 32px}
+      .chip span{display:none}
+      .rank-table td,.rank-table th{padding-left:6px;padding-right:6px}
+      .rank-table th:nth-child(3),.rank-table td:nth-child(3),
+      .rank-table th:nth-child(4),.rank-table td:nth-child(4){width:58px}
     }
-    .quick-panel h3{
-      margin:0 0 8px;
-      text-transform:uppercase;
-      letter-spacing:0.08em;
-      font-size:14px;
-    }
-    .quick-games{display:flex;flex-direction:column;gap:10px;margin-top:10px}
-    .quick-game{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      background:rgba(4,15,23,0.8);
-      border:1px solid rgba(40,104,126,0.45);
-      border-radius:12px;
-      padding:10px 12px;
-    }
-    .quick-game .info{
-      flex:1;
-      font-size:13px;
-      text-transform:uppercase;
-      letter-spacing:0.05em;
-      color:#d7e7f3;
-    }
-    .quick-week{margin:12px 0 0;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:#8fb6cc}
-    .quick-game.picked{border-color:rgba(98,196,140,0.75)}
-    #standingsD6A tr.cut-line td{padding:4px 8px;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:#f0b85a;border-top:2px dashed #f0b85a;background:transparent}
-    #standingsD6A tr.out td{opacity:0.6}
-    .quick-game select{
-      flex:0 0 200px;
-      background:rgba(6,24,35,0.92);
-      border-radius:10px;
-      border:1px solid rgba(61,138,170,0.6);
+    @media print{
+      .topbar,.drawer,.scrim,.toolbar,.more{display:none!important}
     }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <div class="row">
-      <h1 style="flex:1">Heritage / District 6 Power Points Simulator <span class="tiny">v1.7 · official-data sync</span></h1>
-      <div id="diag" class="status">Storage: localStorage | randomUUID: yes</div>
+  <header class="topbar">
+    <button type="button" id="btnMenu" class="menu-btn" aria-label="Open menu" aria-controls="sideMenu" aria-expanded="false">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+    <div class="brand">
+      <div class="title">D6 Scenarios</div>
+      <div class="sub" id="topSub">District 6 · Class A Rankings</div>
     </div>
-    <p class="tiny">PIAA base points cover A through AAAAAA (100 for same class, ±10 per class). Power = +10 for each win by an opponent you beat.</p>
-
-        <div class="tabs">
-      <div class="tab-bar">
-        <button class="tab active" data-tab="teams">Teams &amp; Classes</button>
-        <button class="tab" data-tab="schedule">Schedule &amp; Results</button>
-        <button class="tab" data-tab="all">Live Rankings - All Teams</button>
-        <button class="tab" data-tab="d6">District 6 - Class A Rankings</button>
-      </div>
+    <a class="chip" href="https://sports.blkline.com/sports/reports/d6FootballRanking.action" target="_blank" rel="noopener noreferrer" title="Blackline's official D6 ranking report"><span>Official</span> ↗</a>
+  </header>
+  <div id="menuScrim" class="scrim is-hidden"></div>
+  <nav id="sideMenu" class="drawer tab-bar" aria-label="Sections">
+    <div class="drawer-hd">
+      <b>Menu</b>
+      <button type="button" id="btnMenuClose" class="menu-btn" aria-label="Close menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"/></svg>
+      </button>
+    </div>
+    <button type="button" class="tab active" data-tab="d6" data-title="District 6 · Class A Rankings">D6 Class A Rankings<small>Rankings and remaining games</small></button>
+    <div class="drawer-sep">More tools</div>
+    <button type="button" class="tab" data-tab="schedule" data-title="Schedule &amp; Results">Schedule &amp; Results<small>Every game, data sync, imports</small></button>
+    <button type="button" class="tab" data-tab="all" data-title="All Teams Rankings">All Teams Rankings<small>Every class, every team</small></button>
+    <button type="button" class="tab" data-tab="classes" data-title="AA to AAAA · Final Week">AA to AAAA<small>Final-week games for the other classes</small></button>
+    <button type="button" class="tab" data-tab="teams" data-title="Teams &amp; Classes">Teams &amp; Classes<small>Edit teams, merge, export</small></button>
+    <div class="drawer-foot">
+      <p class="tiny">PIAA base points cover A through AAAAAA (100 for same class, ±10 per class). Power = +10 for each win by an opponent you beat.</p>
+      <div id="diag" class="status">Storage: localStorage | randomUUID: yes</div>
+      <p class="tiny">Power points simulator v1.8 · official-data sync</p>
+    </div>
+  </nav>
+  <div class="wrap">
+    <div class="tabs">
       <div class="tab-panels">
-        <section class="card tab-panel active" data-tab="teams">
+        <section class="card tab-panel" data-tab="teams">
           <h2>Teams &amp; Classes</h2>
           <div class="row" style="margin:8px 0 12px">
             <button class="primary" id="btnAddTeam">+ Add Team</button>
@@ -480,116 +575,93 @@ Beat Northern Bedford County (+10 wins from their total)</pre></div></details></
           </div>
         </section>
 
-        <section class="card tab-panel" data-tab="d6">
+        <section class="tab-panel active" data-tab="d6">
+          <div class="intro">
+            <p><b>Who makes the District 6 Class A playoffs?</b> The top 8 teams below get in. Scroll down to the remaining games and tap who you think wins each one, and the rankings update right away.</p>
+            <details>
+              <summary>How the points work</summary>
+              <ul class="how">
+                <li><b>Win points:</b> every win is worth 100 if the opponent is in your class, 10 more or less for each class above or below.</li>
+                <li><b>Power points:</b> you also get 10 for every game won by a team you beat, so your opponents' results matter too.</li>
+                <li><b>Ranking:</b> District 6 ranks by average points per game played (total points divided by games).</li>
+                <li>Your picks stay on this device only. Nobody else sees them, and real results replace them as games are played.</li>
+              </ul>
+            </details>
+          </div>
+          <div id="usCard" class="us-card"></div>
 
-  <div class="quick-panel">
-    <div class="row">
-      <button class="btn small" onclick="clearWeek10()">Clear all picks</button>
-      <button class="btn small" onclick="snapshotWeek10()">Save scenario</button>
-      <button class="btn small" onclick="restoreWeek10()">Load scenario</button>
-    </div>
-    <p class="tiny">These buttons affect every unplayed game plus the final regular-season Friday: <b id="scenarioDateLabel">—</b>.</p>
-  </div>
-
-          <div class="row">
-            <h2 style="flex:1">District 6 - Class A Rankings</h2>
-            <button id="btnToggleStandD6" style="flex:0 0 auto">Hide rankings</button>
+          <div class="sec-hd">
+            <h2>District 6 · Class A</h2>
+            <span class="pill">Sort
+              <select id="sortKeyD6A">
+                <option value="avgPoints" selected>Avg points (D6 rank)</option>
+                <option value="totalPoints">Total points</option>
+                <option value="basePoints">Base points</option>
+                <option value="powerPoints">Power points</option>
+                <option value="wins">Wins</option>
+                <option value="losses">Losses</option>
+                <option value="name">Team A-Z</option>
+              </select>
+            </span>
           </div>
           <div id="standingsD6Body">
-            <div class="row">
-              <span class="pill">Sort by 
-                <select id="sortKeyD6A">
-                  <option value="avgPoints" selected>Average Points (D6 rank)</option>
-                  <option value="totalPoints">Total Points</option>
-                  <option value="basePoints">Base Points</option>
-                  <option value="powerPoints">Power Points</option>
-                  <option value="wins">Wins</option>
-                  <option value="losses">Losses</option>
-                  <option value="name">Team A-Z</option>
-                </select>
-              </span>
-              <button class="alt" id="btnAddD6A2" style="flex:0 0 auto">Add missing D6-A teams</button>
-            </div>
-            <table id="standingsD6A" style="margin-top:10px">
-              <thead><tr><th>#</th><th>Team</th><th>Class</th><th>W</th><th>L</th><th>Base</th><th>Power</th><th>Total</th><th>Avg</th><th>Details</th></tr></thead>
-              <tbody><tr><td>1</td><td><div>Bishop Guilfoyle <span class="badge A">A</span></div></td><td>A</td><td>8</td><td>1</td><td>960</td><td>360</td><td>1320</td><td><details><summary>view</summary><div><pre class="tiny mono">Beat Penns Valley Area (+10 wins from their total)
-Beat Bellefonte (+10 wins from their total)
-Beat Huntingdon (+10 wins from their total)
-Beat Central (+10 wins from their total)
-Beat Tyrone (+10 wins from their total)
-Beat Bellwood-Antis (+10 wins from their total)
-Beat Forest Hills (+10 wins from their total)
-Beat Clearfield (+10 wins from their total)</pre></div></details></td></tr><tr><td>2</td><td><div>Juniata Valley <span class="badge A">A</span></div></td><td>A</td><td>7</td><td>2</td><td>730</td><td>210</td><td>940</td><td><details><summary>view</summary><div><pre class="tiny mono">Beat North Star (+10 wins from their total)
-Beat Glendale (+10 wins from their total)
-Beat Claysburg-Kimmel (+10 wins from their total)
-Beat West Branch (+10 wins from their total)
-Beat Moshannon Valley (+10 wins from their total)
-Beat Curwensville (+10 wins from their total)
-Beat Southern Huntingdon County (+10 wins from their total)</pre></div></details></td></tr><tr><td>3</td><td><div>Claysburg-Kimmel <span class="badge A">A</span></div></td><td>A</td><td>7</td><td>2</td><td>730</td><td>200</td><td>930</td><td><details><summary>view</summary><div><pre class="tiny mono">Beat Northern Bedford County (+10 wins from their total)
-Beat West Branch (+10 wins from their total)
-Beat Curwensville (+10 wins from their total)
-Beat Southern Huntingdon County (+10 wins from their total)
-Beat Glendale (+10 wins from their total)
-Beat Moshannon Valley (+10 wins from their total)
-Beat Mount Union (+10 wins from their total)</pre></div></details></td></tr><tr><td>4</td><td><div>Homer-Center <span class="badge A">A</span></div></td><td>A</td><td>6</td><td>3</td><td>620</td><td>170</td><td>790</td><td><details><summary>view</summary><div><pre class="tiny mono">Beat Northern Cambria (+10 wins from their total)
-Beat United Valley co-op [Blacklick Valley/United] (+10 wins from their total)
-Beat Penns Manor (+10 wins from their total)
-Beat Purchase Line (+10 wins from their total)
-Beat Conemaugh Valley (+10 wins from their total)
-Beat West Shamokin (+10 wins from their total)</pre></div></details></td></tr><tr><td>5</td><td><div>Moshannon Valley <span class="badge A">A</span></div></td><td>A</td><td>4</td><td>5</td><td>420</td><td>70</td><td>490</td><td><details><summary>view</summary><div><pre class="tiny mono">Beat Southern Huntingdon County (+10 wins from their total)
-Beat Glendale (+10 wins from their total)
-Beat Curwensville (+10 wins from their total)
-Beat West Branch (+10 wins from their total)</pre></div></details></td></tr><tr><td>6</td><td><div>Northern Cambria <span class="badge A">A</span></div></td><td>A</td><td>4</td><td>5</td><td>410</td><td>70</td><td>480</td><td><details><summary>view</summary><div><pre class="tiny mono">Beat Purchase Line (+10 wins from their total)
-Beat Conemaugh Valley (+10 wins from their total)
-Beat West Shamokin (+10 wins from their total)
-Beat Penns Manor (+10 wins from their total)</pre></div></details></td></tr><tr><td>7</td><td><div>Purchase Line <span class="badge A">A</span></div></td><td>A</td><td>3</td><td>6</td><td>310</td><td>60</td><td>370</td><td><details><summary>view</summary><div><pre class="tiny mono">Beat Portage (+10 wins from their total)
-Beat West Shamokin (+10 wins from their total)
-Beat Penns Manor (+10 wins from their total)</pre></div></details></td></tr><tr><td>8</td><td><div>Glendale <span class="badge A">A</span></div></td><td>A</td><td>3</td><td>6</td><td>320</td><td>40</td><td>360</td><td><details><summary>view</summary><div><pre class="tiny mono">Beat Southern Huntingdon County (+10 wins from their total)
-Beat West Branch (+10 wins from their total)
-Beat Curwensville (+10 wins from their total)</pre></div></details></td></tr><tr><td>9</td><td><div>Penns Manor <span class="badge A">A</span></div></td><td>A</td><td>3</td><td>6</td><td>310</td><td>30</td><td>340</td><td><details><summary>view</summary><div><pre class="tiny mono">Beat Portage (+10 wins from their total)
-Beat Conemaugh Valley (+10 wins from their total)
-Beat West Shamokin (+10 wins from their total)</pre></div></details></td></tr><tr><td>10</td><td><div>Portage <span class="badge A">A</span></div></td><td>A</td><td>2</td><td>7</td><td>210</td><td>10</td><td>220</td><td><details><summary>view</summary><div><pre class="tiny mono">Beat West Shamokin (+10 wins from their total)
-Beat Conemaugh Valley (+10 wins from their total)</pre></div></details></td></tr><tr><td>11</td><td><div>Conemaugh Valley <span class="badge A">A</span></div></td><td>A</td><td>0</td><td>9</td><td>0</td><td>0</td><td>0</td><td><details><summary>view</summary><div><pre class="tiny mono">No wins yet</pre></div></details></td></tr><tr><td>12</td><td><div>West Branch <span class="badge A">A</span></div></td><td>A</td><td>0</td><td>9</td><td>0</td><td>0</td><td>0</td><td><details><summary>view</summary><div><pre class="tiny mono">No wins yet</pre></div></details></td></tr></tbody>
+            <table id="standingsD6A" class="rank-table">
+              <thead><tr><th>#</th><th>Team</th><th>W-L</th><th>Avg</th></tr></thead>
+              <tbody></tbody>
             </table>
-            <div class="quick-panel">
-              <h3>Upcoming D6-A Games</h3>
-              <div class="row">
-                <button class="btn small" onclick="pickFavorites()">Pick favorites for open games</button>
-                <button class="btn small" onclick="clearWeek10()">Clear all picks</button>
-              </div>
-              <p class="tiny">Every remaining Class A game (schedules from MaxPreps). Pick winners to see the projected final rankings above; real results replace your picks as they come in. "Pick favorites" also fills the opponents' games below.</p>
-              <div id="d6FutureGames" class="quick-games"><div classname="quick-game" class="quick-game"><div classname="info" class="info">2025-10-24 · Bishop Guilfoyle vs TBA* (@ Saint Francis University)</div><select><option value="">- Winner -</option><option value="Bishop Guilfoyle">Bishop Guilfoyle</option><option value="TBA* (@ Saint Francis University)">TBA* (@ Saint Francis University)</option></select></div><div classname="quick-game" class="quick-game"><div classname="info" class="info">2025-10-24 · Claysburg-Kimmel vs Everett</div><select><option value="">- Winner -</option><option value="Claysburg-Kimmel">Claysburg-Kimmel</option><option value="Everett">Everett</option></select></div><div classname="quick-game" class="quick-game"><div classname="info" class="info">2025-10-24 · Conemaugh Township vs Conemaugh Valley</div><select><option value="">- Winner -</option><option value="Conemaugh Township">Conemaugh Township</option><option value="Conemaugh Valley">Conemaugh Valley</option></select></div><div classname="quick-game" class="quick-game"><div classname="info" class="info">2025-10-24 · Glendale vs Northern Bedford County</div><select><option value="">- Winner -</option><option value="Glendale">Glendale</option><option value="Northern Bedford County">Northern Bedford County</option></select></div><div classname="quick-game" class="quick-game"><div classname="info" class="info">2025-10-24 · Homer-Center vs Portage</div><select><option value="">- Winner -</option><option value="Homer-Center">Homer-Center</option><option value="Portage">Portage</option></select></div><div classname="quick-game" class="quick-game"><div classname="info" class="info">2025-10-24 · Juniata Valley vs Windber</div><select><option value="">- Winner -</option><option value="Juniata Valley">Juniata Valley</option><option value="Windber">Windber</option></select></div><div classname="quick-game" class="quick-game"><div classname="info" class="info">2025-10-24 · Marion Center vs Penns Manor</div><select><option value="">- Winner -</option><option value="Marion Center">Marion Center</option><option value="Penns Manor">Penns Manor</option></select></div><div classname="quick-game" class="quick-game"><div classname="info" class="info">2025-10-24 · Moshannon Valley vs Berlin Brothersvalley</div><select><option value="">- Winner -</option><option value="Moshannon Valley">Moshannon Valley</option><option value="Berlin Brothersvalley">Berlin Brothersvalley</option></select></div><div classname="quick-game" class="quick-game"><div classname="info" class="info">2025-10-24 · Northern Cambria vs River Valley</div><select><option value="">- Winner -</option><option value="Northern Cambria">Northern Cambria</option><option value="River Valley">River Valley</option></select></div><div classname="quick-game" class="quick-game"><div classname="info" class="info">2025-10-24 · Purchase Line vs United Valley co-op [Blacklick Valley/United]</div><select><option value="">- Winner -</option><option value="Purchase Line">Purchase Line</option><option value="United Valley co-op [Blacklick Valley/United]">United Valley co-op [Blacklick Valley/United]</option></select></div><div classname="quick-game" class="quick-game"><div classname="info" class="info">2025-10-24 · West Branch vs North Star</div><select><option value="">- Winner -</option><option value="West Branch">West Branch</option><option value="North Star">North Star</option></select></div></div>
-            </div>
-            <div class="quick-panel">
-              <h3>Class A Opponents' Remaining Games</h3>
-              <p class="tiny">Every Class A team earns 10 points for each win by a team it beat, so these games move the Class A rankings too. Covers every team that has played or will play a Class A team.</p>
-              <div id="d6AOppGames" class="quick-games"></div>
-            </div>
-            <div class="quick-panel">
-              <h3>Upcoming D6-AA Week 10</h3>
-              <div id="d6AAFutureGames" class="quick-games"></div>
-            </div>
-            <div class="quick-panel">
-              <h3>Opponents-of-Beaten (AA) — Week 10</h3>
-              <div id="oppWeek10GamesAA" class="quick-games"></div>
-            </div>
-            <div class="quick-panel">
-              <h3>Upcoming D6-AAA Week 10</h3>
-              <div id="d6AAAFutureGames" class="quick-games"></div>
-            </div>
-            <div class="quick-panel">
-              <h3>Opponents-of-Beaten (AAA) — Week 10</h3>
-              <div id="oppWeek10GamesAAA" class="quick-games"></div>
-            </div>
-            <div class="quick-panel">
-              <h3>Upcoming D6-AAAA Week 10</h3>
-              <div id="d6AAAAFutureGames" class="quick-games"></div>
-            </div>
-            <div class="quick-panel">
-              <h3>Opponents-of-Beaten (AAAA) — Week 10</h3>
-              <div id="oppWeek10GamesAAAA" class="quick-games"></div>
-            </div>
+            <p class="tiny sec-note">District 6 ranks by average points per game. Tap a team to see its points and who it beat.</p>
+          </div>
 
+          <div class="sec-hd">
+            <h2>Remaining games</h2>
+          </div>
+          <div class="toolbar">
+            <button type="button" class="primary" onclick="pickFavorites()">Pick favorites</button>
+            <button type="button" onclick="clearWeek10()">Clear picks</button>
+            <button type="button" onclick="snapshotWeek10()">Save scenario</button>
+            <button type="button" onclick="restoreWeek10()">Load scenario</button>
+          </div>
+          <p class="tiny sec-note">Tap the team you think wins and the rankings above update. Tap it again to clear the pick. Real results replace picks as they come in. The buttons cover every unplayed game plus the final regular-season Friday, <b id="scenarioDateLabel">—</b>.</p>
+          <div id="d6FutureGames" class="quick-games"></div>
+
+          <details class="more">
+            <summary>Opponents' remaining games</summary>
+            <p class="tiny">Every Class A team earns 10 points for each win by a team it beat, so these games move the Class A rankings too. Covers every team that has played or will play a Class A team. "Pick favorites" fills these as well.</p>
+            <div id="d6AOppGames" class="quick-games"></div>
+          </details>
+          <details class="more">
+            <summary>Class A team list</summary>
+            <p class="tiny">If a District 6 Class A team is missing from the rankings, add it here.</p>
+            <div class="row"><button class="alt" id="btnAddD6A2" style="flex:0 0 auto">Add missing D6-A teams</button></div>
+          </details>
+        </section>
+
+        <section class="card tab-panel" data-tab="classes">
+          <h2>AA to AAAA · Final week</h2>
+          <p class="tiny">Final regular-season games for the other District 6 classes, and the games of the teams they beat.</p>
+          <div class="quick-panel">
+            <h3>D6-AA final week</h3>
+            <div id="d6AAFutureGames" class="quick-games"></div>
+          </div>
+          <div class="quick-panel">
+            <h3>Teams AA beat · final week</h3>
+            <div id="oppWeek10GamesAA" class="quick-games"></div>
+          </div>
+          <div class="quick-panel">
+            <h3>D6-AAA final week</h3>
+            <div id="d6AAAFutureGames" class="quick-games"></div>
+          </div>
+          <div class="quick-panel">
+            <h3>Teams AAA beat · final week</h3>
+            <div id="oppWeek10GamesAAA" class="quick-games"></div>
+          </div>
+          <div class="quick-panel">
+            <h3>D6-AAAA final week</h3>
+            <div id="d6AAAAFutureGames" class="quick-games"></div>
+          </div>
+          <div class="quick-panel">
+            <h3>Teams AAAA beat · final week</h3>
+            <div id="oppWeek10GamesAAAA" class="quick-games"></div>
           </div>
         </section>
       </div>
@@ -649,6 +721,7 @@ Beat Conemaugh Valley (+10 wins from their total)</pre></div></details></td></tr
 
   // District 6 Class A playoff field (2026: top 8 by average points)
   var D6_A_PLAYOFF_SPOTS = 8;
+  var OUR_TEAM = 'Purchase Line';
 
   // District 6 Class A reference list
   var D6_A_LIST = [
@@ -2650,10 +2723,12 @@ function isD6AAATeam(name){ return D6_AAA_LIST.indexOf(name) !== -1; }
     'https://raw.githubusercontent.com/nickwengle-pa/football/main/data/football-2026.json',
     'data/football-2026.json'
   ];
-  var activeTab = load('activeTab') || 'teams';
+  // The page always opens on the Class A rankings; the other sections live in the side menu.
+  var activeTab = 'd6';
   var scheduleHidden = !!load('scheduleHidden');
   var standingsAllHidden = !!load('standingsAllHidden');
-  var standingsD6Hidden = !!load('standingsD6Hidden');
+  // The rankings are the main screen and have no hide button any more.
+  var standingsD6Hidden = false;
 
   // Utilities
   function $(id){ return document.getElementById(id); }
@@ -3018,18 +3093,32 @@ function isD6AAATeam(name){ return D6_AAA_LIST.indexOf(name) !== -1; }
     }
   }
 
+  function setMenuOpen(open){
+    var menu=$('sideMenu'), scrim=$('menuScrim'), btn=$('btnMenu');
+    if(!menu) return;
+    menu.classList.toggle('open', !!open);
+    if(scrim) scrim.classList.toggle('is-hidden', !open);
+    if(btn) btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+
   function activateTab(tabId, skipPersist){
-    if(!tabId){ tabId = 'teams'; }
+    if(!tabId || !document.querySelector('.tab-panel[data-tab="'+tabId+'"]')){ tabId = 'd6'; }
+    var changed = activeTab !== tabId;
     activeTab = tabId;
     var buttons = document.querySelectorAll('.tab-bar .tab');
     if(buttons){
       for(var i=0;i<buttons.length;i++){
         var btn = buttons[i];
         var key = btn.getAttribute('data-tab');
-        if(key===tabId){ btn.classList.add('active'); }
+        if(key===tabId){
+          btn.classList.add('active');
+          var sub=$('topSub'); if(sub && btn.getAttribute('data-title')) sub.textContent=btn.getAttribute('data-title');
+        }
         else { btn.classList.remove('active'); }
       }
     }
+    setMenuOpen(false);
+    if(changed && !skipPersist){ try{ window.scrollTo(0,0); }catch(_){} }
     var panels = document.querySelectorAll('.tab-panel');
     if(panels){
       for(var j=0;j<panels.length;j++){
@@ -3433,7 +3522,8 @@ function isD6AAATeam(name){ return D6_AAA_LIST.indexOf(name) !== -1; }
       if(b.wins!==a.wins) return b.wins-a.wins; return a.name.localeCompare(b.name);
     });
     var ranked=(keyD==='avgPoints'||keyD==='totalPoints');
-    renderTable('#standingsD6A tbody', sorted, {avg:true, cut:ranked?D6_A_PLAYOFF_SPOTS:0});
+    renderD6Table(sorted, ranked?D6_A_PLAYOFF_SPOTS:0);
+    renderUsCard(only);
     renderD6FutureGames(); renderD6AOpponentGames(); renderD6ClassWeek10(D6_AA_LIST,'d6AAFutureGames'); renderD6ClassWeek10(D6_AAA_LIST,'d6AAAFutureGames'); renderD6ClassWeek10(D6_AAAA_LIST,'d6AAAAFutureGames'); renderOppWeek10ForList(D6_AA_LIST,'oppWeek10GamesAA'); renderOppWeek10ForList(D6_AAA_LIST,'oppWeek10GamesAAA'); renderOppWeek10ForList(D6_AAAA_LIST,'oppWeek10GamesAAAA'); renderOppWeek10Games();
   }
 
@@ -3469,6 +3559,100 @@ function isD6AAATeam(name){ return D6_AAA_LIST.indexOf(name) !== -1; }
       tb.appendChild(tr);
     }
   }
+  // Rows the operator opened on the main table, kept open across re-renders.
+  var openD6Rows = {};
+  function renderD6Table(rows, cut){
+    var tb=q('#standingsD6A tbody'); if(!tb) return;
+    tb.innerHTML='';
+    for(var i=0;i<rows.length;i++){
+      (function(r, i){
+        if(cut && i===cut){
+          var cutTr=e('tr',{className:'cut-line'});
+          var cutTd=e('td',{textContent:'Top '+cut+' make the district playoffs'}); cutTd.colSpan=4;
+          cutTr.appendChild(cutTd); tb.appendChild(cutTr);
+        }
+        var cls='team'+(cut && i>=cut ? ' out' : '')+(sameTeam(r.name,OUR_TEAM) ? ' us' : '')+(openD6Rows[r.name] ? ' open' : '');
+        var tr=e('tr',{className:cls});
+        tr.appendChild(e('td',{textContent:String(i+1)}));
+        var nameTd=e('td',null, e('span',{className:'tname',textContent:r.name}), e('span',{className:'chev',textContent:'›'}));
+        tr.appendChild(nameTd);
+        tr.appendChild(e('td',{textContent:r.wins+'-'+r.losses}));
+        tr.appendChild(e('td',{textContent:(r.avgPoints||0).toFixed(2)}));
+        var det=e('tr',{className:'detail'+(openD6Rows[r.name] ? '' : ' is-hidden')});
+        var detTd=e('td'); detTd.colSpan=4;
+        var stats=e('div',{className:'det-stats'});
+        [['Base',r.basePoints],['Power',r.powerPoints],['Total',r.totalPoints],['Games',r.gamesPlayed!=null?r.gamesPlayed:(r.wins+r.losses)]].forEach(function(p){
+          stats.appendChild(e('span',null,p[0]+' ',e('b',{textContent:String(p[1]==null?'':p[1])})));
+        });
+        detTd.appendChild(stats);
+        detTd.appendChild(e('p',{className:'det-beats'}, e('span',{textContent:'Beat: '}), r.beats.length ? r.beats.join(', ') : 'No wins yet'));
+        det.appendChild(detTd);
+        tr.onclick=function(){
+          var open=!openD6Rows[r.name];
+          if(open) openD6Rows[r.name]=true; else delete openD6Rows[r.name];
+          tr.classList.toggle('open', open);
+          det.classList.toggle('is-hidden', !open);
+        };
+        tb.appendChild(tr); tb.appendChild(det);
+      })(rows[i], i);
+    }
+  }
+  function sameTeam(a, b){ return String(a||'').toLowerCase()===String(b||'').toLowerCase(); }
+  // The card above the rankings: where Purchase Line stands against the playoff cut,
+  // always by average points (how D6 ranks) whatever the table is sorted by.
+  function renderUsCard(classA){
+    var host=$('usCard'); if(!host) return;
+    host.innerHTML='';
+    var byAvg=classA.slice().sort(function(a,b){
+      var d=(b.avgPoints||0)-(a.avgPoints||0); if(d!==0) return d;
+      if(b.wins!==a.wins) return b.wins-a.wins; return a.name.localeCompare(b.name);
+    });
+    var idx=-1;
+    for(var i=0;i<byAvg.length;i++){ if(sameTeam(byAvg[i].name,OUR_TEAM)){ idx=i; break; } }
+    if(idx<0){ host.classList.add('is-hidden'); return; }
+    host.classList.remove('is-hidden');
+    var us=byAvg[idx], cut=D6_A_PLAYOFF_SPOTS;
+    host.appendChild(e('div',{className:'us-rank'}, e('span',{textContent:'Rank'}), e('b',{textContent:'#'+(idx+1)})));
+    var main=e('div',{className:'us-main'});
+    main.appendChild(e('div',{className:'us-name',textContent:us.name}));
+    var stats=e('div',{className:'us-stats'});
+    stats.appendChild(e('span',null,'Record ',e('b',{textContent:us.wins+'-'+us.losses})));
+    stats.appendChild(e('span',null,'Avg ',e('b',{textContent:(us.avgPoints||0).toFixed(2)})));
+    stats.appendChild(e('span',null,'of ',e('b',{textContent:String(byAvg.length)})));
+    main.appendChild(stats);
+    var line=e('div',{className:'us-line'});
+    if(byAvg.length>cut){
+      if(idx<cut){
+        var next=byAvg[cut];
+        line.appendChild(e('span',{className:'in',textContent:'In the top '+cut}));
+        line.appendChild(document.createTextNode(' · '+((us.avgPoints||0)-(next.avgPoints||0)).toFixed(2)+' ahead of #'+(cut+1)+' '+next.name));
+      }else{
+        var last=byAvg[cut-1];
+        line.appendChild(e('span',{className:'out',textContent:'Outside the top '+cut}));
+        line.appendChild(document.createTextNode(' · '+((last.avgPoints||0)-(us.avgPoints||0)).toFixed(2)+' behind #'+cut+' '+last.name));
+      }
+    }
+    main.appendChild(line);
+    var picks=gamesForActiveSeason().filter(function(g){ return isScenarioGame(g) && g.manualOverride && g.winner && !g.officialWinner; }).length;
+    if(picks) main.appendChild(e('span',{className:'us-proj',textContent:'Projected with '+picks+' pick'+(picks===1?'':'s')}));
+    host.appendChild(main);
+  }
+  // Two team buttons in place of a winner dropdown. Tapping the picked team again clears it.
+  function pickButtons(g, onPick){
+    var wrap=e('div',{className:'pick'});
+    var away=g.a, home=g.b, at=false;
+    if(g.home && (g.home===g.a || g.home===g.b)){ home=g.home; away=(g.home===g.a ? g.b : g.a); at=true; }
+    [away, home].forEach(function(team, k){
+      if(k===1) wrap.appendChild(e('span',{className:'at',textContent:at?'@':'vs'}));
+      var b=e('button',{type:'button',className:'pick-btn'+(g.winner===team ? ' on' : '')+(sameTeam(team,OUR_TEAM) ? ' us' : ''),textContent:team||'TBA'});
+      b.setAttribute('aria-pressed', g.winner===team ? 'true' : 'false');
+      if(!team){ b.disabled=true; }
+      b.onclick=function(){ onPick(g.winner===team ? '' : team); };
+      wrap.appendChild(b);
+    });
+    return wrap;
+  }
+
   function renderD6FutureGames(){
     var host=$('d6FutureGames'); if(!host) return;
     var upcoming=gamesForActiveSeason().filter(function(g){ return (isD6ATeam(g.a) || isD6ATeam(g.b)) && isScenarioGame(g); });
@@ -3516,23 +3700,23 @@ function isD6AAATeam(name){ return D6_AAA_LIST.indexOf(name) !== -1; }
         var d=(g.date||'').slice(0,10);
         if(d!==lastDate){ host.appendChild(e('div',{className:'quick-week',textContent:d?dayLabel(d):'Date TBD'})); lastDate=d; }
         var row=e('div',{className:'quick-game'+(g.manualOverride && g.winner ? ' picked' : '')});
-        var info=e('div',{className:'info'});
-        info.textContent = gameLabel(g) + (g.officialWinner ? ' (final: '+g.officialWinner+' won)' : '');
-        var sel=e('select');
-        setWinnerOptions(sel, g.a, g.b, g.winner||'');
-        sel.onchange=function(){
-          g.winner = sel.value;
+        var note=gameNote(g);
+        if(note) row.appendChild(e('div',{className:'info',textContent:note}));
+        row.appendChild(pickButtons(g, function(winner){
+          g.winner = winner;
           g.manualOverride = true;
           saveAll();
           renderGames();
           renderStandings();
-        };
-        row.appendChild(info);
-        row.appendChild(sel);
+        }));
         host.appendChild(row);
       })(upcoming[j]);
     }
     if(footer) host.appendChild(e('p',{className:'tiny',textContent:footer}));
+  }
+  // The small print above a pick: a final-week game that already has a result.
+  function gameNote(g){
+    return g.officialWinner ? 'Final: '+g.officialWinner+' won' : '';
   }
   function gameLabel(g){
     if(g.home && (g.home===g.a || g.home===g.b)) return (g.home===g.a ? g.b : g.a)+' @ '+g.home;
@@ -3582,15 +3766,11 @@ function isD6AAATeam(name){ return D6_AAA_LIST.indexOf(name) !== -1; }
     for(var j=0;j<upcoming.length;j++){
       (function(gm){
         var row=e('div'); row.className='quick-game';
-        var info=e('div'); info.className='info'; info.textContent=(gm.a||'?')+'  vs  '+(gm.b||'?')+'  •  '+(gm.date||'');
-        var sel=e('select'); setWinnerOptions(sel, gm.a, gm.b, gm.winner||'');
-        sel.onchange=function(){
-          gm.winner = sel.value || '';
+        row.appendChild(pickButtons(gm, function(winner){
+          gm.winner = winner;
           gm.manualOverride = true;
           dedupeNow(true); saveAll(); renderAll();
-        };
-        row.appendChild(info);
-        row.appendChild(sel);
+        }));
         host.appendChild(row);
       })(upcoming[j]);
     }
@@ -3621,10 +3801,8 @@ function renderD6ClassWeek10(list, hostId){
   for(var j=0;j<upcoming.length;j++){
     (function(gm){
       var row=e('div'); row.className='quick-game';
-      var info=e('div'); info.className='info'; info.textContent=(gm.a||'?')+'  vs  '+(gm.b||'?')+'  •  '+(gm.date||'');
-      var sel=e('select'); setWinnerOptions(sel, gm.a, gm.b, gm.winner||'');
-      sel.onchange=function(){ gm.winner = sel.value || ''; gm.manualOverride=true; dedupeNow(true); saveAll(); renderAll(); };
-      row.appendChild(info); row.appendChild(sel); host.appendChild(row);
+      row.appendChild(pickButtons(gm, function(winner){ gm.winner = winner; gm.manualOverride=true; dedupeNow(true); saveAll(); renderAll(); }));
+      host.appendChild(row);
     })(upcoming[j]);
   }
 }
@@ -3657,10 +3835,8 @@ function renderOppWeek10ForList(labelList, hostId){
   for(var j=0;j<upcoming.length;j++){
     (function(gm){
       var row=e('div'); row.className='quick-game';
-      var info=e('div'); info.className='info'; info.textContent=(gm.a||'?')+'  vs  '+(gm.b||'?')+'  •  '+(gm.date||'');
-      var sel=e('select'); setWinnerOptions(sel, gm.a, gm.b, gm.winner||'');
-      sel.onchange=function(){ gm.winner = sel.value || ''; gm.manualOverride=true; dedupeNow(true); saveAll(); renderAll(); };
-      row.appendChild(info); row.appendChild(sel); host.appendChild(row);
+      row.appendChild(pickButtons(gm, function(winner){ gm.winner = winner; gm.manualOverride=true; dedupeNow(true); saveAll(); renderAll(); }));
+      host.appendChild(row);
     })(upcoming[j]);
   }
 }
@@ -3932,6 +4108,10 @@ function exportBakedHTML(){
     }
   }
   activateTab(activeTab, true);
+  if($('btnMenu')) $('btnMenu').onclick=function(){ setMenuOpen(true); };
+  if($('btnMenuClose')) $('btnMenuClose').onclick=function(){ setMenuOpen(false); };
+  if($('menuScrim')) $('menuScrim').onclick=function(){ setMenuOpen(false); };
+  document.addEventListener('keydown', function(ev){ if(ev.key==='Escape') setMenuOpen(false); });
 
   // Drag & drop
   var drop = $('drop');
