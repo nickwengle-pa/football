@@ -269,6 +269,15 @@
     .pick-btn.on{background:var(--bug);border-color:var(--bug);color:#fff}
     .pick-btn.on::before{content:"✓ ";color:#4ade80}
     .pick-btn.final{cursor:default}
+    .tba-box{margin-top:6px}
+    .tba-slot{flex-direction:column;align-items:stretch;margin-top:8px}
+    .tba-label{font-size:14px}
+    .tba-label b{font-family:var(--disp);letter-spacing:0.04em}
+    .tba-ctl{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+    .tba-ctl select{flex:1 1 180px;min-width:0}
+    .tba-ctl .tba-site{flex:0 0 auto}
+    .tba-ctl button{flex:0 0 auto}
+    .tba-set{flex:1 1 auto;font-family:var(--disp);font-weight:700;font-size:15px}
     .more{margin-top:18px;background:var(--surface);box-shadow:var(--shadow);padding:12px 14px}
     .more[open] summary{margin-bottom:6px}
 
@@ -3696,11 +3705,69 @@ function isD6AAATeam(name){ return D6_AAA_LIST.indexOf(name) !== -1; }
   function renderD6FutureGames(){
     var host=$('d6FutureGames'); if(!host) return;
     var upcoming=gamesForActiveSeason().filter(function(g){ return (isD6ATeam(g.a) || isD6ATeam(g.b)) && isScenarioGame(g); });
-    var sched=window.D6_SCHEDULE_2026, footer='';
-    if(sched && parseInt(sched.season,10)===activeSeason && Array.isArray(sched.tba) && sched.tba.length){
-      footer='Not scheduled yet: '+sched.tba.map(function(t){ return t.team+' '+t.note+' ('+dayLabel(t.date)+')'; }).join('; ')+'.';
+    renderPickList(host, upcoming, 'No upcoming D6-A games pending.', '');
+    renderTbaSlots(host);
+  }
+  // Games the schedule knows are coming but without an opponent yet (data/schedule-2026.js "tba").
+  // Anyone can fill one in to run scenarios with it; the game lives on this device only, and a real
+  // final for the same matchup takes it over when the official feed has one.
+  function tbaGameFor(slot){
+    var team=canonicalTeamName(slot.team);
+    for(var i=0;i<games.length;i++){
+      var g=games[i];
+      if(g.source==='tba-fill' && g.tbaKey===slot.date+'|'+team) return g;
     }
-    renderPickList(host, upcoming, 'No upcoming D6-A games pending.', footer);
+    return null;
+  }
+  function renderTbaSlots(host){
+    var sched=window.D6_SCHEDULE_2026;
+    if(!sched || parseInt(sched.season,10)!==activeSeason || !Array.isArray(sched.tba) || !sched.tba.length) return;
+    var box=e('div',{className:'tba-box'});
+    box.appendChild(e('div',{className:'quick-week',textContent:'Opponent not set yet'}));
+    box.appendChild(e('p',{className:'tiny',textContent:'These games are on the schedule without an opponent. If you know or want to guess who they play, pick the team and the game is added above so you can pick a winner. It is saved on this device only.'}));
+    sched.tba.forEach(function(slot){
+      var team=canonicalTeamName(slot.team), filled=tbaGameFor(slot);
+      var row=e('div',{className:'quick-game tba-slot'});
+      var label=e('div',{className:'tba-label'});
+      label.appendChild(e('b',{textContent:team}));
+      label.appendChild(document.createTextNode(' '+(slot.note||'vs TBA')+' · '+dayLabel(slot.date)));
+      row.appendChild(label);
+      var ctl=e('div',{className:'tba-ctl'});
+      if(filled){
+        var opp=filled.a===team ? filled.b : filled.a;
+        ctl.appendChild(e('span',{className:'tba-set',textContent:(filled.home===team?'vs ':'@ ')+opp}));
+        var clr=e('button',{type:'button',textContent:'Change'});
+        clr.onclick=function(){
+          games=games.filter(function(g){ return g!==filled; });
+          saveAll(); renderGames(); renderStandings();
+        };
+        ctl.appendChild(clr);
+      }else{
+        var sel=e('select');
+        sel.appendChild(e('option',{value:'',textContent:'Pick opponent…'}));
+        teams.filter(function(t){ return teamInSeason(t,activeSeason) && !sameTeam(t.name,team); })
+          .map(function(t){ return t.name; })
+          .sort(function(x,y){ return x.localeCompare(y); })
+          .forEach(function(n){ sel.appendChild(e('option',{value:n,textContent:n})); });
+        var away=/^\s*@/.test(slot.note||'');
+        var homeSel=e('select',{className:'tba-site'});
+        homeSel.appendChild(e('option',{value:'home',textContent:'Home'}));
+        homeSel.appendChild(e('option',{value:'away',textContent:'Away'}));
+        homeSel.value=away?'away':'home';
+        var add=e('button',{type:'button',className:'primary',textContent:'Add game'});
+        add.onclick=function(){
+          var opp=sel.value; if(!opp){ sel.focus(); return; }
+          var date=String(slot.date).slice(0,10);
+          games.push({id:'tba:'+activeSeason+':'+date+':'+pairKey(team,opp),season:activeSeason,date:date,a:team,b:opp,
+            home:homeSel.value==='away'?opp:team,winner:'',status:'scheduled',source:'tba-fill',tbaKey:date+'|'+team});
+          saveAll(); renderGames(); renderStandings();
+        };
+        ctl.appendChild(sel); ctl.appendChild(homeSel); ctl.appendChild(add);
+      }
+      row.appendChild(ctl);
+      box.appendChild(row);
+    });
+    host.appendChild(box);
   }
   // Remaining games between teams that have played or will play a Class A team. Their final
   // win totals feed the power points of every Class A team that beats them.
