@@ -606,7 +606,7 @@ Beat Northern Bedford County (+10 wins from their total)</pre></div></details></
           </div>
           <div id="standingsD6Body">
             <table id="standingsD6A" class="rank-table">
-              <thead><tr><th>#</th><th>Team</th><th>W-L</th><th>Avg</th></tr></thead>
+              <thead><tr><th>#</th><th>Team</th><th>W-L</th><th id="d6ValHead">Avg</th></tr></thead>
               <tbody></tbody>
             </table>
             <p class="tiny sec-note">District 6 ranks by average points per game. Tap a team to see its points and who it beat.</p>
@@ -3522,7 +3522,7 @@ function isD6AAATeam(name){ return D6_AAA_LIST.indexOf(name) !== -1; }
       if(b.wins!==a.wins) return b.wins-a.wins; return a.name.localeCompare(b.name);
     });
     var ranked=(keyD==='avgPoints'||keyD==='totalPoints');
-    renderD6Table(sorted, ranked?D6_A_PLAYOFF_SPOTS:0);
+    renderD6Table(sorted, ranked?D6_A_PLAYOFF_SPOTS:0, keyD);
     renderUsCard(only);
     renderD6FutureGames(); renderD6AOpponentGames(); renderD6ClassWeek10(D6_AA_LIST,'d6AAFutureGames'); renderD6ClassWeek10(D6_AAA_LIST,'d6AAAFutureGames'); renderD6ClassWeek10(D6_AAAA_LIST,'d6AAAAFutureGames'); renderOppWeek10ForList(D6_AA_LIST,'oppWeek10GamesAA'); renderOppWeek10ForList(D6_AAA_LIST,'oppWeek10GamesAAA'); renderOppWeek10ForList(D6_AAAA_LIST,'oppWeek10GamesAAAA'); renderOppWeek10Games();
   }
@@ -3561,8 +3561,17 @@ function isD6AAATeam(name){ return D6_AAA_LIST.indexOf(name) !== -1; }
   }
   // Rows the operator opened on the main table, kept open across re-renders.
   var openD6Rows = {};
-  function renderD6Table(rows, cut){
+  // The last column shows the points the table is sorted by; record and name sorts keep the average.
+  var D6_VALUE_COLUMNS = {
+    avgPoints:{label:'Avg', fmt:function(r){ return (r.avgPoints||0).toFixed(2); }},
+    totalPoints:{label:'Total', fmt:function(r){ return String(r.totalPoints||0); }},
+    basePoints:{label:'Base', fmt:function(r){ return String(r.basePoints||0); }},
+    powerPoints:{label:'Power', fmt:function(r){ return String(r.powerPoints||0); }}
+  };
+  function renderD6Table(rows, cut, sortKey){
     var tb=q('#standingsD6A tbody'); if(!tb) return;
+    var col=D6_VALUE_COLUMNS[sortKey]||D6_VALUE_COLUMNS.avgPoints;
+    if($('d6ValHead')) $('d6ValHead').textContent=col.label;
     tb.innerHTML='';
     for(var i=0;i<rows.length;i++){
       (function(r, i){
@@ -3577,11 +3586,11 @@ function isD6AAATeam(name){ return D6_AAA_LIST.indexOf(name) !== -1; }
         var nameTd=e('td',null, e('span',{className:'tname',textContent:r.name}), e('span',{className:'chev',textContent:'›'}));
         tr.appendChild(nameTd);
         tr.appendChild(e('td',{textContent:r.wins+'-'+r.losses}));
-        tr.appendChild(e('td',{textContent:(r.avgPoints||0).toFixed(2)}));
+        tr.appendChild(e('td',{textContent:col.fmt(r)}));
         var det=e('tr',{className:'detail'+(openD6Rows[r.name] ? '' : ' is-hidden')});
         var detTd=e('td'); detTd.colSpan=4;
         var stats=e('div',{className:'det-stats'});
-        [['Base',r.basePoints],['Power',r.powerPoints],['Total',r.totalPoints],['Games',r.gamesPlayed!=null?r.gamesPlayed:(r.wins+r.losses)]].forEach(function(p){
+        [['Avg',(r.avgPoints||0).toFixed(2)],['Base',r.basePoints],['Power',r.powerPoints],['Total',r.totalPoints],['Games',r.gamesPlayed!=null?r.gamesPlayed:(r.wins+r.losses)]].forEach(function(p){
           stats.appendChild(e('span',null,p[0]+' ',e('b',{textContent:String(p[1]==null?'':p[1])})));
         });
         detTd.appendChild(stats);
