@@ -36,7 +36,8 @@ async function loadPosts(requestText = fetchText) {
   return { posts, postsUrl };
 }
 
-export async function main({ output = OUTPUT, classificationPath = CLASSIFICATIONS, requestText = fetchText, now = new Date() } = {}) {
+export async function main({ output = OUTPUT, classificationPath = CLASSIFICATIONS, requestText = fetchText, now = new Date(),
+  onWarning = message => process.stderr.write(`Warning: ${message}\n`) } = {}) {
   const scriptOutput = output.toLowerCase().endsWith(".json") ? `${output.slice(0, -5)}.js` : `${output}.js`;
   let prior = null;
   try { prior = JSON.parse(await readFile(output, "utf8")); } catch {}
@@ -57,7 +58,7 @@ export async function main({ output = OUTPUT, classificationPath = CLASSIFICATIO
     force: process.env.D6_FORCE_CLASSIFICATIONS === "1",
     allowShrink: process.env.D6_ALLOW_SOURCE_SHRINK === "1"
   });
-  if (classificationResult.warning) process.stderr.write(`Warning: ${classificationResult.warning}\n`);
+  if (classificationResult.warning) onWarning(classificationResult.warning);
   const classificationCache = classificationResult.cache;
   // Persist the attempt before other sources run. On a later source failure,
   // the workflow commits only this checkpoint, retaining the old validated

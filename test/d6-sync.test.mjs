@@ -23,7 +23,9 @@ test("a later source failure preserves the monthly attempt and leaves feed artif
       if (url === cache.sourceUrl) { classificationRequests++; throw new Error("PIAA timeout"); }
       throw new Error("Score source unavailable");
     };
-    const options = { output, classificationPath, requestText, now: new Date("2026-10-01T06:00:00Z") };
+    const warnings = [];
+    const options = { output, classificationPath, requestText, now: new Date("2026-10-01T06:00:00Z"),
+      onWarning: message => warnings.push(message) };
     await assert.rejects(main(options), /Score source unavailable/);
     const attempted = JSON.parse(await readFile(classificationPath, "utf8"));
     assert.equal(attempted.lastAttemptMonth, "2026-10");
@@ -33,6 +35,8 @@ test("a later source failure preserves the monthly attempt and leaves feed artif
     assert.equal(await readFile(scriptOutput, "utf8"), oldScript);
     await assert.rejects(main({ ...options, now: new Date("2026-10-02T06:00:00Z") }), /Score source unavailable/);
     assert.equal(classificationRequests, 1);
+    assert.equal(warnings.length, 1);
+    assert.match(warnings[0], /PIAA timeout/);
   } finally {
     assert.equal(dirname(resolve(folder)), resolve(tmpdir()));
     assert.ok(basename(folder).startsWith("d6-refresh-"));
