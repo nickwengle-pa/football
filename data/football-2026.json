@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "season": 2026,
-  "generatedAt": "2026-10-19T01:06:26.347Z",
+  "generatedAt": "2026-10-19T16:13:18.706Z",
   "sourcePriority": [
     "piaa-d6-scoreboard",
     "piaa-classifications",
@@ -92,7 +92,8 @@
         "parsedGameCount": 67,
         "district6GameCount": 24
       }
-    ]
+    ],
+    "classificationsCheckedAt": "2026-10-19T01:06:26.347Z"
   },
   "teams": [
     {
