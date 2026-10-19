@@ -1,0 +1,290 @@
+{
+  "schemaVersion": 1,
+  "season": 2026,
+  "sourceUrl": "https://www.piaa.org/schools/classifications/sportDistrict.aspx?district=6&sportID=10",
+  "checkedAt": "2026-10-19T01:06:26.347Z",
+  "lastAttemptMonth": "2026-10",
+  "teams": [
+    {
+      "id": "altoona",
+      "name": "Altoona",
+      "sourceName": "Altoona Area High School",
+      "cls": "AAAAAA",
+      "district": 6
+    },
+    {
+      "id": "bald-eagle-area",
+      "name": "Bald Eagle Area",
+      "sourceName": "Bald Eagle Area High School",
+      "cls": "AA",
+      "district": 6
+    },
+    {
+      "id": "bellefonte",
+      "name": "Bellefonte",
+      "sourceName": "Bellefonte Area High School",
+      "cls": "AAAA",
+      "district": 6
+    },
+    {
+      "id": "bellwood-antis",
+      "name": "Bellwood-Antis",
+      "sourceName": "Bellwood Antis High School",
+      "cls": "AA",
+      "district": 6
+    },
+    {
+      "id": "bishop-guilfoyle",
+      "name": "Bishop Guilfoyle",
+      "sourceName": "Bishop Guilfoyle Academy",
+      "cls": "A",
+      "district": 6
+    },
+    {
+      "id": "bishop-mccort",
+      "name": "Bishop McCort",
+      "sourceName": "Bishop McCort Catholic High School",
+      "cls": "A",
+      "district": 6
+    },
+    {
+      "id": "cambria-heights",
+      "name": "Cambria Heights",
+      "sourceName": "Cambria Heights High School",
+      "cls": "AAA",
+      "district": 6
+    },
+    {
+      "id": "central",
+      "name": "Central",
+      "sourceName": "Central High School Martinsburg",
+      "cls": "AAA",
+      "district": 6
+    },
+    {
+      "id": "central-cambria",
+      "name": "Central Cambria",
+      "sourceName": "Central Cambria High School",
+      "cls": "AAA",
+      "district": 6
+    },
+    {
+      "id": "central-mountain",
+      "name": "Central Mountain",
+      "sourceName": "Central Mountain High School",
+      "cls": "AAAA",
+      "district": 6
+    },
+    {
+      "id": "claysburg-kimmel",
+      "name": "Claysburg-Kimmel",
+      "sourceName": "Claysburg Kimmel High School",
+      "cls": "AAAA",
+      "district": 6
+    },
+    {
+      "id": "conemaugh-valley",
+      "name": "Conemaugh Valley",
+      "sourceName": "Conemaugh Valley High School",
+      "cls": "A",
+      "district": 6
+    },
+    {
+      "id": "forest-hills",
+      "name": "Forest Hills",
+      "sourceName": "Forest Hills Senior High School",
+      "cls": "AAAA",
+      "district": 6
+    },
+    {
+      "id": "glendale",
+      "name": "Glendale",
+      "sourceName": "Glendale High School",
+      "cls": "A",
+      "district": 6
+    },
+    {
+      "id": "greater-johnstown",
+      "name": "Greater Johnstown",
+      "sourceName": "Greater Johnstown High School",
+      "cls": "AAAA",
+      "district": 6
+    },
+    {
+      "id": "hollidaysburg",
+      "name": "Hollidaysburg",
+      "sourceName": "Hollidaysburg Area Senior High School",
+      "cls": "AAAAA",
+      "district": 6
+    },
+    {
+      "id": "homer-center",
+      "name": "Homer-Center",
+      "sourceName": "Homer-Center Senior High School",
+      "cls": "A",
+      "district": 6
+    },
+    {
+      "id": "huntingdon",
+      "name": "Huntingdon",
+      "sourceName": "Huntingdon Area High School",
+      "cls": "AAA",
+      "district": 6
+    },
+    {
+      "id": "juniata",
+      "name": "Juniata",
+      "sourceName": "Juniata High School",
+      "cls": "AAA",
+      "district": 6
+    },
+    {
+      "id": "juniata-valley",
+      "name": "Juniata Valley",
+      "sourceName": "Juniata Valley High School",
+      "cls": "A",
+      "district": 6
+    },
+    {
+      "id": "marion-center",
+      "name": "Marion Center",
+      "sourceName": "Marion Center Area High School",
+      "cls": "AA",
+      "district": 6
+    },
+    {
+      "id": "mifflin-county",
+      "name": "Mifflin County",
+      "sourceName": "Mifflin County High School",
+      "cls": "AAAAA",
+      "district": 6
+    },
+    {
+      "id": "moshannon-valley",
+      "name": "Moshannon Valley",
+      "sourceName": "Moshannon Valley High School",
+      "cls": "A",
+      "district": 6
+    },
+    {
+      "id": "mount-union",
+      "name": "Mount Union",
+      "sourceName": "MOUNT UNION AREA HIGH SCHOOL",
+      "cls": "AA",
+      "district": 6
+    },
+    {
+      "id": "northern-cambria",
+      "name": "Northern Cambria",
+      "sourceName": "Northern Cambria High School",
+      "cls": "A",
+      "district": 6
+    },
+    {
+      "id": "penn-cambria",
+      "name": "Penn Cambria",
+      "sourceName": "Penn Cambria High School",
+      "cls": "AAA",
+      "district": 6
+    },
+    {
+      "id": "penns-manor",
+      "name": "Penns Manor",
+      "sourceName": "Penns Manor Area High School",
+      "cls": "A",
+      "district": 6
+    },
+    {
+      "id": "penns-valley-area",
+      "name": "Penns Valley Area",
+      "sourceName": "Penns Valley Area High School",
+      "cls": "AA",
+      "district": 6
+    },
+    {
+      "id": "philipsburg-osceola",
+      "name": "Philipsburg-Osceola",
+      "sourceName": "Philipsburg Osceola Area High School",
+      "cls": "AAA",
+      "district": 6
+    },
+    {
+      "id": "portage",
+      "name": "Portage",
+      "sourceName": "Portage Area High School",
+      "cls": "A",
+      "district": 6
+    },
+    {
+      "id": "purchase-line",
+      "name": "Purchase Line",
+      "sourceName": "Purchase Line High School",
+      "cls": "A",
+      "district": 6
+    },
+    {
+      "id": "richland",
+      "name": "Richland",
+      "sourceName": "Richland High School",
+      "cls": "AA",
+      "district": 6
+    },
+    {
+      "id": "river-valley",
+      "name": "River Valley",
+      "sourceName": "River Valley High School",
+      "cls": "AA",
+      "district": 6
+    },
+    {
+      "id": "southern-huntingdon-county",
+      "name": "Southern Huntingdon County",
+      "sourceName": "Southern Huntingdon County Senior High School",
+      "cls": "AA",
+      "district": 6
+    },
+    {
+      "id": "state-college",
+      "name": "State College",
+      "sourceName": "State College Area High School",
+      "cls": "AAAAAA",
+      "district": 6
+    },
+    {
+      "id": "tyrone",
+      "name": "Tyrone",
+      "sourceName": "Tyrone Area High School",
+      "cls": "AAA",
+      "district": 6
+    },
+    {
+      "id": "united-valley-co-op-blacklick-valley-united",
+      "name": "United Valley co-op [Blacklick Valley/United]",
+      "sourceName": "United High School",
+      "cls": "AA",
+      "district": 6
+    },
+    {
+      "id": "west-branch",
+      "name": "West Branch",
+      "sourceName": "West Branch High School",
+      "cls": "A",
+      "district": 6
+    },
+    {
+      "id": "west-shamokin",
+      "name": "West Shamokin",
+      "sourceName": "West Shamokin Jr-Sr High School",
+      "cls": "AA",
+      "district": 6
+    },
+    {
+      "id": "westmont-hilltop",
+      "name": "Westmont Hilltop",
+      "sourceName": "Westmont Hilltop High School",
+      "cls": "AA",
+      "district": 6
+    }
+  ]
+}
+

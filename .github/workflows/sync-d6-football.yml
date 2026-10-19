@@ -2,6 +2,11 @@ name: Refresh official D6 football data
 
 on:
   workflow_dispatch:
+    inputs:
+      refresh_classifications:
+        description: Check PIAA classifications now instead of using the monthly cache
+        type: boolean
+        default: false
   schedule:
     # Four low-impact checks per day through October, plus final weekend catch-up checks.
     - cron: "23 */6 * 8-10 *"
@@ -17,26 +22,36 @@ concurrency:
 jobs:
   refresh:
     runs-on: ubuntu-latest
+    timeout-minutes: 12
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
         with:
-          node-version: 20
+          node-version: 24
       - name: Run parser tests
         run: node --test
       - name: Build validated official feed
+        id: refresh
         env:
           D6_SEASON: "2026"
+          D6_FORCE_CLASSIFICATIONS: ${{ inputs.refresh_classifications && '1' || '0' }}
         run: node scripts/sync-d6-data.mjs
       - name: Commit changed source data
+        if: ${{ !cancelled() && (steps.refresh.outcome == 'success' || steps.refresh.outcome == 'failure') }}
+        env:
+          REFRESH_OUTCOME: ${{ steps.refresh.outcome }}
         shell: bash
         run: |
-          if git diff --quiet -- data/football-2026.json data/football-2026.js; then
+          git add data/piaa-classifications-2026.json
+          if [ "$REFRESH_OUTCOME" = "success" ]; then
+            git add data/football-2026.json data/football-2026.js
+          fi
+          if git diff --cached --quiet; then
             echo "Official feed is unchanged."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/football-2026.json data/football-2026.js
           git commit -m "data: refresh 2026 D6 football feed"
           git push
+

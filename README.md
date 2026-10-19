@@ -14,7 +14,11 @@ Every parseable scoreboard result is used to refresh opponent records. Only game
 
 The GitHub Actions workflow runs parser tests and performs four low-impact refresh checks per day from August through October, followed by final catch-up checks on November 1-2. It only commits the feed artifacts when source data changes. Week 10+ playoff posts are excluded, and any reviewed refresh after the final catch-up preserves the last pre-playoff Blackline records. The simulator preloads the JavaScript fallback so opening the HTML directly from disk works, checks both the raw GitHub and same-origin feeds, and applies the newest valid copy. It retains the last good local data when offline or when a source fails.
 
-Run locally with Node 20 or newer:
+PIAA classifications are saved separately in `data/piaa-classifications-2026.json`. The first scheduled refresh each UTC calendar month checks that source; the remaining refreshes reuse the saved classes while still updating scores and rankings. A failed monthly check keeps the last validated classes and records the attempt so the regular refreshes do not repeatedly contact PIAA. The workflow also preserves that attempt checkpoint if scores or rankings fail, without committing failed feed artifacts. New classifications are saved only after the entire feed passes validation. The cache is initially copied from the validated October 19 feed, with that feed's original timestamp. `sources.classificationsCheckedAt` identifies when classes were last checked, independently of score updates. A new season needs its own cache; if none exists, the first fetch must succeed.
+
+Transient source errors get up to three attempts with a fresh 60-second timeout each. Exhausted score/ranking requests still fail without replacing the last good feed. To check classes sooner, use **Actions → Refresh official D6 football data → Run workflow** and enable **Check PIAA classifications now**, or set `D6_FORCE_CLASSIFICATIONS=1` locally.
+
+Run locally with Node 24 or newer:
 
 ```powershell
 node --test --test-isolation=none
@@ -22,7 +26,7 @@ $env:D6_SEASON='2026'
 node scripts/sync-d6-data.mjs
 ```
 
-Node 20 on GitHub Actions can use `node --test` directly; `--test-isolation=none` avoids a Windows sandbox child-process restriction in the local Codex environment.
+GitHub Actions uses `node --test` directly; `--test-isolation=none` avoids a Windows sandbox child-process restriction in the local Codex environment.
 
 ## Remaining schedule and playoff scenarios
 
@@ -35,3 +39,4 @@ Opponents' games appear in their own panel because each win by a team a Class A 
 The official PIAA feed publishes results, not a complete future master schedule. The simulator therefore retains manual bulk/MaxPreps paste imports for future games and is ready for an official BOUND/CSV schedule adapter.
 
 MaxPreps is intentionally not scraped. Its [Terms of Use](https://www.maxpreps.com/terms-of-use/) prohibit automated scraping, and its [partner documentation](https://support.maxpreps.com/hc/en-us/articles/202266384-Stat-Import-Partners) says it does not provide a general partner API. Add unattended MaxPreps access only after written authorization.
+
