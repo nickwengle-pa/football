@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "season": 2026,
-  "generatedAt": "2026-10-22T18:37:02.236Z",
+  "generatedAt": "2026-10-23T06:48:29.829Z",
   "sourcePriority": [
     "piaa-d6-scoreboard",
     "piaa-classifications",
@@ -12,7 +12,7 @@
     "classifications": "https://www.piaa.org/schools/classifications/sportDistrict.aspx?district=6&sportID=10",
     "rankings": "https://sports.blkline.com/sports/reports/d6FootballRanking.action",
     "regularSeasonCutoff": "2026-10-31",
-    "rankingsUpdatedAt": "10/22/2026 14:17",
+    "rankingsUpdatedAt": "10/23/2026 00:18",
     "scoreCorrections": {
       "applied": [
         "2026:2026-10-02:northern-cambria:west-shamokin"
