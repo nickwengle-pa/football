@@ -225,7 +225,7 @@
     .us-proj{display:inline-block;margin-top:6px;font-family:var(--disp);font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;background:var(--amber);color:var(--bug);padding:2px 8px}
 
     .sec-hd{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:24px 0 8px}
-    .sec-hd h2{flex:1;min-width:0}
+    .sec-hd h2{flex:1 1 200px;min-width:0}
     .sec-hd .pill{background:var(--surface)}
     .sec-note{margin:6px 0 0}
 
@@ -298,6 +298,59 @@
     @media(max-width:360px){
       .topbar{gap:8px;padding-left:10px;padding-right:10px}
       .topbar > .chip:not(.chip-back){display:none}
+    }
+    /* ── playoff bracket modal ── */
+    .bracket-btn{
+      flex:0 0 auto;display:inline-flex;align-items:center;gap:6px;
+      background:var(--bug);border:0;color:#fff;padding:7px 16px 7px 12px;
+      clip-path:polygon(0 0,100% 0,calc(100% - 8px) 100%,0 100%);
+      font-size:12px;letter-spacing:0.12em;
+    }
+    .bracket-btn:hover{background:var(--bug);filter:brightness(1.35)}
+    .bracket-btn svg{color:var(--red)}
+    dialog.bracket{
+      width:min(760px,calc(100vw - 24px));max-height:calc(100dvh - 32px);
+      padding:0;border:0;background:var(--surface);color:var(--ink);
+      box-shadow:0 20px 60px rgba(0,0,0,0.45);overflow:hidden;
+    }
+    dialog.bracket[open]{display:flex;flex-direction:column}
+    dialog.bracket::backdrop{background:rgba(0,0,0,0.55)}
+    .bk-hd{position:relative;background:var(--bug);color:#fff;display:flex;align-items:center;gap:10px;padding:12px 8px 12px 16px;flex:0 0 auto}
+    .bk-hd::after{content:"";position:absolute;left:0;right:0;bottom:-5px;height:5px;background:var(--red);clip-path:polygon(0 0,100% 0,calc(100% - 10px) 100%,0 100%)}
+    .bk-hd .brand .title{font-size:16px}
+    .bk-body{overflow:auto;padding:20px 16px 14px}
+    .bk-grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr) minmax(0,1fr);gap:0 22px}
+    .bk-col{display:flex;flex-direction:column}
+    .bk-round{font-family:var(--disp);font-size:10px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--inkd);border-bottom:2px solid var(--bug);padding-bottom:2px;margin-bottom:8px}
+    .bk-slots{flex:1;display:flex;flex-direction:column;justify-content:space-around;gap:12px}
+    .bk-game{position:relative;background:var(--surface-2);box-shadow:0 1px 0 var(--line)}
+    .bk-col:not(:last-child) .bk-game::after{content:"";position:absolute;right:-12px;top:50%;width:12px;border-top:2px solid var(--line)}
+    .bk-col:not(:first-child) .bk-game::before{content:"";position:absolute;left:-10px;top:50%;width:10px;border-top:2px solid var(--line)}
+    .bk-team{display:flex;align-items:center;gap:8px;min-height:36px;padding:6px 8px 6px 0;border-left:4px solid transparent}
+    .bk-team+.bk-team{border-top:1px solid var(--line)}
+    .bk-seed{flex:0 0 26px;text-align:center;font-family:var(--disp);font-weight:700;font-size:14px;color:var(--inkd)}
+    .bk-name{flex:1;min-width:0;font-weight:700;font-size:14px;line-height:1.2}
+    .bk-meta{flex:0 0 auto;font-family:var(--disp);font-size:11px;letter-spacing:0.06em;color:var(--inkd);text-align:right;font-variant-numeric:tabular-nums}
+    .bk-team.home .bk-name::after{content:"HOST";margin-left:6px;font-family:var(--disp);font-size:9px;font-weight:700;letter-spacing:0.12em;color:var(--inkd);vertical-align:1px}
+    .bk-team.us{background:var(--red);color:#fff;border-left-color:var(--bug)}
+    .bk-team.us .bk-seed,.bk-team.us .bk-meta,.bk-team.us.home .bk-name::after{color:rgba(255,255,255,0.85)}
+    .bk-team.tbd .bk-name{font-weight:500;color:var(--inkd);font-size:13px}
+    .bk-seed:empty{flex-basis:8px}
+    .bk-slots.fin{justify-content:center;gap:10px}
+    .bk-champ{margin-top:10px;text-align:center;font-family:var(--disp);font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--amber-text)}
+    .bk-foot{flex:0 0 auto;padding:10px 16px 14px;border-top:1px solid var(--line)}
+    .bk-foot p{margin:0;font-size:12px}
+    .bk-foot .us-proj{margin:0 0 6px}
+    @media(max-width:620px){
+      .bk-body{padding:16px 10px 10px}
+      .bk-grid{grid-template-columns:minmax(0,1.7fr) minmax(0,1fr) minmax(0,0.9fr);gap:0 12px}
+      .bk-col:not(:last-child) .bk-game::after{right:-7px;width:7px}
+      .bk-col:not(:first-child) .bk-game::before{left:-5px;width:5px}
+      .bk-team{gap:4px;padding-right:4px}
+      .bk-seed{flex-basis:20px;font-size:12px}
+      .bk-name{font-size:12px}
+      .bk-meta{font-size:10px}
+      .bk-meta .avg,.bk-team.home .bk-name::after{display:none}
     }
     @media print{
       .topbar,.drawer,.scrim,.toolbar,.more{display:none!important}
@@ -646,6 +699,10 @@ Beat Northern Bedford County (+10 wins from their total)</pre></div></details></
 
           <div class="sec-hd">
             <h2>District 6 · Class A</h2>
+            <button type="button" id="btnBracket" class="bracket-btn" aria-haspopup="dialog">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="square" aria-hidden="true"><path d="M3 4h6v6H3M3 14h6v6H3M9 7h4v10H9M13 12h8"/></svg>
+              Bracket
+            </button>
             <span class="pill">Sort
               <select id="sortKeyD6A">
                 <option value="avgPoints" selected>Avg points (D6 rank)</option>
@@ -721,6 +778,19 @@ Beat Northern Bedford County (+10 wins from their total)</pre></div></details></
       </div>
     </div>
   </div>
+  <dialog id="bracketDialog" class="bracket" aria-labelledby="bracketTitle">
+    <div class="bk-hd">
+      <div class="brand">
+        <div class="title" id="bracketTitle">D6 Class A Playoffs</div>
+        <div class="sub">If the season ended today · seeded by avg points</div>
+      </div>
+      <button type="button" id="btnBracketClose" class="menu-btn" aria-label="Close bracket">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+    <div class="bk-body"><div id="bracketGrid" class="bk-grid"></div></div>
+    <div class="bk-foot" id="bracketFoot"></div>
+  </dialog>
 <script src="data/football-2026.js"></script>
 <script src="data/schedule-2026.js"></script>
 <script>
@@ -3577,7 +3647,9 @@ function isD6AAATeam(name){ return D6_AAA_LIST.indexOf(name) !== -1; }
     });
     var ranked=(keyD==='avgPoints'||keyD==='totalPoints');
     renderD6Table(sorted, ranked?D6_A_PLAYOFF_SPOTS:0, keyD);
+    latestClassA = only;
     renderUsCard(only);
+    if($('bracketDialog') && $('bracketDialog').open) renderBracket();
     renderD6FutureGames(); renderD6AOpponentGames(); renderD6ClassWeek10(D6_AA_LIST,'d6AAFutureGames'); renderD6ClassWeek10(D6_AAA_LIST,'d6AAAFutureGames'); renderD6ClassWeek10(D6_AAAA_LIST,'d6AAAAFutureGames'); renderOppWeek10ForList(D6_AA_LIST,'oppWeek10GamesAA'); renderOppWeek10ForList(D6_AAA_LIST,'oppWeek10GamesAAA'); renderOppWeek10ForList(D6_AAAA_LIST,'oppWeek10GamesAAAA'); renderOppWeek10Games();
   }
 
@@ -3663,13 +3735,20 @@ function isD6AAATeam(name){ return D6_AAA_LIST.indexOf(name) !== -1; }
   function sameTeam(a, b){ return String(a||'').toLowerCase()===String(b||'').toLowerCase(); }
   // The card above the rankings: where Purchase Line stands against the playoff cut,
   // always by average points (how D6 ranks) whatever the table is sorted by.
-  function renderUsCard(classA){
-    var host=$('usCard'); if(!host) return;
-    host.innerHTML='';
-    var byAvg=classA.slice().sort(function(a,b){
+  // How District 6 ranks Class A, whatever the table happens to be sorted by.
+  function rankByAvg(classA){
+    return classA.slice().sort(function(a,b){
       var d=(b.avgPoints||0)-(a.avgPoints||0); if(d!==0) return d;
       if(b.wins!==a.wins) return b.wins-a.wins; return a.name.localeCompare(b.name);
     });
+  }
+  function scenarioPickCount(){
+    return gamesForActiveSeason().filter(function(g){ return isScenarioGame(g) && g.manualOverride && g.winner && !g.officialWinner; }).length;
+  }
+  function renderUsCard(classA){
+    var host=$('usCard'); if(!host) return;
+    host.innerHTML='';
+    var byAvg=rankByAvg(classA);
     var idx=-1;
     for(var i=0;i<byAvg.length;i++){ if(sameTeam(byAvg[i].name,OUR_TEAM)){ idx=i; break; } }
     if(idx<0){ host.classList.add('is-hidden'); return; }
@@ -3696,9 +3775,68 @@ function isD6AAATeam(name){ return D6_AAA_LIST.indexOf(name) !== -1; }
       }
     }
     main.appendChild(line);
-    var picks=gamesForActiveSeason().filter(function(g){ return isScenarioGame(g) && g.manualOverride && g.winner && !g.officialWinner; }).length;
+    var picks=scenarioPickCount();
     if(picks) main.appendChild(e('span',{className:'us-proj',textContent:'Projected with '+picks+' pick'+(picks===1?'':'s')}));
     host.appendChild(main);
+  }
+  // The 8-team district bracket from the current ranking, picks included. Top half 1v8 and 4v5,
+  // bottom half 3v6 and 2v7, so the 1 and 2 seeds can only meet in the final. Higher seed hosts.
+  var latestClassA = [];
+  var BRACKET_PAIRS = [[1,8],[4,5],[3,6],[2,7]];
+  function renderBracket(){
+    var grid=$('bracketGrid'), foot=$('bracketFoot'); if(!grid) return;
+    var seeds=rankByAvg(latestClassA).slice(0, D6_A_PLAYOFF_SPOTS);
+    grid.innerHTML='';
+    function teamRow(seed, label, home){
+      var r=seeds[seed-1];
+      if(!label && !r){
+        return e('div',{className:'bk-team tbd'}, e('span',{className:'bk-seed',textContent:String(seed)}), e('span',{className:'bk-name',textContent:'TBD'}));
+      }
+      if(label){
+        return e('div',{className:'bk-team tbd'}, e('span',{className:'bk-seed',textContent:''}), e('span',{className:'bk-name',textContent:label}));
+      }
+      var cls='bk-team'+(home ? ' home' : '')+(sameTeam(r.name,OUR_TEAM) ? ' us' : '');
+      return e('div',{className:cls},
+        e('span',{className:'bk-seed',textContent:String(seed)}),
+        e('span',{className:'bk-name',textContent:r.name}),
+        e('span',{className:'bk-meta'}, r.wins+'-'+r.losses, e('span',{className:'avg',textContent:' · '+(r.avgPoints||0).toFixed(1)})));
+    }
+    function column(title, games){
+      var col=e('div',{className:'bk-col'}, e('div',{className:'bk-round',textContent:title}));
+      var slots=e('div',{className:'bk-slots'});
+      games.forEach(function(g){ slots.appendChild(g); });
+      col.appendChild(slots);
+      return col;
+    }
+    var qf=BRACKET_PAIRS.map(function(p){
+      return e('div',{className:'bk-game'}, teamRow(p[0], null, true), teamRow(p[1], null, false));
+    });
+    function winner(p){ return 'Winner '+p[0]+'/'+p[1]; }
+    var sf=[0,2].map(function(i){
+      return e('div',{className:'bk-game'}, teamRow(0, winner(BRACKET_PAIRS[i])), teamRow(0, winner(BRACKET_PAIRS[i+1])));
+    });
+    var fin=[e('div',{className:'bk-game'}, teamRow(0,'Top half'), teamRow(0,'Bottom half'))];
+    grid.appendChild(column('Quarterfinals', qf));
+    grid.appendChild(column('Semifinals', sf));
+    var finCol=column('Final', fin);
+    var finSlots=finCol.querySelector('.bk-slots'); finSlots.classList.add('fin'); finSlots.appendChild(e('div',{className:'bk-champ',textContent:'D6 Class A champion'}));
+    grid.appendChild(finCol);
+    if(foot){
+      foot.innerHTML='';
+      var picks=scenarioPickCount();
+      if(picks) foot.appendChild(e('span',{className:'us-proj',textContent:'Projected with '+picks+' pick'+(picks===1?'':'s')}));
+      foot.appendChild(e('p',{className:'tiny',textContent:'Seeds follow the District 6 Class A ranking by average points, including any picks you made. Record and average beside each team. The higher seed hosts the first round.'}));
+    }
+  }
+  function openBracket(){
+    var dlg=$('bracketDialog'); if(!dlg) return;
+    renderBracket();
+    if(typeof dlg.showModal==='function'){ if(!dlg.open) dlg.showModal(); }
+    else dlg.setAttribute('open','');
+  }
+  function closeBracket(){
+    var dlg=$('bracketDialog'); if(!dlg) return;
+    if(typeof dlg.close==='function') dlg.close(); else dlg.removeAttribute('open');
   }
   // Two team buttons in place of a winner dropdown. Tapping the picked team again clears it.
   function pickButtons(g, onPick){
@@ -4300,6 +4438,10 @@ function exportBakedHTML(){
   syncThemeButton();
   if($('btnMenuClose')) $('btnMenuClose').onclick=function(){ setMenuOpen(false); };
   if($('menuScrim')) $('menuScrim').onclick=function(){ setMenuOpen(false); };
+  if($('btnBracket')) $('btnBracket').onclick=openBracket;
+  if($('btnBracketClose')) $('btnBracketClose').onclick=closeBracket;
+  // A tap on the dim area outside the box closes it too.
+  if($('bracketDialog')) $('bracketDialog').addEventListener('click', function(ev){ if(ev.target===this) closeBracket(); });
   document.addEventListener('keydown', function(ev){ if(ev.key==='Escape') setMenuOpen(false); });
 
   // Drag & drop
