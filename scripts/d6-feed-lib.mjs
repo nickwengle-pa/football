@@ -161,10 +161,22 @@ export function parseBlacklineRankings(html) {
   };
 }
 
+const SCORE_LINE_MARKER = /\(Dist\s+\d+\s+A{1,6}\b/i;
+
 export function parseScoreboardPost(post) {
+  return readScoreboardPost(post).games;
+}
+
+// Every line carrying a "(Dist N CLASS" marker is a score line. Any that does
+// not become a game is kept with the reason, so a coverage failure can name the
+// line instead of only counting it.
+export function readScoreboardPost(post) {
   const text = htmlToText(post?.content?.rendered ?? post?.content ?? "");
   const lines = text.split("\n").map((line) => line.replace(/^\s*[.•]+\s*/, "").trim()).filter(Boolean);
   const games = [];
+  const seenIds = new Set();
+  const unparsedLines = [];
+  let scoreLineCount = 0;
   let currentDate = "";
   for (const line of lines) {
     const dateMatch = line.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
@@ -172,11 +184,18 @@ export function parseScoreboardPost(post) {
       currentDate = `${dateMatch[3]}-${dateMatch[1].padStart(2, "0")}-${dateMatch[2].padStart(2, "0")}`;
       continue;
     }
+    const isScoreLine = SCORE_LINE_MARKER.test(line);
+    if (isScoreLine) scoreLineCount += 1;
     const parsed = parseScoreLine(line);
-    if (!parsed || !currentDate) continue;
+    if (!parsed || !currentDate) {
+      if (isScoreLine) unparsedLines.push({ line, reason: parsed ? "before any date line" : "does not match the score pattern" });
+      continue;
+    }
     const a = canonicalizeTeamName(parsed.a.name);
     const b = canonicalizeTeamName(parsed.b.name);
     const id = gameId(Number(currentDate.slice(0, 4)), currentDate, a, b);
+    if (seenIds.has(id)) unparsedLines.push({ line, reason: "repeats an earlier game" });
+    seenIds.add(id);
     games.push({
       id,
       sourceGameId: id,
@@ -201,7 +220,7 @@ export function parseScoreboardPost(post) {
       }
     });
   }
-  return dedupeBy(games, (game) => game.id);
+  return { games: dedupeBy(games, (game) => game.id), scoreLineCount, unparsedLines };
 }
 
 export function parseScoreLine(line) {
@@ -298,9 +317,7 @@ export function buildFeed({ season, generatedAt, classifications, rankingReport,
   const regularSeasonCutoff = `${season}-10-31`;
   const orderedPosts = [...posts].filter((post) => !isPostseasonScoreboardPost(post)).sort((a, b) => String(a.date ?? "").localeCompare(String(b.date ?? "")));
   for (const post of orderedPosts) {
-    const postText = htmlToText(post?.content?.rendered ?? post?.content ?? "");
-    const scoreLineCount = postText.split("\n").filter((line) => /\(Dist\s+\d+\s+A{1,6}\b/i.test(line)).length;
-    const parsedPostGames = parseScoreboardPost(post);
+    const { games: parsedPostGames, scoreLineCount, unparsedLines } = readScoreboardPost(post);
     let district6GamesInPost = 0;
     for (const game of parsedPostGames) {
       if (game.date > regularSeasonCutoff) continue;
@@ -314,7 +331,7 @@ export function buildFeed({ season, generatedAt, classifications, rankingReport,
       district6GamesInPost += 1;
       gameMap.set(game.id, game);
     }
-    postCoverage.push({ id: post.id, title: htmlToText(post?.title?.rendered ?? post?.title ?? ""), scoreLineCount, parsedGameCount: parsedPostGames.length, district6GameCount: district6GamesInPost });
+    postCoverage.push({ id: post.id, title: htmlToText(post?.title?.rendered ?? post?.title ?? ""), scoreLineCount, parsedGameCount: parsedPostGames.length, district6GameCount: district6GamesInPost, unparsedLines });
   }
 
   const teams = [...teamMap.values()].map((team) => {
@@ -377,7 +394,7 @@ function validateFeed({ season, classifications, rankingReport, posts, postCover
   const emptyScoreboardPost = postCoverage.find((post) => post.district6GameCount < 1);
   if (emptyScoreboardPost) throw new Error(`No District 6 final scores parsed from scoreboard post ${emptyScoreboardPost.id}: ${emptyScoreboardPost.title}`);
   const partialScoreboardPost = postCoverage.find((post) => post.scoreLineCount > post.parsedGameCount);
-  if (partialScoreboardPost) throw new Error(`Only ${partialScoreboardPost.parsedGameCount} of ${partialScoreboardPost.scoreLineCount} score lines parsed from scoreboard post ${partialScoreboardPost.id}: ${partialScoreboardPost.title}`);
+  if (partialScoreboardPost) throw new Error(`Only ${partialScoreboardPost.parsedGameCount} of ${partialScoreboardPost.scoreLineCount} score lines parsed from scoreboard post ${partialScoreboardPost.id}: ${partialScoreboardPost.title}${describeUnparsedLines(partialScoreboardPost.unparsedLines)}`);
   if (games.length < baseline.games) throw new Error(`District 6 game coverage too low: ${games.length}`);
   if (new Set(classifications.map((team) => team.cls)).size < baseline.classes) throw new Error("Classification coverage is missing one or more expected classes");
   if (new Set(classifications.map((team) => canonicalizeTeamName(team.name).toLowerCase())).size !== classifications.length) throw new Error("Duplicate classified teams");
@@ -393,6 +410,15 @@ function validateFeed({ season, classifications, rankingReport, posts, postCover
     || game.status !== "final"
     || !game.sourceGameId);
   if (badGame) throw new Error(`Invalid final game row: ${badGame.id ?? "unknown"}`);
+}
+
+// Quotes each line with everything outside printable ASCII escaped, so a stray
+// en dash or zero-width space in the source is visible in the CI log.
+function describeUnparsedLines(unparsedLines = []) {
+  const shown = unparsedLines.slice(0, 5).map(({ line, reason }) => `\n  ${reason}: ${JSON.stringify(line)
+    .replace(/[^\x20-\x7e]/g, (char) => `\\u${char.charCodeAt(0).toString(16).padStart(4, "0")}`)}`);
+  if (unparsedLines.length > 5) shown.push(`\n  ...and ${unparsedLines.length - 5} more`);
+  return shown.join("");
 }
 
 function dedupeBy(items, keyFn) {

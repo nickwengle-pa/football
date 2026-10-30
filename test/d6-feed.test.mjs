@@ -2,12 +2,14 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import {
   applyScoreCorrections,
+  buildFeed,
   canonicalizeTeamName,
   gameId,
   isPostseasonScoreboardPost,
   parseBlacklineRankings,
   parsePiaaClassifications,
-  parseScoreboardPost
+  parseScoreboardPost,
+  readScoreboardPost
 } from "../scripts/d6-feed-lib.mjs";
 
 test("separates regular-season scoreboard posts from playoffs", () => {
@@ -60,6 +62,33 @@ test("parses scoreboard dates, records, scores, and deterministic ids", () => {
   assert.equal(games[0].winner, "Homer-Center");
   assert.equal(games[0].date, "2026-08-28");
   assert.equal(games[0].id, gameId(2026, "2026-08-28", "Homer-Center", "Northern Cambria"));
+});
+
+test("names the score lines a scoreboard post could not use", () => {
+  const post = {
+    id: 10434,
+    title: { rendered: "2026 D6 Football Scoreboard Week 8" },
+    content: { rendered: `<ul><li>Early (Dist 6 A 1-0-0) 7 Undated (Dist 6 A 0-1-0) 0</li></ul>
+      <p>10/23/2026</p><ul>
+      <li>Homer Center (Dist 6 A 1-0-0) 35 Northern Cambria (Dist 6 A 0-1-0) 28</li>
+      <li>Homer-Center (Dist 6 A 1-0-0) 35 Northern Cambria (Dist 6 A 0-1-0) 28</li>
+      <li>Penns Manor (Dist 6 A 5\u20133\u20130) 21 Purchase Line (Dist 6 A 2-6-0) 14</li>
+    </ul>` }
+  };
+  const { games, scoreLineCount, unparsedLines } = readScoreboardPost(post);
+  assert.equal(scoreLineCount, 4);
+  assert.equal(games.length, 1);
+  assert.deepEqual(unparsedLines.map(({ reason }) => reason), ["before any date line", "repeats an earlier game", "does not match the score pattern"]);
+
+  const classes = ["A", "AA", "AAA", "AAAA", "AAAAA", "AAAAAA"];
+  const classifications = Array.from({ length: 40 }, (_, index) => ({ id: `team-${index}`, name: `Team ${index}`, sourceName: `Team ${index}`, cls: classes[index % 6], district: 6 }));
+  const rankingReport = { updatedAtLabel: null, rankings: classifications.map((team) => ({ ...team, wins: 0, losses: 0, ties: 0 })) };
+  assert.throws(() => buildFeed({ season: 2026, generatedAt: "", classifications, rankingReport, posts: [post], sourceUrls: {} }), (error) => {
+    assert.match(error.message, /^Only 1 of 4 score lines parsed from scoreboard post 10434: 2026 D6 Football Scoreboard Week 8$/m);
+    assert.ok(error.message.includes(String.raw`does not match the score pattern: "Penns Manor (Dist 6 A 5\u20133\u20130) 21 Purchase Line (Dist 6 A 2-6-0) 14"`), error.message);
+    assert.ok(error.message.includes(`before any date line: "Early (Dist 6 A 1-0-0) 7 Undated (Dist 6 A 0-1-0) 0"`), error.message);
+    return true;
+  });
 });
 
 test("applies confirmed score corrections regardless of team order", () => {
