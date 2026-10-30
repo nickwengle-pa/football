@@ -162,6 +162,9 @@ export function parseBlacklineRankings(html) {
 }
 
 const SCORE_LINE_MARKER = /\(Dist\s+\d+\s+A{1,6}\b/i;
+// Date headers have been "10/24/2026", "10/22/2026 ." and "Results 10/31/2026",
+// so any line that is not a score line and holds an M/D/YYYY date starts a date.
+const DATE_IN_LINE = /(?:^|[^\d/])(\d{1,2})\/(\d{1,2})\/(\d{4})(?![\d/])/;
 
 export function parseScoreboardPost(post) {
   return readScoreboardPost(post).games;
@@ -174,29 +177,29 @@ export function readScoreboardPost(post) {
   const text = htmlToText(post?.content?.rendered ?? post?.content ?? "");
   const lines = text.split("\n").map((line) => line.replace(/^\s*[.•]+\s*/, "").trim()).filter(Boolean);
   const games = [];
-  const seenIds = new Set();
+  const results = new Map();
   const unparsedLines = [];
   let scoreLineCount = 0;
   let currentDate = "";
   for (const line of lines) {
-    const dateMatch = line.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
+    const isScoreLine = SCORE_LINE_MARKER.test(line);
+    const dateMatch = !isScoreLine && line.match(DATE_IN_LINE);
     if (dateMatch) {
       currentDate = `${dateMatch[3]}-${dateMatch[1].padStart(2, "0")}-${dateMatch[2].padStart(2, "0")}`;
       continue;
     }
-    const isScoreLine = SCORE_LINE_MARKER.test(line);
-    if (isScoreLine) scoreLineCount += 1;
     const parsed = parseScoreLine(line);
     if (!parsed || !currentDate) {
-      if (isScoreLine) unparsedLines.push({ line, reason: parsed ? "before any date line" : "does not match the score pattern" });
+      if (isScoreLine) {
+        scoreLineCount += 1;
+        unparsedLines.push({ line, reason: parsed ? "before any date line" : "does not match the score pattern" });
+      }
       continue;
     }
     const a = canonicalizeTeamName(parsed.a.name);
     const b = canonicalizeTeamName(parsed.b.name);
     const id = gameId(Number(currentDate.slice(0, 4)), currentDate, a, b);
-    if (seenIds.has(id)) unparsedLines.push({ line, reason: "repeats an earlier game" });
-    seenIds.add(id);
-    games.push({
+    const game = {
       id,
       sourceGameId: id,
       season: Number(currentDate.slice(0, 4)),
@@ -218,9 +221,25 @@ export function readScoreboardPost(post) {
         [a]: { district: parsed.a.district, cls: parsed.a.cls },
         [b]: { district: parsed.b.district, cls: parsed.b.cls }
       }
-    });
+    };
+    // Week 8 listed West Branch-Glendale twice. A repeat with the same result
+    // adds nothing; one with a different result is a conflict to resolve.
+    const result = gameResult(game);
+    if (results.has(id)) {
+      if (results.get(id) === result) continue;
+      unparsedLines.push({ line, reason: "gives an earlier game a different result" });
+    }
+    results.set(id, result);
+    scoreLineCount += 1;
+    games.push(game);
   }
   return { games: dedupeBy(games, (game) => game.id), scoreLineCount, unparsedLines };
+}
+
+// What a score line says about a game, whichever team it lists first.
+function gameResult(game) {
+  return JSON.stringify([game.a, game.b].sort().map((team) => [team, team === game.a ? game.scoreA : game.scoreB,
+    game.observedRecords[team], game.observedTeams[team]]));
 }
 
 export function parseScoreLine(line) {
@@ -392,7 +411,7 @@ function validateFeed({ season, classifications, rankingReport, posts, postCover
   if (rankingReport.rankings.length < baseline.rankings) throw new Error(`Ranking coverage too low: ${rankingReport.rankings.length}`);
   if (!posts.length) throw new Error("No scoreboard posts found");
   const emptyScoreboardPost = postCoverage.find((post) => post.district6GameCount < 1);
-  if (emptyScoreboardPost) throw new Error(`No District 6 final scores parsed from scoreboard post ${emptyScoreboardPost.id}: ${emptyScoreboardPost.title}`);
+  if (emptyScoreboardPost) throw new Error(`No District 6 final scores parsed from scoreboard post ${emptyScoreboardPost.id}: ${emptyScoreboardPost.title}${describeUnparsedLines(emptyScoreboardPost.unparsedLines)}`);
   const partialScoreboardPost = postCoverage.find((post) => post.scoreLineCount > post.parsedGameCount);
   if (partialScoreboardPost) throw new Error(`Only ${partialScoreboardPost.parsedGameCount} of ${partialScoreboardPost.scoreLineCount} score lines parsed from scoreboard post ${partialScoreboardPost.id}: ${partialScoreboardPost.title}${describeUnparsedLines(partialScoreboardPost.unparsedLines)}`);
   if (games.length < baseline.games) throw new Error(`District 6 game coverage too low: ${games.length}`);
