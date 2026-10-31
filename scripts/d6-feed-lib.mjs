@@ -167,7 +167,8 @@ export function parseScoreboardPost(post) {
   const games = [];
   let currentDate = "";
   for (const line of lines) {
-    const dateMatch = line.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
+    // Headings have been "10/23/2026", "10/22/2026." and (from Week 9) "Results 10/30/2026".
+    const dateMatch = line.match(/^(?:[a-z]+,?\s+)*(\d{1,2})\/(\d{1,2})\/(\d{4})\s*[.:]?$/i);
     if (dateMatch) {
       currentDate = `${dateMatch[3]}-${dateMatch[1].padStart(2, "0")}-${dateMatch[2].padStart(2, "0")}`;
       continue;
@@ -299,7 +300,8 @@ export function buildFeed({ season, generatedAt, classifications, rankingReport,
   const orderedPosts = [...posts].filter((post) => !isPostseasonScoreboardPost(post)).sort((a, b) => String(a.date ?? "").localeCompare(String(b.date ?? "")));
   for (const post of orderedPosts) {
     const postText = htmlToText(post?.content?.rendered ?? post?.content ?? "");
-    const scoreLineCount = postText.split("\n").filter((line) => /\(Dist\s+\d+\s+A{1,6}\b/i.test(line)).length;
+    // A line posted twice (Week 8 lists West Branch-Glendale twice) parses to one game, so count distinct lines.
+    const scoreLineCount = new Set(postText.split("\n").filter((line) => /\(Dist\s+\d+\s+A{1,6}\b/i.test(line)).map((line) => line.replace(/\s+/g, " ").trim())).size;
     const parsedPostGames = parseScoreboardPost(post);
     let district6GamesInPost = 0;
     for (const game of parsedPostGames) {
