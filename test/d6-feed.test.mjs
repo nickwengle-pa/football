@@ -2,6 +2,7 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import {
   applyScoreCorrections,
+  buildFeed,
   canonicalizeTeamName,
   gameId,
   isPostseasonScoreboardPost,
@@ -73,4 +74,40 @@ test("applies confirmed score corrections regardless of team order", () => {
   assert.equal(games[0].scoreB, 26);
   assert.equal(games[0].winner, "Northern Cambria");
   assert.deepEqual(games[0].correction.original, { scoreA: 7, scoreB: 0, winner: "West Shamokin" });
+});
+
+test("reads Week 9 style \"Results 10/30/2026\" headings and a trailing period on a date", () => {
+  const post = {
+    id: 10544,
+    content: { rendered: `<ul><li><strong>Results 10/30/2026</strong></li>
+      <li><strong>Hollidaysburg (Dist 6 AAAAA 7-2-0) 51 DuBois (Dist 9 AAAAA 6-4-0) 14</strong></li>
+      <li><strong>Results 10/29/2026</strong></li>
+      <li><strong>Bishop McCort (Dist 6 A 7-3-0) 42 Bellefonte (Dist 6 AAAA 5-5-0) 16</strong></li>
+      <li>10/22/2026.</li>
+      <li>West Branch (Dist 6 A 3-6-0) 36 Glendale (Dist 6 A 4-5-0) 22</li></ul>` }
+  };
+  const games = parseScoreboardPost(post);
+  assert.deepEqual(games.map(({ date, a, b }) => [date, a, b]), [
+    ["2026-10-30", "Hollidaysburg", "DuBois"],
+    ["2026-10-29", "Bishop McCort", "Bellefonte"],
+    ["2026-10-22", "West Branch", "Glendale"]
+  ]);
+});
+
+test("a score line posted twice does not count as an unparsed line", () => {
+  const classes = ["A", "AA", "AAA", "AAAA"];
+  const classifications = Array.from({ length: 36 }, (_, i) => ({ id: `team-${i}`, name: `Team ${i}`, cls: classes[i % 4], district: 6 }));
+  const rankings = classifications.slice(0, 20).map((team) => ({ ...team, wins: 1, losses: 0, ties: 0, averagePoints: 10, rankingPoints: 10 }));
+  const line = "West Branch (Dist 6 A 3-6-0) 36 Glendale (Dist 6 A 4-5-0) 22";
+  const feed = buildFeed({
+    season: 2025,
+    generatedAt: "2025-10-26T00:00:00.000Z",
+    classifications,
+    rankingReport: { updatedAtLabel: null, rankings },
+    posts: [{ id: 1, date: "2025-10-25", title: { rendered: "2025 D6 Football Scoreboard Week 8" },
+      content: { rendered: `<p>10/24/2025</p><ul><li>${line}</li><li>${line}</li></ul>` } }],
+    sourceUrls: {}
+  });
+  assert.equal(feed.games.length, 1);
+  assert.equal(feed.sources.scoreboardPosts[0].scoreLineCount, 1);
 });

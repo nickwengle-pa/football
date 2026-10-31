@@ -3062,7 +3062,8 @@ function isD6AAATeam(name){ return D6_AAA_LIST.indexOf(name) !== -1; }
       var found=null;
       for(var gi=0;gi<games.length;gi++){ if(sameGame(games[gi],incoming)){ found=games[gi]; break; } }
       if(found){
-        if(found.source==='maxpreps-schedule'){ found.id=incoming.id; found.manualOverride=false; found.winner=''; }
+        // A pick on a placeholder (schedule row or TBA stand-in) gives way to the real final.
+        if(found.source==='maxpreps-schedule' || found.source==='tba-fill'){ found.id=incoming.id; found.manualOverride=false; found.winner=''; delete found.tbaKey; }
         found.sourceGameId=incoming.sourceGameId; found.season=season; found.date=incoming.date;
         found.a=a; found.b=b; found.officialWinner=incoming.officialWinner;
         found.scoreA=incoming.scoreA; found.scoreB=incoming.scoreB; found.status=incoming.status;
@@ -3888,7 +3889,8 @@ function isD6AAATeam(name){ return D6_AAA_LIST.indexOf(name) !== -1; }
     sched.tba.forEach(function(slot){
       var team=canonicalTeamName(slot.team), date=String(slot.date).slice(0,10), filled=tbaGameFor(slot);
       // Once the real game is on the schedule or in the feed, the stand-in goes away.
-      var real=games.some(function(g){ return g.source!=='tba-fill' && gameSeason(g)===activeSeason && (g.date||'').slice(0,10)===date && (g.a===team || g.b===team); });
+      // Same week, not same day: Bishop McCort's open Oct 30 slot was played Thursday Oct 29.
+      var real=games.some(function(g){ return g.source!=='tba-fill' && gameSeason(g)===activeSeason && nearDate(g.date,date) && (g.a===team || g.b===team); });
       if(real){ if(filled){ removeTbaGame(filled); changed=true; } return; }
       if(!Array.isArray(slot.likely) || !slot.likely.length || filled || cleared[tbaSlotKey(slot)]) return;
       addTbaGame(slot, canonicalTeamName(slot.likely[0]), tbaAway(slot)); changed=true;
