@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "season": 2026,
   "sourceUrl": "https://www.piaa.org/schools/classifications/sportDistrict.aspx?district=6&sportID=10",
-  "checkedAt": "2026-10-19T01:06:26.347Z",
-  "lastAttemptMonth": "2026-10",
+  "checkedAt": "2026-11-01T06:30:31.504Z",
+  "lastAttemptMonth": "2026-11",
   "teams": [
     {
       "id": "altoona",
@@ -55,16 +55,16 @@
       "district": 6
     },
     {
-      "id": "central",
-      "name": "Central",
-      "sourceName": "Central High School Martinsburg",
+      "id": "central-cambria",
+      "name": "Central Cambria",
+      "sourceName": "Central Cambria High School",
       "cls": "AAA",
       "district": 6
     },
     {
-      "id": "central-cambria",
-      "name": "Central Cambria",
-      "sourceName": "Central Cambria High School",
+      "id": "central",
+      "name": "Central",
+      "sourceName": "Central High School Martinsburg",
       "cls": "AAA",
       "district": 6
     },
@@ -210,7 +210,7 @@
     },
     {
       "id": "portage",
-      "name": "Portage",
+      "name": "Portage Area",
       "sourceName": "Portage Area High School",
       "cls": "A",
       "district": 6
